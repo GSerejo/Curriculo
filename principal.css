@@ -1,0 +1,182 @@
+/* Estilo comum */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f0f4f8;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* ========== Página Currículo (index.html) ========== */
+  body.curriculo {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(to right, #e0e7ff, #f4f4f4);
+  }
+  
+  /* Sidebar */
+  .curriculo .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #0a74da;
+    color: white;
+    padding: 20px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+  }
+  
+  .curriculo .sidebar h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+  }
+  
+  .curriculo .sidebar p {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  /* Conteúdo */
+  .curriculo .content {
+    margin-left: 270px;
+    padding: 30px;
+    flex-grow: 1;
+  }
+  
+  .curriculo section {
+    margin-bottom: 30px;
+  }
+  
+  .curriculo h2 {
+    color: #0a74da;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Imagem */
+  .curriculo img {
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .curriculo img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* Links */
+  .curriculo a {
+    background-color: white;
+    font-size: 18px;
+    border-radius: 20px;
+    padding: 12px;
+    display: block;
+    text-align: center;
+    margin: 10px 0;
+    color: slateblue;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    transform: translateY(0);
+    border: 2px solid #333; /* Adiciona a borda com cor */
+  }
+  
+  
+  .curriculo a:hover {
+    background-color: #004d95;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* ========== Página Linha do Tempo ========== */
+  body.linha-do-tempo {
+    margin: 0;
+    padding: 30px;
+    background: linear-gradient(to left, #f4f4f4, #e0e7ff);
+  }
+  
+  .linha-do-tempo h1 {
+    color: #0a74da;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .linha-do-tempo ul {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: auto;
+  }
+  
+  .linha-do-tempo li {
+    background-color: white;
+    border-left: 6px solid #0a74da;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .linha-do-tempo li:hover {
+    transform: translateX(10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .linha-do-tempo h2 {
+    margin: 0 0 10px 0;
+    color: #0a74da;
+  }
+  
+  .linha-do-tempo blockquote {
+    margin: 0;
+    padding-left: 15px;
+    border-left: 3px solid #ccc;
+    color: #555;
+    font-style: italic;
+  }
+  
+  /* Botões */
+  .linha-do-tempo .botao-voltar {
+    display: block;
+    width: fit-content;
+    margin: 40px auto 0 auto;
+    padding: 14px 28px;
+    background-color: #0a74da;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+  
+  .linha-do-tempo .botao-voltar:hover {
+    background-color: #094ba0;
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .linha-do-tempo hr {
+    margin-top: 40px;
+    max-width: 700px;
+    border: none;
+    border-top: 3px solid #0a74da;
+    margin: 20px auto;
+    /* Estilo para a sombra do cursor */
+    
+}
