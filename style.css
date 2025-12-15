@@ -1,0 +1,437 @@
+/* --- CONFIGURAÇÕES GERAIS (DARK THEME) --- */
+:root {
+  --bg-dark: #0f172a;       /* Fundo principal (Slate 900) */
+  --bg-panel: #1e293b;      /* Fundo dos cartões (Slate 800) */
+  --bg-sidebar: #172033;
+  --text-main: #e2e8f0;     /* Branco gelo */
+  --text-muted: #94a3b8;    /* Cinza claro */
+  
+  --primary: #38bdf8;       /* Azul Cyan (Estilo React/VSCode) */
+  --secondary: #818cf8;     /* Indigo/Roxo */
+  --accent: #22c55e;        /* Verde (Sucesso/Terminal) */
+  
+  --border: 1px solid #334155;
+  --font-code: 'Fira Code', monospace;
+  --font-body: 'Inter', sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+/* Layout Grid Responsivo */
+.layout-container {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+/* --- SIDEBAR (PERFIL) --- */
+.sidebar {
+  background: var(--bg-sidebar);
+  border: var(--border);
+  border-radius: 12px;
+  padding: 30px 20px;
+  height: fit-content;
+  text-align: center;
+  position: sticky;
+  top: 20px;
+}
+
+.profile-frame {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 3px solid var(--primary);
+  object-fit: cover;
+}
+
+.online-status {
+  width: 18px;
+  height: 18px;
+  background-color: var(--accent);
+  border: 3px solid var(--bg-sidebar);
+  border-radius: 50%;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.dev-name {
+  font-family: var(--font-code);
+  font-size: 1.4rem;
+  color: var(--text-main);
+}
+
+.dev-role {
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.info-block {
+  text-align: left;
+  margin-bottom: 25px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #334155;
+}
+
+.info-item {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- BOTÕES SOCIAIS (CORRIGIDOS) --- */
+.social-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.btn-social {
+  display: flex; /* Garante alinhamento icone-texto */
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%; /* Ocupa largura total */
+}
+
+.btn-social.github {
+  background-color: #24292e;
+  color: white;
+  border: 1px solid #444;
+}
+
+.btn-social.linkedin {
+  background-color: #0077b5;
+  color: white;
+  border: 1px solid #0077b5;
+}
+
+.btn-social:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+/* Skills Tags */
+.tech-stack h3 {
+  font-family: var(--font-code);
+  font-size: 1rem;
+  margin-bottom: 10px;
+  text-align: left;
+  color: var(--secondary);
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--primary);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-family: var(--font-code);
+}
+
+/* --- CONTEÚDO PRINCIPAL (CARDS) --- */
+.dev-card {
+  background: var(--bg-panel);
+  border: var(--border);
+  border-radius: 12px;
+  margin-bottom: 25px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo "Janela de Terminal" */
+.card-header {
+  background: rgba(0,0,0,0.2);
+  padding: 12px 20px;
+  border-bottom: var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.circle { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+.red { background: #ef4444; }
+.yellow { background: #eab308; }
+.green { background: #22c55e; }
+
+.terminal-title {
+  font-family: var(--font-code);
+  font-size: 1rem;
+  color: var(--text-muted);
+  margin: 0;
+  flex: 1;
+}
+
+.card-body { padding: 25px; }
+
+/* Texto com Syntax Highlighting */
+.syntax-const { color: #c084fc; } /* Roxo */
+.syntax-var { color: #facc15; }   /* Amarelo */
+.syntax-string { color: #a7f3d0; } /* Verde Claro */
+.bio-text { margin-top: 15px; color: var(--text-muted); }
+
+/* --- TIMELINE DE EXPERIÊNCIA --- */
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #334155;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 20px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -24px; /* Ajuste para alinhar com a linha */
+  top: 5px;
+  width: 10px;
+  height: 10px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 2px solid var(--bg-panel);
+}
+
+.date-badge {
+  display: inline-block;
+  background: #334155;
+  color: white;
+  font-size: 0.75rem;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+  font-family: var(--font-code);
+}
+
+.timeline-content h3 {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.at { color: var(--secondary); }
+
+.timeline-content p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* --- GRID DE EVENTOS --- */
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.event-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: 0.3s;
+}
+
+.event-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-5px);
+}
+
+.event-thumb {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.event-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+}
+
+.event-card:hover img { transform: scale(1.1); opacity: 0.6; }
+
+.event-info { padding: 15px; }
+
+.event-info h3 { font-size: 1rem; margin-bottom: 5px; color: #fff; }
+
+.event-type {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+
+.event-info p { font-size: 0.85rem; color: #94a3b8; margin-top: 5px; }
+
+/* --- EDUCAÇÃO --- */
+.education-list .edu-item.main {
+  font-size: 1.1rem;
+  color: white;
+  border-left: 3px solid var(--accent);
+  padding-left: 15px;
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- EDUCAÇÃO & CURSOS (ATUALIZADO) --- */
+
+/* Graduação Principal */
+.edu-item.main {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  background: rgba(56, 189, 248, 0.05); /* Fundo azul bem suave */
+  padding: 15px;
+  border-radius: 8px;
+  border-left: 4px solid var(--primary);
+}
+
+.edu-date-highlight {
+  font-family: var(--font-code);
+  background: var(--primary);
+  color: var(--bg-dark);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+}
+
+.degree-title {
+  display: block;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.degree-school {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.divider-code {
+  border: 0;
+  height: 1px;
+  background: #334155;
+  margin: 20px 0;
+}
+
+/* Lista de Cursos Extras */
+.edu-extras-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.course-item {
+  display: grid;
+  grid-template-columns: 70px 1fr; /* Coluna fixa para data */
+  gap: 15px;
+  align-items: baseline;
+  padding: 8px 0;
+  transition: opacity 0.3s;
+}
+
+.course-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 6px;
+}
+
+.course-date {
+  font-family: var(--font-code);
+  color: var(--secondary); /* Cor roxa/indigo */
+  font-size: 0.85rem;
+  text-align: right;
+  opacity: 0.8;
+}
+
+.course-info h4 {
+  font-size: 0.95rem;
+  color: #e2e8f0;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.course-info p {
+  font-size: 0.85rem;
+  color: #64748b; /* Cinza mais escuro para descrição */
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Responsividade para Mobile */
+@media (max-width: 600px) {
+  .edu-item.main {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .course-item {
+    grid-template-columns: 1fr; /* Data fica em cima no celular */
+    gap: 5px;
+  }
+  
+  .course-date {
+    text-align: left;
+    font-size: 0.8rem;
+  }
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 768px) {
+  .layout-container {
+    grid-template-columns: 1fr;
+    margin: 20px auto;
+  }
+  
+  .sidebar { position: relative; top: 0; }
+  
+  .social-actions { flex-direction: row; }
+}

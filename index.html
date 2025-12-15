@@ -1,79 +1,238 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8">
-    <title>Currículo - Gabriel Serejo</title>
-    <body class="curriculo">
-      <link rel="stylesheet" href="principal.css">
-      
-      
-    </head>
-    <body>
-  <script src="cursor-shadow.js"></script>
-  <div class="sidebar">
-    <img src="Foto.jpg">
-    <h1>Gabriel Serejo</h1>
-    <p><strong>Data nasc.:</strong> 12/05/2004</p>
-    <p><strong>Idade:</strong> 21 anos</p>
-    <p><strong>Endereço:</strong> SQS 405 Blc J AP, 304</p>
-    <p><strong>Telefone:</strong> (61) 99327-9914</p>
-    <p><strong>Email:</strong> gabrielserejo21@gmail.com</p>
-    <a href="https://github.com/GSerejo">GitHub</a>
-    <a href="https://www.linkedin.com/in/gabriel-serejo-118279162/">Linkedin</a>
-    
-  </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gabriel Serejo | Dev Portfolio</title>
+  <link rel="stylesheet" href="style.css">
   
-  <div class="content">
-    <section>
-      <h2>Formação Acadêmica</h2>
-      <p>Cursando Ciência da Computação - Bacharelado - IESB (6° Semestre)</p>
-    </section>
-    
-    <section>
-      <h2>Experiência Profissional</h2>
-      <ul>
-        <li><strong>CFN</strong> - Estagiário (03/2025-Atual)<br>Suporte TI</li>
-        <li><strong>IESB</strong> - Estagiário (03/2024>>03/2025 - 1 Ano)<br>Suporte TI</li>
-        <li><strong>PhMarketing</strong> - Estagiário (01/2022 >> 08/2022)<br>Artes para Instagram</li>
-      </ul>
-    </section>
-    
-    <section>
-      <h2>Cursos e Aprimoramentos</h2>
-      <ul>
-        <li>DNC: 320h - Power BI, Metabase e SQL</li>
-        <li>Design-Saga START - 280h (2018)</li>
-        <li>Dtyz Informática - 24h (2019)</li>
-        <li>Caelum: JavaScript - 32h (2021)</li>
-        <li>IESB: Metaverso - 20h (2022)</li>
-        <li>Clínica de Matemática: Excel e Power BI (2023)</li>
-        <li>Git & GitHub(2025)</li>
-        <li>HTML & CSS Básico(2025) - Mimo</li>
-        <li>Machine Learning Training(2025) - Dio</li>
-      </ul>
-    </section>
-    
-    <section>
-      <h2>Habilidades</h2>
-      <ul>
-        <li>Fácil adaptação</li>
-        <li>Paixâo por tecnologia</li>
-        <li>Proativo</li>
-        <li>Comunicativo</li>
-        <li>Flexível</li>
-        <li>Dinâmico</li>
-        <li>Resolução de problemas</li>
-        <li>Facilidade de aprender</li>
-        <li>Vontade enorme de aprender </li>
-      </ul>
-    </section>
-    
-    <section>
-  <h2>Sobre Mim</h2>
-  <p>Desde cedo, sempre tive uma grande curiosidade por tecnologia e uma facilidade natural para aprender de forma autônoma. Com o tempo, isso se transformou em uma paixão por descobrir novas ferramentas, entender tendências e aplicar soluções tecnológicas de forma prática. Gosto de resolver problemas, aprender com os desafios e acompanhar de perto a constante evolução do setor. Estou sempre em busca de novos conhecimentos e oportunidades que me permitam crescer profissionalmente e contribuir com inovação.</p>
-  <a class="linha-do-tempo" href="Linha do tempo.html">Minha linha do tempo de carreira</a>
-</section>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
+<body>
+  <div class="layout-container">
+    
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="profile-frame">
+          <img src="Foto.jpg" alt="Gabriel Serejo" class="avatar">
+          <div class="online-status"></div>
+        </div>
+        <h1 class="dev-name">&lt;Gabriel Serejo&gt;</h1>
+        <p class="dev-role">Ciência da Computação</p>
+      </div>
+
+      <div class="info-block">
+        <div class="info-item">
+          <i class="fas fa-map-marker-alt"></i> Brasilia, DF
+        </div>
+        <div class="info-item">
+          <i class="fas fa-envelope"></i> gabrielserejo21@gmail.com
+        </div>
+      </div>
+
+      <div class="social-actions">
+        <a href="https://github.com/GSerejo" target="_blank" class="btn-social github">
+          <i class="fab fa-github"></i> <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/gabriel-serejo-118279162/" target="_blank" class="btn-social linkedin">
+          <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
+        </a>
+      </div>
+
+      <div class="tech-stack">
+        <h3>_skills</h3>
+        <div class="tags-container">
+          <span class="tech-tag">Vontade de aprender</span>
+          <span class="tech-tag">Proatividade</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">Power BI</span>
+          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">Git & Github</span>
+          <span class="tech-tag">Hardware</span>
+          <span class="tech-tag">Comunicação</span>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      
+      <section class="dev-card about-section">
+        <div class="card-header">
+          <span class="circle red"></span>
+          <span class="circle yellow"></span>
+          <span class="circle green"></span>
+          <h2 class="terminal-title">user_profile.readme</h2>
+        </div>
+        <div class="card-body">
+          <p>
+            <span class="syntax-const">const</span> <span class="syntax-var">desenvolvedor</span> = {<br>
+            &nbsp;&nbsp;nome: <span class="syntax-string">"Gabriel Serejo"</span>,<br>
+            &nbsp;&nbsp;paixao: <span class="syntax-string">"Tecnologia e Resolução de Problemas"</span>,<br>
+            &nbsp;&nbsp;status: <span class="syntax-string">"Buscando evolução constante"</span><br>
+            };
+          </p>
+          <p class="bio-text">
+            Estudante do 6º semestre de Ciência da Computação. Tenho um background sólido em 
+            hardware e suporte, e agora estou focando minhas energias em desenvolvimento de software/Web, IA e análise de dados.
+          </p>
+        </div>
+      </section>
+
+      <section class="dev-card">
+        <div class="card-header">
+          <h2 class="terminal-title"><i class="fas fa-code-branch"></i> --experiences</h2>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+            
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="date-badge">2025 - Atual</div>
+                <h3>Estagiário de TI <span class="at">@ CFN (Conselho Federal de Nutrição)</span></h3>
+                <p>Suporte técnico nível 1 e 2, manutenção de infraestrutura e apoio direto à equipe de TI e aos usuários.<br> 
+                O que aprendi: Automações n8n, Zabbix, Criação de laudos técnicos e gerenciamento de chamados e inventário via GLPI </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="date-badge">2024 - 2025</div>
+                <h3>Estagiário de TI <span class="at">@ IESB</span></h3>
+                <p>Gestão de laboratórios de informática, suporte a sistemas acadêmicos, redes, infraestrutura, apoio à equipe de.</p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="date-badge">2022</div>
+                <h3>Estagiário <span class="at">@ PhMarketing</span></h3>
+                <p>Design gráfico e criação de conteúdo para mídias sociais.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="dev-card">
+        <div class="card-header">
+          <h2 class="terminal-title"><i class="fas fa-images"></i> ./eventos_e_workshops</h2>
+        </div>
+        <div class="card-body">
+          <p class="section-intro">Participações em eventos da comunidade tech.</p>
+          
+          <div class="events-grid">
+            <article class="event-card">
+              <div class="event-thumb">
+                <img src="evento1.jpg" alt="Workshop Power BI" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Workshop+IMG'">
+                <div class="event-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="event-info">
+                <h3>Workshop Criando seu primeiro agente de IA</h3>
+                <span class="event-type">Inteligência artificial / SENAC</span>
+                <p>Criação de agentes de IA </p>
+              </div>
+            </article>
+
+            <article class="event-card">
+              <div class="event-thumb">
+                <img src="evento2.jpg" alt="Semana Tech" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Evento+IMG'">
+                <div class="event-overlay">
+                  <i class="fas fa-expand"></i>
+                </div>
+              </div>
+              <div class="event-info">
+                <h3>Semana da Tecnologia</h3>
+                <span class="event-type">Networking</span>
+                <p>Palestras sobre inovação e mercado de trabalho no IESB.</p>
+              </div>
+            </article>
+
+            </div>
+        </div>
+      </section>
+
+      <section class="dev-card">
+        <div class="card-header">
+          <h2 class="terminal-title"><i class="fas fa-graduation-cap"></i> education & courses.json</h2>
+        </div>
+       <div class="card-body education-list">
+  
+  <div class="edu-item main">
+    <span class="edu-date-highlight">2023 - Atual</span>
+    <div class="edu-content">
+      <strong class="degree-title">Ciência da Computação</strong>
+      <span class="degree-school">IESB – 6º Semestre (Bacharelado)</span>
+    </div>
+  </div>
+
+  <hr class="divider-code">
+
+  <div class="edu-extras-grid">
+    
+    <div class="course-item">
+      <span class="course-date">[2023]</span>
+      <div class="course-info">
+        <h4>DNC: Power BI & SQL (320h)</h4>
+        <p>Formação intensiva em análise de dados, criação de dashboards interativos, Metabase e consultas complexas em banco de dados.</p>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <span class="course-date">[2021]</span>
+      <div class="course-info">
+        <h4>JavaScript – Caelum</h4>
+        <p>Aprofundamento na linguagem, manipulação de DOM e lógica de programação voltada para web.</p>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <span class="course-date">[2024]</span>
+      <div class="course-info">
+        <h4>Git & GitHub</h4>
+        <p>Controle de versão, fluxo de trabalho em equipe e boas práticas de commits.</p>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <span class="course-date">[2024]</span>
+      <div class="course-info">
+        <h4>Machine Learning Training – DIO</h4>
+        <p>Introdução aos conceitos de IA e treinamento de modelos preditivos.</p>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <span class="course-date">[2019]</span>
+      <div class="course-info">
+        <h4>Hardware & Montagem – Dtyz</h4>
+        <p>Montagem, manutenção e configuração avançada de microcomputadores.</p>
+      </div>
+    </div>
+
+    <div class="course-item">
+      <span class="course-date">[2018]</span>
+      <div class="course-info">
+        <h4>Saga START</h4>
+        <p>Computação gráfica, design digital, edição de vídeo e pintura digital (280h).</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+      </section>
+
+    </main>
   </div>
 </body>
 </html>
