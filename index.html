@@ -12,6 +12,18 @@
 </head>
 
 <body>
+
+  <div class="language-switch">
+    <input type="checkbox" id="lang-toggle" class="check-toggle">
+    <label for="lang-toggle" class="slider"></label>
+  </div>
+
+  <div class="fluid-background">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+
   <div class="layout-container">
     
     <aside class="sidebar">
@@ -21,12 +33,17 @@
           <div class="online-status"></div>
         </div>
         <h1 class="dev-name">&lt;Gabriel Serejo&gt;</h1>
-        <p class="dev-role">Ciência da Computação 7º Semestre</p>
+        <p class="dev-role">
+          <span class="pt-text">Ciência da Computação 7º Semestre</span>
+          <span class="en-text">Computer Science 7th Semester</span>
+        </p>
       </div>
 
       <div class="info-block">
         <div class="info-item">
-          <i class="fas fa-map-marker-alt"></i> Brasilia, DF
+          <i class="fas fa-map-marker-alt"></i> 
+          <span class="pt-text">Brasília, DF</span>
+          <span class="en-text">Brasilia, Brazil</span>
         </div>
         <div class="info-item">
           <i class="fas fa-envelope"></i> gabrielserejo21@gmail.com
@@ -45,8 +62,14 @@
       <div class="tech-stack">
         <h3>_skills</h3>
         <div class="tags-container">
-          <span class="tech-tag">Vontade de aprender</span>
-          <span class="tech-tag">Proatividade</span>
+          <span class="tech-tag">
+            <span class="pt-text">Vontade de aprender</span>
+            <span class="en-text">Willingness to learn</span>
+          </span>
+          <span class="tech-tag">
+            <span class="pt-text">Proatividade</span>
+            <span class="en-text">Proactivity</span>
+          </span>
           <span class="tech-tag">JavaScript</span>
           <span class="tech-tag">HTML5</span>
           <span class="tech-tag">CSS3</span>
@@ -54,7 +77,10 @@
           <span class="tech-tag">SQL</span>
           <span class="tech-tag">Git & Github</span>
           <span class="tech-tag">Hardware</span>
-          <span class="tech-tag">Comunicação</span>
+          <span class="tech-tag">
+            <span class="pt-text">Comunicação</span>
+            <span class="en-text">Communication</span>
+          </span>
         </div>
       </div>
     </aside>
@@ -72,14 +98,18 @@
           <p>
             <span class="syntax-const">const</span> <span class="syntax-var">desenvolvedor</span> = {<br>
             &nbsp;&nbsp;nome: <span class="syntax-string">"Gabriel Serejo"</span>,<br>
-            &nbsp;&nbsp;paixao: <span class="syntax-string">"Tecnologia e Resolução de Problemas"</span>,<br>
-            &nbsp;&nbsp;status: <span class="syntax-string">"Buscando evolução constante"</span><br>
+            &nbsp;&nbsp;paixao: <span class="syntax-string">
+              <span class="pt-text">"Tecnologia e Resolução de Problemas"</span>
+              <span class="en-text">"Technology and Problem Solving"</span>
+            </span>,<br>
+            &nbsp;&nbsp;status: <span class="syntax-string">
+              <span class="pt-text">"Buscando evolução constante"</span>
+              <span class="en-text">"Constantly seeking evolution"</span>
+            </span><br>
             };
           </p>
-          <p class="bio-text">
-            Estudante do 7º semestre de Ciência da Computação. Tenho um background sólido em 
-            hardware e suporte, e agora estou focando minhas energias em desenvolvimento de software/Web, IA e análise de dados.
-          </p>
+          
+          <p class="bio-text" id="typing-effect"></p>
         </div>
       </section>
 
@@ -93,10 +123,21 @@
             <div class="timeline-item">
               <div class="timeline-marker"></div>
               <div class="timeline-content">
-                <div class="date-badge">2025 - Atual</div>
-                <h3>Estagiário de TI <span class="at">@ CFN (Conselho Federal de Nutrição)</span></h3>
-                <p>Suporte técnico nível 1 e 2, manutenção de infraestrutura e apoio direto à equipe de TI e aos usuários.<br> 
-                O que aprendi: Automações n8n, Zabbix, Criação de laudos técnicos e gerenciamento de chamados e inventário via GLPI </p>
+                <div class="date-badge">
+                  <span class="pt-text">2025 - Atual</span>
+                  <span class="en-text">2025 - Current</span>
+                </div>
+                <h3>
+                  <span class="pt-text">Estagiário de TI</span>
+                  <span class="en-text">IT Intern</span> 
+                  <span class="at">@ CFN</span>
+                </h3>
+                <p>
+                  <span class="pt-text">Suporte técnico nível 1 e 2, manutenção de infraestrutura e apoio direto à equipe de TI e aos usuários.<br> 
+                  O que aprendi: Automações n8n, Zabbix, Criação de laudos técnicos e gerenciamento de chamados e inventário via GLPI</span>
+                  <span class="en-text">Level 1 & 2 technical support, infrastructure maintenance, and direct support to the IT team and users.<br>
+                  Learned: n8n Automations, Zabbix, Creation of technical reports, and ticket/inventory management via GLPI.</span>
+                </p>
               </div>
             </div>
 
@@ -104,8 +145,15 @@
               <div class="timeline-marker"></div>
               <div class="timeline-content">
                 <div class="date-badge">2024 - 2025</div>
-                <h3>Estagiário de TI <span class="at">@ IESB</span></h3>
-                <p>Gestão de laboratórios de informática, suporte a sistemas acadêmicos, redes, infraestrutura, apoio à equipe de.</p>
+                <h3>
+                  <span class="pt-text">Estagiário de TI</span>
+                  <span class="en-text">IT Intern</span>
+                  <span class="at">@ IESB</span>
+                </h3>
+                <p>
+                  <span class="pt-text">Gestão de laboratórios de informática, suporte a sistemas acadêmicos, redes, infraestrutura e apoio à equipe.</span>
+                  <span class="en-text">Management of computer labs, support for academic systems, networks, infrastructure, and team support.</span>
+                </p>
               </div>
             </div>
 
@@ -113,8 +161,15 @@
               <div class="timeline-marker"></div>
               <div class="timeline-content">
                 <div class="date-badge">2022</div>
-                <h3>Estagiário <span class="at">@ PhMarketing</span></h3>
-                <p>Design gráfico e criação de conteúdo para mídias sociais.</p>
+                <h3>
+                  <span class="pt-text">Estagiário</span>
+                  <span class="en-text">Intern</span>
+                  <span class="at">@ PhMarketing</span>
+                </h3>
+                <p>
+                  <span class="pt-text">Design gráfico e criação de conteúdo para mídias sociais.</span>
+                  <span class="en-text">Graphic design and content creation for social media.</span>
+                </p>
               </div>
             </div>
 
@@ -127,7 +182,10 @@
           <h2 class="terminal-title"><i class="fas fa-images"></i> ./eventos_e_workshops</h2>
         </div>
         <div class="card-body">
-          <p class="section-intro">Participações em eventos da comunidade tech.</p>
+          <p class="section-intro">
+            <span class="pt-text">Participações em eventos da comunidade tech.</span>
+            <span class="en-text">Participation in tech community events.</span>
+          </p>
           
           <div class="events-grid">
             <article class="event-card">
@@ -138,9 +196,18 @@
                 </div>
               </div>
               <div class="event-info">
-                <h3>Workshop Criando seu primeiro agente de IA</h3>
-                <span class="event-type">Inteligência artificial / SENAC</span>
-                <p>Criação de agentes de IA </p>
+                <h3>
+                  <span class="pt-text">Workshop Criando seu primeiro agente de IA</span>
+                  <span class="en-text">Workshop: Creating your first AI Agent</span>
+                </h3>
+                <span class="event-type">
+                  <span class="pt-text">Inteligência artificial / SENAC</span>
+                  <span class="en-text">Artificial Intelligence / SENAC</span>
+                </span>
+                <p>
+                  <span class="pt-text">Criação de agentes de IA.</span>
+                  <span class="en-text">Creation of AI agents.</span>
+                </p>
               </div>
             </article>
 
@@ -152,9 +219,15 @@
                 </div>
               </div>
               <div class="event-info">
-                <h3>Semana da Tecnologia</h3>
+                <h3>
+                  <span class="pt-text">Semana da Tecnologia</span>
+                  <span class="en-text">Technology Week</span>
+                </h3>
                 <span class="event-type">Networking</span>
-                <p>Palestras sobre inovação e mercado de trabalho no IESB.</p>
+                <p>
+                  <span class="pt-text">Palestras sobre inovação e mercado de trabalho no IESB.</span>
+                  <span class="en-text">Lectures on innovation and the job market at IESB.</span>
+                </p>
               </div>
             </article>
 
@@ -169,10 +242,19 @@
        <div class="card-body education-list">
   
   <div class="edu-item main">
-    <span class="edu-date-highlight">2023 - Atual</span>
+    <span class="edu-date-highlight">
+      <span class="pt-text">2023 - Atual</span>
+      <span class="en-text">2023 - Current</span>
+    </span>
     <div class="edu-content">
-      <strong class="degree-title">Ciência da Computação</strong>
-      <span class="degree-school">IESB – 6º Semestre (Bacharelado)</span>
+      <strong class="degree-title">
+        <span class="pt-text">Ciência da Computação</span>
+        <span class="en-text">Computer Science</span>
+      </strong>
+      <span class="degree-school">
+        <span class="pt-text">IESB – 7º Semestre (Bacharelado)</span>
+        <span class="en-text">IESB – 7th Semester (Bachelor's)</span>
+      </span>
     </div>
   </div>
 
@@ -183,56 +265,153 @@
     <div class="course-item">
       <span class="course-date">[2023]</span>
       <div class="course-info">
-        <h4>DNC: Power BI & SQL (320h)</h4>
-        <p>Formação intensiva em análise de dados, criação de dashboards interativos, Metabase e consultas complexas em banco de dados.</p>
+        <div class="course-header">
+          <h4>DNC: Power BI & SQL (320h)</h4>
+          <a href="certificados/dnc_powerbi.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
+        <p>
+          <span class="pt-text">Formação intensiva em análise de dados, criação de dashboards interativos, Metabase e consultas complexas.</span>
+          <span class="en-text">Intensive training in data analysis, interactive dashboards, Metabase, and complex queries.</span>
+        </p>
       </div>
     </div>
 
     <div class="course-item">
       <span class="course-date">[2021]</span>
       <div class="course-info">
-        <h4>JavaScript – Caelum</h4>
-        <p>Aprofundamento na linguagem, manipulação de DOM e lógica de programação voltada para web.</p>
+        <div class="course-header">
+          <h4>JavaScript – Caelum</h4>
+          <a href="certificados/js_caelum.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
+        <p>
+          <span class="pt-text">Aprofundamento na linguagem, manipulação de DOM e lógica de programação voltada para web.</span>
+          <span class="en-text">Deep dive into the language, DOM manipulation, and web-oriented programming logic.</span>
+        </p>
       </div>
     </div>
 
     <div class="course-item">
       <span class="course-date">[2024]</span>
       <div class="course-info">
-        <h4>Git & GitHub</h4>
-        <p>Controle de versão, fluxo de trabalho em equipe e boas práticas de commits.</p>
+        <div class="course-header">
+          <h4>Git & GitHub</h4>
+          <a href="https://github.com/GSerejo" target="_blank" class="btn-cert" title="Ver Certificado">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
+        <p>
+          <span class="pt-text">Controle de versão, fluxo de trabalho em equipe e boas práticas de commits.</span>
+          <span class="en-text">Version control, team workflow, and commit best practices.</span>
+        </p>
       </div>
     </div>
 
     <div class="course-item">
       <span class="course-date">[2024]</span>
       <div class="course-info">
-        <h4>Machine Learning Training – DIO</h4>
-        <p>Introdução aos conceitos de IA e treinamento de modelos preditivos.</p>
+        <div class="course-header">
+          <h4>Machine Learning Training – DIO</h4>
+          <a href="certificados/ml_dio.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
+        <p>
+          <span class="pt-text">Introdução aos conceitos de IA e treinamento de modelos preditivos.</span>
+          <span class="en-text">Introduction to AI concepts and predictive model training.</span>
+        </p>
       </div>
     </div>
 
     <div class="course-item">
       <span class="course-date">[2019]</span>
       <div class="course-info">
-        <h4>Hardware & Montagem – Dtyz</h4>
-        <p>Montagem, manutenção e configuração avançada de microcomputadores.</p>
+        <div class="course-header">
+          <h4>Hardware & Montagem – Dtyz</h4>
+          <a href="certificados/hardware_dtyz.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
+        <p>
+          <span class="pt-text">Montagem, manutenção e configuração avançada de microcomputadores.</span>
+          <span class="en-text">Assembly, maintenance, and advanced configuration of microcomputers.</span>
+        </p>
       </div>
     </div>
 
     <div class="course-item">
       <span class="course-date">[2018]</span>
       <div class="course-info">
-        <h4>Saga START</h4>
-        <p>Computação gráfica, design digital, edição de vídeo e pintura digital (280h).</p>
+        <div class="course-header">
+          <h4>Design - Saga START</h4>
+          <a href="certificados/saga_start.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+            <i class="fas fa-file-pdf"></i>
+          </a>
+        </div>
+        <p>
+          <span class="pt-text">Computação gráfica, design digital, edição de vídeo e pintura digital (280h).</span>
+          <span class="en-text">Computer graphics, digital design, video editing, and digital painting (280h).</span>
+        </p>
       </div>
     </div>
 
-  </div>
 </div>
       </section>
 
     </main>
   </div>
+
+<script>
+  // Configuração dos textos bilíngues para a digitação
+  const bioTexts = {
+    pt: "Estudante do 7º semestre de Ciência da Computação. Tenho um background sólido em hardware e suporte, e agora estou focando em desenvolvimento de software/Web, IA e análise de dados.",
+    en: "7th-semester Computer Science student. I have a solid background in hardware and support, and I am now focusing my energy on software/Web development, AI, and data analysis."
+  };
+
+  const typingElement = document.getElementById('typing-effect');
+  const typingSpeed = 25;
+  let charIndex = 0;
+  let currentLang = 'pt'; // Começa em português
+  let typeTimeout; // Para poder parar a animação se trocar de idioma
+
+  function typeWriter() {
+    const textToType = bioTexts[currentLang];
+    
+    if (charIndex < textToType.length) {
+      typingElement.innerHTML += textToType.charAt(charIndex);
+      charIndex++;
+      typeTimeout = setTimeout(typeWriter, typingSpeed);
+    }
+  }
+
+  // Inicia a digitação ao carregar
+  window.onload = () => {
+    typeWriter();
+  };
+
+  // --- Lógica do Switch de Idioma e Redigitação ---
+  const langToggle = document.getElementById('lang-toggle');
+  
+  langToggle.addEventListener('change', () => {
+    // 1. Alterna a classe no Body para o CSS esconder/mostrar os textos estáticos
+    if (langToggle.checked) {
+      document.body.classList.add('lang-en');
+      currentLang = 'en';
+    } else {
+      document.body.classList.remove('lang-en');
+      currentLang = 'pt';
+    }
+
+    // 2. Reseta e reinicia o efeito de digitação no novo idioma
+    clearTimeout(typeTimeout); // Para a digitação atual
+    typingElement.innerHTML = ''; // Limpa o texto
+    charIndex = 0; // Reseta o índice
+    typeWriter(); // Começa de novo no idioma novo
+  });
+</script>
+
 </body>
 </html>
