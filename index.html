@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gabriel Serejo | Dev Portfolio</title>
   <link rel="stylesheet" href="style.css">
-  
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-  
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -19,13 +22,13 @@
   </div>
 
   <div class="fluid-background">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-</div>
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
 
   <div class="layout-container">
-    
+
     <aside class="sidebar">
       <div class="sidebar-header">
         <div class="profile-frame">
@@ -39,16 +42,25 @@
         </p>
       </div>
 
-      <div class="info-block">
-        <div class="info-item">
-          <i class="fas fa-map-marker-alt"></i> 
-          <span class="pt-text">Brasília, DF</span>
-          <span class="en-text">Brasilia, Brazil</span>
-        </div>
-        <div class="info-item">
-          <i class="fas fa-envelope"></i> gabrielserejo21@gmail.com
-        </div>
-      </div>
+    <div class="info-block">
+  <div class="info-item">
+    <i class="fas fa-map-marker-alt"></i>
+    <span class="pt-text">Brasília, DF</span>
+    <span class="en-text">Brasilia, Brazil</span>
+  </div>
+  
+  <div class="info-item">
+    <i class="fas fa-envelope"></i> 
+    <a href="mailto:gabrielserejo21@gmail.com">gabrielserejo21@gmail.com</a>
+  </div>
+
+  <div class="info-item">
+    <i class="fa-brands fa-whatsapp"></i>
+    <a href="https://wa.me/5561993279914" target="_blank">
+      +55 (61) 99327-9914
+    </a>
+  </div>
+</div>
 
       <div class="social-actions">
         <a href="https://github.com/GSerejo" target="_blank" class="btn-social github">
@@ -86,7 +98,7 @@
     </aside>
 
     <main class="main-content">
-      
+
       <section class="dev-card about-section">
         <div class="card-header">
           <span class="circle red"></span>
@@ -108,9 +120,164 @@
             </span><br>
             };
           </p>
-          
+
           <p class="bio-text" id="typing-effect"></p>
         </div>
+      </section>
+      <section class="dev-card">
+        <div class="card-header">
+          <h2 class="terminal-title"><i class="fas fa-graduation-cap"></i> education & courses.json</h2>
+        </div>
+        <div class="card-body education-list">
+
+          <div class="edu-item main">
+            <span class="edu-date-highlight">
+              <span class="pt-text">2023 - Atual</span>
+              <span class="en-text">2023 - Current</span>
+            </span>
+            <div class="edu-content">
+              <strong class="degree-title">
+                <span class="pt-text">Ciência da Computação</span>
+                <span class="en-text">Computer Science</span>
+              </strong>
+              <span class="degree-school">
+                <span class="pt-text">IESB – 7º Semestre (Bacharelado)</span>
+                <span class="en-text">IESB – 7th Semester (Bachelor's)</span>
+              </span>
+            </div>
+          </div>
+
+          <hr class="divider-code">
+
+          <div class="edu-extras-grid">
+
+            <div class="course-item">
+              <span class="course-date">[2026] [Cursando]</span>
+              <div class="course-info">
+                <div class="course-header">
+                  <h4>Curso.dev | Filipe Deschamps <br>
+                    <hr>Full Stack Software Engineering – Node.js, Next.js & DevOps
+                  </h4>
+                  <!-- <a href="certificados/seu_certificado.pdf" target="_blank" class="btn-cert" title="Ver Certificado"> -->
+                  <!-- <i class="fas fa-file-pdf"></i> -->
+                  </a>
+                </div>
+                <p>
+                  <span class="pt-text">
+                    Desenvolvimento Full Stack com Next.js, PostgreSQL e Docker. Foco em arquitetura, testes
+                    automatizados (TDD), CI/CD com GitHub Actions, segurança de APIs e padrões de Clean Code.
+                  </span>
+                  <span class="en-text">
+                    Full Stack development with Next.js, PostgreSQL, and Docker. Focused on architecture, automated
+                    testing (TDD), CI/CD via GitHub Actions, API security, and Clean Code principles.
+                  </span>
+                </p>
+              </div>
+            </div>
+            <div class="course-item">
+              <span class="course-date">[2023]</span>
+              <div class="course-info">
+                <div class="course-header">
+                  <h4>DNC: Power BI & SQL (320h)</h4>
+                  <a href="certificados/dnc_powerbi.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                </div>
+                <p>
+                  <span class="pt-text">Formação intensiva em análise de dados, criação de dashboards interativos,
+                    Metabase e consultas complexas.</span>
+                  <span class="en-text">Intensive training in data analysis, interactive dashboards, Metabase, and
+                    complex queries.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="course-item">
+              <span class="course-date">[2021]</span>
+              <div class="course-info">
+                <div class="course-header">
+                  <h4>JavaScript – Caelum</h4>
+                  <a href="certificados/js_caelum.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                </div>
+                <p>
+                  <span class="pt-text">Aprofundamento na linguagem, manipulação de DOM e lógica de programação voltada
+                    para web.</span>
+                  <span class="en-text">Deep dive into the language, DOM manipulation, and web-oriented programming
+                    logic.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="course-item">
+              <span class="course-date">[2024]</span>
+              <div class="course-info">
+                <div class="course-header">
+                  <h4>Git & GitHub</h4>
+                  <a href="https://github.com/GSerejo" target="_blank" class="btn-cert" title="Ver Certificado">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                </div>
+                <p>
+                  <span class="pt-text">Controle de versão, fluxo de trabalho em equipe e boas práticas de
+                    commits.</span>
+                  <span class="en-text">Version control, team workflow, and commit best practices.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="course-item">
+              <span class="course-date">[2024]</span>
+              <div class="course-info">
+                <div class="course-header">
+                  <h4>Machine Learning Training – DIO</h4>
+                  <a href="certificados/ml_dio.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                </div>
+                <p>
+                  <span class="pt-text">Introdução aos conceitos de IA e treinamento de modelos preditivos.</span>
+                  <span class="en-text">Introduction to AI concepts and predictive model training.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="course-item">
+              <span class="course-date">[2019]</span>
+              <div class="course-info">
+                <div class="course-header">
+                  <h4>Hardware & Montagem – Dtyz</h4>
+                  <a href="certificados/hardware_dtyz.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                </div>
+                <p>
+                  <span class="pt-text">Montagem, manutenção e configuração avançada de microcomputadores.</span>
+                  <span class="en-text">Assembly, maintenance, and advanced configuration of microcomputers.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="course-item">
+              <span class="course-date">[2018]</span>
+              <div class="course-info">
+                <div class="course-header">
+                  <h4>Design - Saga START</h4>
+                  <a href="certificados/saga_start.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
+                    <i class="fas fa-file-pdf"></i>
+                  </a>
+                </div>
+                <p>
+                  <span class="pt-text">Computação gráfica, design digital, edição de vídeo e pintura digital
+                    (280h).</span>
+                  <span class="en-text">Computer graphics, digital design, video editing, and digital painting
+                    (280h).</span>
+                </p>
+              </div>
+            </div>
+
+          </div>
       </section>
 
       <section class="dev-card">
@@ -119,7 +286,7 @@
         </div>
         <div class="card-body">
           <div class="timeline">
-            
+
             <div class="timeline-item">
               <div class="timeline-marker"></div>
               <div class="timeline-content">
@@ -129,14 +296,18 @@
                 </div>
                 <h3>
                   <span class="pt-text">Estagiário de TI</span>
-                  <span class="en-text">IT Intern</span> 
+                  <span class="en-text">IT Intern</span>
                   <span class="at">@ CFN</span>
                 </h3>
                 <p>
-                  <span class="pt-text">Suporte técnico nível 1 e 2, manutenção de infraestrutura e apoio direto à equipe de TI e aos usuários.<br> 
-                  O que aprendi: Automações n8n, Zabbix, Criação de laudos técnicos e gerenciamento de chamados e inventário via GLPI</span>
-                  <span class="en-text">Level 1 & 2 technical support, infrastructure maintenance, and direct support to the IT team and users.<br>
-                  Learned: n8n Automations, Zabbix, Creation of technical reports, and ticket/inventory management via GLPI.</span>
+                  <span class="pt-text">Suporte técnico nível 1 e 2, manutenção de infraestrutura e apoio direto à
+                    equipe de TI e aos usuários.<br>
+                    O que aprendi: Automações n8n, Zabbix, Criação de laudos técnicos e gerenciamento de chamados e
+                    inventário via GLPI</span>
+                  <span class="en-text">Level 1 & 2 technical support, infrastructure maintenance, and direct support to
+                    the IT team and users.<br>
+                    Learned: n8n Automations, Zabbix, Creation of technical reports, and ticket/inventory management via
+                    GLPI.</span>
                 </p>
               </div>
             </div>
@@ -151,8 +322,10 @@
                   <span class="at">@ IESB</span>
                 </h3>
                 <p>
-                  <span class="pt-text">Gestão de laboratórios de informática, suporte a sistemas acadêmicos, redes, infraestrutura e apoio à equipe.</span>
-                  <span class="en-text">Management of computer labs, support for academic systems, networks, infrastructure, and team support.</span>
+                  <span class="pt-text">Gestão de laboratórios de informática, suporte a sistemas acadêmicos, redes,
+                    infraestrutura e apoio à equipe.</span>
+                  <span class="en-text">Management of computer labs, support for academic systems, networks,
+                    infrastructure, and team support.</span>
                 </p>
               </div>
             </div>
@@ -186,11 +359,12 @@
             <span class="pt-text">Participações em eventos da comunidade tech.</span>
             <span class="en-text">Participation in tech community events.</span>
           </p>
-          
+
           <div class="events-grid">
             <article class="event-card">
               <div class="event-thumb">
-                <img src="evento1.jpg" alt="Workshop Power BI" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Workshop+IMG'">
+                <img src="evento1.jpg" alt="Workshop Power BI"
+                  onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Workshop+IMG'">
                 <div class="event-overlay">
                   <i class="fas fa-expand"></i>
                 </div>
@@ -213,7 +387,8 @@
 
             <article class="event-card">
               <div class="event-thumb">
-                <img src="evento2.jpg" alt="Semana Tech" onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Evento+IMG'">
+                <img src="evento2.jpg" alt="Semana Tech"
+                  onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Evento+IMG'">
                 <div class="event-overlay">
                   <i class="fas fa-expand"></i>
                 </div>
@@ -231,187 +406,64 @@
               </div>
             </article>
 
-            </div>
+          </div>
         </div>
       </section>
 
-      <section class="dev-card">
-        <div class="card-header">
-          <h2 class="terminal-title"><i class="fas fa-graduation-cap"></i> education & courses.json</h2>
-        </div>
-       <div class="card-body education-list">
-  
-  <div class="edu-item main">
-    <span class="edu-date-highlight">
-      <span class="pt-text">2023 - Atual</span>
-      <span class="en-text">2023 - Current</span>
-    </span>
-    <div class="edu-content">
-      <strong class="degree-title">
-        <span class="pt-text">Ciência da Computação</span>
-        <span class="en-text">Computer Science</span>
-      </strong>
-      <span class="degree-school">
-        <span class="pt-text">IESB – 7º Semestre (Bacharelado)</span>
-        <span class="en-text">IESB – 7th Semester (Bachelor's)</span>
-      </span>
-    </div>
-  </div>
 
-  <hr class="divider-code">
-
-  <div class="edu-extras-grid">
-    
-    <div class="course-item">
-      <span class="course-date">[2023]</span>
-      <div class="course-info">
-        <div class="course-header">
-          <h4>DNC: Power BI & SQL (320h)</h4>
-          <a href="certificados/dnc_powerbi.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-        </div>
-        <p>
-          <span class="pt-text">Formação intensiva em análise de dados, criação de dashboards interativos, Metabase e consultas complexas.</span>
-          <span class="en-text">Intensive training in data analysis, interactive dashboards, Metabase, and complex queries.</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="course-item">
-      <span class="course-date">[2021]</span>
-      <div class="course-info">
-        <div class="course-header">
-          <h4>JavaScript – Caelum</h4>
-          <a href="certificados/js_caelum.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-        </div>
-        <p>
-          <span class="pt-text">Aprofundamento na linguagem, manipulação de DOM e lógica de programação voltada para web.</span>
-          <span class="en-text">Deep dive into the language, DOM manipulation, and web-oriented programming logic.</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="course-item">
-      <span class="course-date">[2024]</span>
-      <div class="course-info">
-        <div class="course-header">
-          <h4>Git & GitHub</h4>
-          <a href="https://github.com/GSerejo" target="_blank" class="btn-cert" title="Ver Certificado">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-        </div>
-        <p>
-          <span class="pt-text">Controle de versão, fluxo de trabalho em equipe e boas práticas de commits.</span>
-          <span class="en-text">Version control, team workflow, and commit best practices.</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="course-item">
-      <span class="course-date">[2024]</span>
-      <div class="course-info">
-        <div class="course-header">
-          <h4>Machine Learning Training – DIO</h4>
-          <a href="certificados/ml_dio.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-        </div>
-        <p>
-          <span class="pt-text">Introdução aos conceitos de IA e treinamento de modelos preditivos.</span>
-          <span class="en-text">Introduction to AI concepts and predictive model training.</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="course-item">
-      <span class="course-date">[2019]</span>
-      <div class="course-info">
-        <div class="course-header">
-          <h4>Hardware & Montagem – Dtyz</h4>
-          <a href="certificados/hardware_dtyz.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-        </div>
-        <p>
-          <span class="pt-text">Montagem, manutenção e configuração avançada de microcomputadores.</span>
-          <span class="en-text">Assembly, maintenance, and advanced configuration of microcomputers.</span>
-        </p>
-      </div>
-    </div>
-
-    <div class="course-item">
-      <span class="course-date">[2018]</span>
-      <div class="course-info">
-        <div class="course-header">
-          <h4>Design - Saga START</h4>
-          <a href="certificados/saga_start.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-            <i class="fas fa-file-pdf"></i>
-          </a>
-        </div>
-        <p>
-          <span class="pt-text">Computação gráfica, design digital, edição de vídeo e pintura digital (280h).</span>
-          <span class="en-text">Computer graphics, digital design, video editing, and digital painting (280h).</span>
-        </p>
-      </div>
-    </div>
-
-</div>
-      </section>
 
     </main>
   </div>
 
-<script>
-  // Configuração dos textos bilíngues para a digitação
-  const bioTexts = {
-    pt: "Estudante do 7º semestre de Ciência da Computação. Tenho um background sólido em hardware e suporte, e agora estou focando em desenvolvimento de software/Web, IA e análise de dados.",
-    en: "7th-semester Computer Science student. I have a solid background in hardware and support, and I am now focusing my energy on software/Web development, AI, and data analysis."
-  };
+  <script>
+    // Configuração dos textos bilíngues para a digitação
+    const bioTexts = {
+      pt: "Estudante do 7º semestre de Ciência da Computação. Tenho um background sólido em hardware e suporte, e agora estou focando em desenvolvimento de software/Web, IA e análise de dados.",
+      en: "7th-semester Computer Science student. I have a solid background in hardware and support, and I am now focusing my energy on software/Web development, AI, and data analysis."
+    };
 
-  const typingElement = document.getElementById('typing-effect');
-  const typingSpeed = 25;
-  let charIndex = 0;
-  let currentLang = 'pt'; // Começa em português
-  let typeTimeout; // Para poder parar a animação se trocar de idioma
+    const typingElement = document.getElementById('typing-effect');
+    const typingSpeed = 25;
+    let charIndex = 0;
+    let currentLang = 'pt'; // Começa em português
+    let typeTimeout; // Para poder parar a animação se trocar de idioma
 
-  function typeWriter() {
-    const textToType = bioTexts[currentLang];
-    
-    if (charIndex < textToType.length) {
-      typingElement.innerHTML += textToType.charAt(charIndex);
-      charIndex++;
-      typeTimeout = setTimeout(typeWriter, typingSpeed);
-    }
-  }
+    function typeWriter() {
+      const textToType = bioTexts[currentLang];
 
-  // Inicia a digitação ao carregar
-  window.onload = () => {
-    typeWriter();
-  };
-
-  // --- Lógica do Switch de Idioma e Redigitação ---
-  const langToggle = document.getElementById('lang-toggle');
-  
-  langToggle.addEventListener('change', () => {
-    // 1. Alterna a classe no Body para o CSS esconder/mostrar os textos estáticos
-    if (langToggle.checked) {
-      document.body.classList.add('lang-en');
-      currentLang = 'en';
-    } else {
-      document.body.classList.remove('lang-en');
-      currentLang = 'pt';
+      if (charIndex < textToType.length) {
+        typingElement.innerHTML += textToType.charAt(charIndex);
+        charIndex++;
+        typeTimeout = setTimeout(typeWriter, typingSpeed);
+      }
     }
 
-    // 2. Reseta e reinicia o efeito de digitação no novo idioma
-    clearTimeout(typeTimeout); // Para a digitação atual
-    typingElement.innerHTML = ''; // Limpa o texto
-    charIndex = 0; // Reseta o índice
-    typeWriter(); // Começa de novo no idioma novo
-  });
-</script>
+    // Inicia a digitação ao carregar
+    window.onload = () => {
+      typeWriter();
+    };
+
+    // --- Lógica do Switch de Idioma e Redigitação ---
+    const langToggle = document.getElementById('lang-toggle');
+
+    langToggle.addEventListener('change', () => {
+      // 1. Alterna a classe no Body para o CSS esconder/mostrar os textos estáticos
+      if (langToggle.checked) {
+        document.body.classList.add('lang-en');
+        currentLang = 'en';
+      } else {
+        document.body.classList.remove('lang-en');
+        currentLang = 'pt';
+      }
+
+      // 2. Reseta e reinicia o efeito de digitação no novo idioma
+      clearTimeout(typeTimeout); // Para a digitação atual
+      typingElement.innerHTML = ''; // Limpa o texto
+      charIndex = 0; // Reseta o índice
+      typeWriter(); // Começa de novo no idioma novo
+    });
+  </script>
 
 </body>
+
 </html>

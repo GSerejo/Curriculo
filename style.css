@@ -224,6 +224,15 @@ body {
   padding-bottom: 20px;
   border-bottom: 1px solid #334155;
 }
+.info-block a {
+    color: inherit;       /* Faz o link usar a mesma cor do texto pai */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.info-block a:hover {
+    text-decoration: underline; /* Opcional: adiciona sublinhado apenas quando passa o mouse */
+    opacity: 0.8;               /* Opcional: dá um leve feedback visual ao passar o mouse */
+}
 
 .info-item {
   color: var(--text-muted);
@@ -623,7 +632,6 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-
 
 
 
