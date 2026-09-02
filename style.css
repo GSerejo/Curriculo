@@ -187,11 +187,12 @@ body {
 }
 
 .avatar {
-  width: 140px;
-  height: 140px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   border: 3px solid var(--primary);
   object-fit: cover;
+
 }
 
 .online-status {
