@@ -500,6 +500,19 @@ body {
   color: var(--text-muted);
 }
 
+.degree-schedule {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+  color: var(--primary);
+  font-size: 0.8rem;
+}
+
+.degree-schedule i {
+  font-size: 0.85rem;
+}
+
 .divider-code {
   border: 0;
   height: 1px;
@@ -633,6 +646,4 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-
-
 
