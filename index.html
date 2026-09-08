@@ -69,6 +69,11 @@
         <a href="https://www.linkedin.com/in/gabriel-serejo-118279162/" target="_blank" class="btn-social linkedin">
           <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
         </a>
+        <a href="curriculo.pdf" id="resume-download" class="btn-social resume-download" download>
+          <i class="fas fa-file-pdf"></i>
+          <span class="pt-text">Baixar currículo em PDF</span>
+          <span class="en-text">Download resume PDF</span>
+        </a>
       </div>
 
       <div class="tech-stack">
@@ -454,14 +459,17 @@ Stack & Technologies:
 
     // Alternador de idioma
     const langToggle = document.getElementById('lang-toggle');
+    const resumeDownload = document.getElementById('resume-download');
 
     langToggle.addEventListener('change', () => {
       if (langToggle.checked) {
         document.body.classList.add('lang-en');
         currentLang = 'en';
+        resumeDownload.href = 'resume-en.pdf';
       } else {
         document.body.classList.remove('lang-en');
         currentLang = 'pt';
+        resumeDownload.href = 'curriculo.pdf';
       }
 
       clearTimeout(typeTimeout);

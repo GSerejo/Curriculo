@@ -278,6 +278,12 @@ body {
   border: 1px solid #0077b5;
 }
 
+.btn-social.resume-download {
+  background-color: var(--accent);
+  color: #052e16;
+  border: 1px solid var(--accent);
+}
+
 .btn-social:hover {
   transform: translateY(-2px);
   filter: brightness(1.2);
@@ -646,4 +652,3 @@ body {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-
