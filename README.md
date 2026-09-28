@@ -22,25 +22,26 @@
 
 ## 👋 Olá, eu sou o Gabriel!
 
-Sou estudante de **Ciência da Computação no IESB** e desenvolvedor em formação, apaixonado por tecnologia, automação e resolução de problemas.
+Sou **Estagiário de Desenvolvimento Full Stack na CDS Solutions**, onde desenvolvo sistemas para o setor público, incluindo a Marinha do Brasil, e para empresas privadas de pequeno e médio porte, com TypeScript, Python e Rust.
 
-Atualmente, atuo como **Estagiário de TI** e busco oportunidades como:
+Estudo **Ciência da Computação no IESB** e cheguei ao desenvolvimento pelo caminho do suporte de TI.
 
-- 💻 Desenvolvedor Full Stack Júnior
-- 🧪 Estagiário de Desenvolvimento
-- ⚙️ Estagiário de Engenharia de Software
+## 🚀 Projetos em destaque
 
-> Meu objetivo é criar soluções úteis, simples de manter e capazes de transformar tarefas repetitivas em processos inteligentes.
+| Projeto | Stack | Links |
+| --- | --- | --- |
+| **App Remédios**: lembrete de medicação para idosos e crianças, com foto da cartela enviada ao cuidador pelo WhatsApp | React Native, Expo, TypeScript | [Código](https://github.com/GSerejo/App-remedios) · [Vídeo](https://www.youtube.com/watch?v=M813-sd0z9c) |
+| **Clone do TabNews** (em desenvolvimento): API em Next.js com PostgreSQL e testes de integração | Next.js, PostgreSQL, Docker, Jest | [Site](https://gserejo.com.br/) · [Código](https://github.com/GSerejo/clone-tabnews) |
+| **Em breve** 🚧: novo projeto em construção | — | [Acompanhe no GitHub](https://github.com/GSerejo) |
 
 ## 🧰 Minha caixa de ferramentas
 
 | Área | Tecnologias |
 | --- | --- |
-| **Front-end** | React, Next.js, HTML5, CSS3, Tailwind CSS |
-| **Back-end** | Node.js, Express, APIs RESTful |
-| **Linguagens** | JavaScript, TypeScript, Python, C, Java |
-| **Dados** | SQL, PostgreSQL, modelagem de dados, Power BI |
-| **Automação & DevOps** | n8n, Microsoft PowerApps, Git, GitHub, Docker |
+| **Linguagens** | TypeScript, JavaScript, Python, Rust, Java, SQL |
+| **Front-end & Mobile** | React, Next.js, React Native (Expo), HTML5, CSS3 |
+| **Back-end & Dados** | Node.js, APIs REST, PostgreSQL, Power BI |
+| **Ferramentas** | Git, GitHub, Docker, Jest, Microsoft PowerApps |
 
 ## ✨ O que você encontra neste projeto
 
@@ -48,6 +49,7 @@ Este repositório é meu cartão de visitas digital e reúne:
 
 - 🧑‍💻 Perfil profissional e resumo técnico
 - 💼 Experiências profissionais
+- 🚀 Projetos pessoais e acadêmicos
 - 🎓 Formação acadêmica no IESB
 - 📚 Cursos e certificações
 - 🌙 Informação sobre o período noturno da graduação
@@ -77,7 +79,7 @@ Ou acesse diretamente:
 
 ## 📬 Vamos conversar?
 
-Estou sempre aberto a trocar ideias sobre desenvolvimento, automação e tecnologia.
+Estou sempre aberto a trocar ideias sobre desenvolvimento e tecnologia.
 
 <div align="center">
 

@@ -6,22 +6,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gabriel Serejo - Resume</title>
   <style>
-    @page { size: A4; margin: 16mm 17mm; }
+    @page { size: A4; margin: 12mm 16mm; }
     * { box-sizing: border-box; }
-    body { color: #1f2937; font-family: Arial, Helvetica, sans-serif; font-size: 10.5pt; line-height: 1.38; margin: 0; }
+    body { color: #1f2937; font-family: Arial, Helvetica, sans-serif; font-size: 10pt; line-height: 1.32; margin: 0; }
     header { border-bottom: 2px solid #1f2937; margin-bottom: 14px; padding-bottom: 9px; }
     h1 { font-size: 23pt; margin: 0 0 2px; }
     .headline { color: #374151; font-size: 12pt; font-weight: bold; margin-bottom: 5px; }
     .contact { font-size: 9.5pt; }
-    h2 { border-bottom: 1px solid #9ca3af; color: #111827; font-size: 12pt; margin: 13px 0 7px; padding-bottom: 2px; text-transform: uppercase; }
+    h2 { border-bottom: 1px solid #9ca3af; color: #111827; font-size: 12pt; margin: 10px 0 6px; padding-bottom: 2px; text-transform: uppercase; }
     h3 { font-size: 11pt; margin: 8px 0 1px; }
     p { margin: 3px 0 6px; }
     ul { margin: 3px 0 7px; padding-left: 18px; }
     li { margin-bottom: 2px; }
     .period { color: #374151; float: right; font-weight: bold; }
     .muted { color: #4b5563; }
-    .skills { columns: 2; }
-    .skills p { break-inside: avoid; }
+    .stack { color: #4b5563; font-size: 9.5pt; font-weight: normal; margin-left: 6px; }
+    .skills p { margin: 2px 0; }
+    a.period { font-weight: normal; }
     a { color: inherit; text-decoration: none; }
   </style>
 </head>
@@ -29,10 +30,13 @@
 <body>
   <header>
     <h1>Gabriel Serejo</h1>
-    <div class="headline">Junior Full Stack Developer | Process Automation</div>
+    <div class="headline">Full Stack Development Intern | TypeScript · Python · Rust · React</div>
     <div class="contact">
-      Brasilia, Brazil | gabrielserejo21@gmail.com | +55 (61) 99327-9914<br>
-      GitHub: github.com/GSerejo | LinkedIn: linkedin.com/in/gabriel-serejo-118279162/
+      Brasilia, Brazil | <a href="mailto:gabrielserejo21@gmail.com">gabrielserejo21@gmail.com</a> |
+      <a href="https://wa.me/5561993279914">+55 (61) 99327-9914</a><br>
+      <a href="https://github.com/GSerejo">github.com/GSerejo</a> |
+      <a href="https://www.linkedin.com/in/gabriel-serejo-118279162/">linkedin.com/in/gabriel-serejo-118279162</a> |
+      <a href="https://gserejo.github.io/Curriculo/?lang=en">gserejo.github.io/Curriculo</a>
     </div>
   </header>
 
@@ -40,72 +44,74 @@
     <section>
       <h2>Professional summary</h2>
       <p>
-        Computer Science student in the 7th semester with hands-on experience in software development,
-        process automation, and technical support. I build applications and APIs using JavaScript,
-        TypeScript, Node.js, React, and relational databases. Experienced with n8n and Microsoft PowerApps
-        for system integration and reducing repetitive operational work. Seeking an opportunity as a
-        Junior Software Developer or Software Engineering Intern.
+        Full Stack Development Intern at CDS Solutions, building systems for public and private sector clients
+        with TypeScript, Python, and Rust. Computer Science student at IESB, with a path from IT support to
+        software development and personal projects in React Native, Next.js, and PostgreSQL.
       </p>
     </section>
 
     <section>
       <h2>Professional experience</h2>
-      <h3>IT Intern - CFN <span class="period">2025 - Present</span></h3>
+      <h3>Full Stack Development Intern - CDS Solutions <span class="period">Sep 2026 - Present</span></h3>
       <ul>
-        <li>Develop and maintain integration and automation workflows using n8n and Microsoft PowerApps.</li>
-        <li>Build web interfaces with HTML and CSS.</li>
-        <li>Provide specialized technical support for internal systems.</li>
+        <li>Develop systems for public sector clients, such as the Brazilian Navy, and for small and mid-sized private companies.</li>
+        <li>Work across front-end and back-end with TypeScript, Python, and Rust.</li>
       </ul>
 
-      <h3>IT Intern - IESB <span class="period">2024 - 2025</span></h3>
+      <h3>IT Intern - CFN <span class="period">Mar 2025 - Sep 2026</span></h3>
       <ul>
-        <li>Manage the availability of computer laboratories.</li>
-        <li>Perform network diagnostics and support academic systems.</li>
+        <li>Developed and maintained internal apps with Microsoft PowerApps.</li>
+        <li>Built web interfaces with HTML and CSS.</li>
+        <li>Provided technical support for internal systems.</li>
       </ul>
 
-      <h3>Intern - PhMarketing <span class="period">2022</span></h3>
+      <h3>IT Intern - IESB <span class="period">Mar 2024 - Mar 2025</span></h3>
       <ul>
-        <li>Created graphic designs and content for social media.</li>
+        <li>Managed the availability of computer laboratories.</li>
+        <li>Performed network diagnostics and supported academic systems.</li>
       </ul>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <h3>Medication Reminder App <span class="stack">React Native (Expo), TypeScript</span>
+        <a class="period" href="https://github.com/GSerejo/App-remedios">github.com/GSerejo/App-remedios</a></h3>
+      <p>
+        Medication reminder for elderly people and children: an alarm sounds at each dose, the patient
+        photographs the blister pack, and the caregiver gets the medication, date, and time on WhatsApp
+        (<a href="https://www.youtube.com/watch?v=M813-sd0z9c">demo video</a>).
+      </p>
+
+      <h3>TabNews Clone <span class="stack">Next.js, PostgreSQL, Docker, Jest</span>
+        <a class="period" href="https://github.com/GSerejo/clone-tabnews">github.com/GSerejo/clone-tabnews</a></h3>
+      <p>
+        Ongoing Curso.dev project: Next.js API backed by PostgreSQL on Docker Compose, with Jest integration
+        tests, deployed at <a href="https://gserejo.com.br/">gserejo.com.br</a>.
+      </p>
     </section>
 
     <section>
       <h2>Education</h2>
       <h3>Bachelor's Degree in Computer Science - IESB <span class="period">2023 - Dec 2027</span></h3>
       <p class="muted">7th semester | Evening classes</p>
-    </section>
 
-    <section>
-      <h2>Development</h2>
-      <p>
-        <strong>Full Stack Engineering Program - Curso.dev (Filipe Deschamps)</strong>
-        <span class="period">2026 - Present</span><br>
-        Full Stack development with Next.js, PostgreSQL, and Docker, focused on architecture,
-        automated testing (TDD), CI/CD with GitHub Actions, API security, and Clean Code.
-      </p>
+      <h3>Full Stack Engineering Program - Curso.dev (Filipe Deschamps) <span class="period">2026 - Present</span></h3>
     </section>
 
     <section>
       <h2>Technical skills</h2>
       <div class="skills">
-        <p><strong>Languages:</strong> JavaScript, TypeScript, Python, C, Java</p>
-        <p><strong>Front-end:</strong> React, Next.js, HTML5, CSS3, Tailwind CSS</p>
-        <p><strong>Back-end:</strong> Node.js, Express, RESTful APIs</p>
-        <p><strong>Data:</strong> SQL, PostgreSQL, data modeling, Power BI</p>
-        <p><strong>Automation and DevOps:</strong> n8n, Microsoft PowerApps, Git, GitHub, Docker</p>
-        <p><strong>Soft skills:</strong> communication, proactivity, problem solving</p>
+        <p><strong>Languages:</strong> TypeScript, JavaScript, Python, Rust, Java, SQL</p>
+        <p><strong>Front-end and mobile:</strong> React, Next.js, React Native (Expo), HTML5, CSS3</p>
+        <p><strong>Back-end and data:</strong> Node.js, REST APIs, PostgreSQL, Power BI</p>
+        <p><strong>Tools:</strong> Git, GitHub, Docker, Jest, Microsoft PowerApps</p>
       </div>
     </section>
 
     <section>
-      <h2>Courses and certifications</h2>
-      <ul>
-        <li><strong>Casa Thomas Jefferson:</strong> Thomas Adult Expansion B, intermediate English (B1) - 2025 - Present</li>
-        <li><strong>DNC:</strong> Power BI & SQL (320 hours) - 2023</li>
-        <li><strong>Caelum:</strong> JavaScript - 2021</li>
-        <li><strong>DIO:</strong> Machine Learning Training - 2024</li>
-        <li><strong>Saga START:</strong> Design, computer graphics, and video editing (280 hours) - 2018</li>
-      </ul>
+      <h2>Courses and languages</h2>
+      <p><strong>Courses:</strong> Machine Learning - DIO (2024) · Power BI & SQL, 320h - DNC (2023) · JavaScript - Caelum (2021)</p>
+      <p><strong>Languages:</strong> Portuguese (native) · English, intermediate (B1), in progress at Casa Thomas Jefferson</p>
     </section>
   </main>
 </body>

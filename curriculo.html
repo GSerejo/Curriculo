@@ -8,7 +8,7 @@
   <style>
     @page {
       size: A4;
-      margin: 16mm 17mm;
+      margin: 12mm 16mm;
     }
 
     * {
@@ -18,8 +18,8 @@
     body {
       color: #1f2937;
       font-family: Arial, Helvetica, sans-serif;
-      font-size: 10.5pt;
-      line-height: 1.38;
+      font-size: 10pt;
+      line-height: 1.32;
       margin: 0;
     }
 
@@ -49,7 +49,7 @@
       border-bottom: 1px solid #9ca3af;
       color: #111827;
       font-size: 12pt;
-      margin: 13px 0 7px;
+      margin: 10px 0 6px;
       padding-bottom: 2px;
       text-transform: uppercase;
     }
@@ -82,12 +82,19 @@
       color: #4b5563;
     }
 
-    .skills {
-      columns: 2;
+    .stack {
+      color: #4b5563;
+      font-size: 9.5pt;
+      font-weight: normal;
+      margin-left: 6px;
     }
 
     .skills p {
-      break-inside: avoid;
+      margin: 2px 0;
+    }
+
+    a.period {
+      font-weight: normal;
     }
 
     a {
@@ -100,11 +107,13 @@
 <body>
   <header>
     <h1>Gabriel Serejo</h1>
-    <div class="headline">Desenvolvedor Full Stack Júnior | Automação de Processos</div>
+    <div class="headline">Estagiário de Desenvolvimento Full Stack | TypeScript · Python · Rust · React</div>
     <div class="contact">
-      Brasília, DF | gabrielserejo21@gmail.com | +55 (61) 99327-9914<br>
-      GitHub: github.com/GSerejo |
-      LinkedIn: linkedin.com/in/gabriel-serejo-118279162/
+      Brasília, DF | <a href="mailto:gabrielserejo21@gmail.com">gabrielserejo21@gmail.com</a> |
+      <a href="https://wa.me/5561993279914">+55 (61) 99327-9914</a><br>
+      <a href="https://github.com/GSerejo">github.com/GSerejo</a> |
+      <a href="https://www.linkedin.com/in/gabriel-serejo-118279162/">linkedin.com/in/gabriel-serejo-118279162</a> |
+      <a href="https://gserejo.github.io/Curriculo/">gserejo.github.io/Curriculo</a>
     </div>
   </header>
 
@@ -112,72 +121,74 @@
     <section>
       <h2>Resumo profissional</h2>
       <p>
-        Estudante de Ciência da Computação no 7º semestre, com experiência prática em desenvolvimento
-        de software, automação de processos e suporte técnico. Desenvolvo aplicações e APIs utilizando
-        JavaScript, TypeScript, Node.js, React e bancos de dados relacionais. Tenho experiência com
-        n8n e Microsoft PowerApps para integração de sistemas e redução de tarefas operacionais repetitivas.
-        Busco oportunidade como Desenvolvedor Júnior ou Estagiário de Desenvolvimento/Engenharia de Software.
+        Estagiário de Desenvolvimento Full Stack na CDS Solutions, criando sistemas para os setores público e
+        privado com TypeScript, Python e Rust. Estudante de Ciência da Computação no IESB, com trajetória do
+        suporte de TI ao desenvolvimento e projetos próprios em React Native, Next.js e PostgreSQL.
       </p>
     </section>
 
     <section>
       <h2>Experiência profissional</h2>
-      <h3>Estagiário de TI - CFN <span class="period">2025 - Atual</span></h3>
+      <h3>Estagiário de Desenvolvimento Full Stack - CDS Solutions <span class="period">Set/2026 - Atual</span></h3>
       <ul>
-        <li>Desenvolvimento e manutenção de fluxos de integração e automação com n8n e Microsoft PowerApps.</li>
-        <li>Criação de interfaces web com HTML e CSS.</li>
-        <li>Suporte técnico especializado a sistemas internos.</li>
+        <li>Desenvolvimento de sistemas para clientes do setor público, como a Marinha do Brasil, e para empresas privadas de pequeno e médio porte.</li>
+        <li>Atuação no front-end e no back-end com TypeScript, Python e Rust.</li>
       </ul>
 
-      <h3>Estagiário de TI - IESB <span class="period">2024 - 2025</span></h3>
+      <h3>Estagiário de TI - CFN <span class="period">Mar/2025 - Set/2026</span></h3>
       <ul>
-        <li>Gestão e disponibilidade de laboratórios de informática.</li>
+        <li>Desenvolvimento e manutenção de aplicativos internos com Microsoft PowerApps.</li>
+        <li>Criação de interfaces web com HTML e CSS.</li>
+        <li>Suporte técnico a sistemas internos.</li>
+      </ul>
+
+      <h3>Estagiário de TI - IESB <span class="period">Mar/2024 - Mar/2025</span></h3>
+      <ul>
+        <li>Gestão e disponibilidade dos laboratórios de informática.</li>
         <li>Diagnóstico de redes e suporte a sistemas acadêmicos.</li>
       </ul>
-
-      <h3>Estagiário - PhMarketing <span class="period">2022</span></h3>
-      <ul>
-        <li>Design gráfico e criação de conteúdo para mídias sociais.</li>
-      </ul>
     </section>
 
     <section>
-      <h2>Formação acadêmica</h2>
+      <h2>Projetos</h2>
+      <h3>App Remédios <span class="stack">React Native (Expo), TypeScript</span>
+        <a class="period" href="https://github.com/GSerejo/App-remedios">github.com/GSerejo/App-remedios</a></h3>
+      <p>
+        Lembrete de medicação para idosos e crianças: alarme no horário de cada remédio e, ao tomar, o paciente
+        fotografa a cartela e o cuidador recebe pelo WhatsApp o remédio, o dia e o horário
+        (<a href="https://www.youtube.com/watch?v=M813-sd0z9c">vídeo de demonstração</a>).
+      </p>
+
+      <h3>Clone do TabNews <span class="stack">Next.js, PostgreSQL, Docker, Jest</span>
+        <a class="period" href="https://github.com/GSerejo/clone-tabnews">github.com/GSerejo/clone-tabnews</a></h3>
+      <p>
+        Projeto em desenvolvimento no Curso.dev: API em Next.js com PostgreSQL em Docker Compose e testes
+        de integração com Jest, publicada em <a href="https://gserejo.com.br/">gserejo.com.br</a>.
+      </p>
+    </section>
+
+    <section>
+      <h2>Formação</h2>
       <h3>Bacharelado em Ciência da Computação - IESB <span class="period">2023 - Dez/2027</span></h3>
       <p class="muted">7º semestre | Período noturno</p>
-    </section>
 
-    <section>
-      <h2>Desenvolvimento</h2>
-      <p>
-        <strong>Formação Full Stack - Curso.dev (Filipe Deschamps)</strong>
-        <span class="period">2026 - Em andamento</span><br>
-        Desenvolvimento Full Stack com Next.js, PostgreSQL e Docker, com foco em arquitetura,
-        testes automatizados (TDD), CI/CD com GitHub Actions, segurança de APIs e Clean Code.
-      </p>
+      <h3>Formação Full Stack - Curso.dev (Filipe Deschamps) <span class="period">2026 - Em andamento</span></h3>
     </section>
 
     <section>
       <h2>Competências técnicas</h2>
       <div class="skills">
-        <p><strong>Linguagens:</strong> JavaScript, TypeScript, Python, C, Java</p>
-        <p><strong>Front-end:</strong> React, Next.js, HTML5, CSS3, Tailwind CSS</p>
-        <p><strong>Back-end:</strong> Node.js, Express, APIs RESTful</p>
-        <p><strong>Dados:</strong> SQL, PostgreSQL, modelagem de dados, Power BI</p>
-        <p><strong>Automação e DevOps:</strong> n8n, Microsoft PowerApps, Git, GitHub, Docker</p>
-        <p><strong>Competências:</strong> comunicação, proatividade, resolução de problemas</p>
+        <p><strong>Linguagens:</strong> TypeScript, JavaScript, Python, Rust, Java, SQL</p>
+        <p><strong>Front-end e mobile:</strong> React, Next.js, React Native (Expo), HTML5, CSS3</p>
+        <p><strong>Back-end e dados:</strong> Node.js, APIs REST, PostgreSQL, Power BI</p>
+        <p><strong>Ferramentas:</strong> Git, GitHub, Docker, Jest, Microsoft PowerApps</p>
       </div>
     </section>
 
     <section>
-      <h2>Cursos e certificações</h2>
-      <ul>
-        <li><strong>Casa Thomas Jefferson:</strong> Thomas Adult Expansion B, inglês intermediário (B1) - 2025 - Em andamento</li>
-        <li><strong>DNC:</strong> Power BI & SQL (320h) - 2023</li>
-        <li><strong>Caelum:</strong> JavaScript - 2021</li>
-        <li><strong>DIO:</strong> Machine Learning Training - 2024</li>
-        <li><strong>Saga START:</strong> Design, computação gráfica e edição de vídeo (280h) - 2018</li>
-      </ul>
+      <h2>Cursos e idiomas</h2>
+      <p><strong>Cursos:</strong> Machine Learning - DIO (2024) · Power BI & SQL, 320h - DNC (2023) · JavaScript - Caelum (2021)</p>
+      <p><strong>Idiomas:</strong> Português nativo · Inglês intermediário (B1), em curso na Casa Thomas Jefferson</p>
     </section>
   </main>
 </body>

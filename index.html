@@ -5,6 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gabriel Serejo | Dev Portfolio</title>
+  <meta name="description"
+    content="Portfólio e currículo de Gabriel Serejo, Estagiário de Desenvolvimento Full Stack na CDS Solutions e estudante de Ciência da Computação no IESB.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Gabriel Serejo | Dev Portfolio">
+  <meta property="og:description"
+    content="Estagiário de Desenvolvimento Full Stack | TypeScript, Python, Rust, React e React Native.">
+  <meta property="og:url" content="https://gserejo.github.io/Curriculo/index.html">
+  <meta property="og:image" content="https://gserejo.github.io/Curriculo/Foto.jpg">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='bold' text-anchor='middle' fill='%2338bdf8'%3E%26lt;G%26gt;%3C/text%3E%3C/svg%3E">
+
   <link rel="stylesheet" href="style.css">
 
   <link
@@ -17,8 +33,15 @@
 <body>
 
   <div class="language-switch">
-    <input type="checkbox" id="lang-toggle" class="check-toggle">
-    <label for="lang-toggle" class="slider"></label>
+    <input type="checkbox" id="lang-toggle" class="check-toggle" aria-label="Mudar idioma / Switch language">
+    <label for="lang-toggle" class="slider">
+      <i class="fas fa-globe-americas slider-globe" aria-hidden="true"></i>
+      <span class="slider-track" aria-hidden="true">
+        <span class="slider-knob"></span>
+        <span class="slider-option slider-option--pt">PT</span>
+        <span class="slider-option slider-option--en">EN</span>
+      </span>
+    </label>
   </div>
 
   <div class="fluid-background">
@@ -37,8 +60,8 @@
         </div>
         <h1 class="dev-name">&lt;Gabriel Serejo&gt;</h1>
         <p class="dev-role">
-          <span class="pt-text">Ciência da Computação 7º Semestre</span>
-          <span class="en-text">Computer Science 7th Semester</span>
+          <span class="pt-text">Estagiário de Desenvolvimento Full Stack</span>
+          <span class="en-text">Full Stack Development Intern</span>
         </p>
       </div>
 
@@ -56,17 +79,17 @@
 
         <div class="info-item">
           <i class="fa-brands fa-whatsapp"></i>
-          <a href="https://wa.me/5561993279914" target="_blank">
+          <a href="https://wa.me/5561993279914" target="_blank" rel="noopener noreferrer">
             +55 (61) 99327-9914
           </a>
         </div>
       </div>
 
       <div class="social-actions">
-        <a href="https://github.com/GSerejo" target="_blank" class="btn-social github">
+        <a href="https://github.com/GSerejo" target="_blank" rel="noopener noreferrer" class="btn-social github">
           <i class="fab fa-github"></i> <span>GitHub</span>
         </a>
-        <a href="https://www.linkedin.com/in/gabriel-serejo-118279162/" target="_blank" class="btn-social linkedin">
+        <a href="https://www.linkedin.com/in/gabriel-serejo-118279162/" target="_blank" rel="noopener noreferrer" class="btn-social linkedin">
           <i class="fab fa-linkedin"></i> <span>LinkedIn</span>
         </a>
         <a href="curriculo.pdf" id="resume-download" class="btn-social resume-download" download>
@@ -79,25 +102,18 @@
       <div class="tech-stack">
         <h3>_skills</h3>
         <div class="tags-container">
-          <span class="tech-tag">JavaScript</span>
           <span class="tech-tag">TypeScript</span>
-          <span class="tech-tag">Node.js</span>
-          <span class="tech-tag">React.js</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Python</span>
+          <span class="tech-tag">Rust</span>
+          <span class="tech-tag">React</span>
+          <span class="tech-tag">React Native</span>
           <span class="tech-tag">Next.js</span>
+          <span class="tech-tag">Node.js</span>
+          <span class="tech-tag">PostgreSQL</span>
           <span class="tech-tag">Docker</span>
-          <span class="tech-tag">n8n</span>
-          <span class="tech-tag">APIs REST</span>
-          <span class="tech-tag">SQL</span>
+          <span class="tech-tag">Jest</span>
           <span class="tech-tag">Git & GitHub</span>
-          <span class="tech-tag">Power BI</span>
-          <span class="tech-tag">
-            <span class="pt-text">Proatividade</span>
-            <span class="en-text">Proactivity</span>
-          </span>
-          <span class="tech-tag">
-            <span class="pt-text">Comunicação</span>
-            <span class="en-text">Communication</span>
-          </span>
         </div>
       </div>
     </aside>
@@ -113,20 +129,211 @@
         </div>
         <div class="card-body">
           <p>
-            <span class="syntax-const">const</span> <span class="syntax-var">desenvolvedor</span> = {<br>
-            &nbsp;&nbsp;nome: <span class="syntax-string">"Gabriel Serejo"</span>,<br>
-            &nbsp;&nbsp;paixao: <span class="syntax-string">
-              <span class="pt-text">"Tecnologia e Resolução de Problemas"</span>
-              <span class="en-text">"Technology and Problem Solving"</span>
+            <span class="syntax-const">const</span> <span class="syntax-var">dev</span> = {<br>
+            &nbsp;&nbsp;name: <span class="syntax-string">"Gabriel Serejo"</span>,<br>
+            &nbsp;&nbsp;role: <span class="syntax-string">
+              <span class="pt-text">"Estagiário de Desenvolvimento Full Stack"</span>
+              <span class="en-text">"Full Stack Development Intern"</span>
             </span>,<br>
-            &nbsp;&nbsp;status: <span class="syntax-string">
-              <span class="pt-text">"Buscando evolução constante"</span>
-              <span class="en-text">"Constantly seeking evolution"</span>
-            </span><br>
+            &nbsp;&nbsp;company: <span class="syntax-string">"CDS Solutions"</span>,<br>
+            &nbsp;&nbsp;stack: [<span class="syntax-string">"TypeScript"</span>, <span class="syntax-string">"Python"</span>, <span class="syntax-string">"Rust"</span>]<br>
             };
           </p>
 
-          <p class="bio-text" id="typing-effect" style="white-space: pre-line; line-height: 1.7; margin-top: 15px;"></p>
+          <p class="bio-text pt-text" data-bio>Sou Estagiário de Desenvolvimento Full Stack na CDS Solutions, onde desenvolvo sistemas para o setor público, incluindo a Marinha do Brasil, e para empresas privadas de pequeno e médio porte, usando TypeScript, Python e Rust.
+
+Estudo Ciência da Computação no IESB e cheguei ao desenvolvimento pelo caminho do suporte de TI, passando por laboratórios, redes e sistemas internos. Fora do trabalho, construo projetos próprios em React Native, Next.js e PostgreSQL.</p>
+
+          <p class="bio-text en-text" data-bio>I am a Full Stack Development Intern at CDS Solutions, where I build systems for the public sector, including the Brazilian Navy, and for small and mid-sized private companies, using TypeScript, Python, and Rust.
+
+I study Computer Science at IESB and came to software development through IT support, working with computer labs, networks, and internal systems. Outside work, I build personal projects with React Native, Next.js, and PostgreSQL.</p>
+        </div>
+      </section>
+
+      <section class="dev-card">
+        <div class="card-header">
+          <h2 class="terminal-title"><i class="fas fa-code-branch"></i> --experiences</h2>
+        </div>
+        <div class="card-body">
+          <div class="timeline">
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="date-badge">
+                  <span class="pt-text">Set/2026 - Atual</span>
+                  <span class="en-text">Sep/2026 - Current</span>
+                </div>
+                <a href="https://www.linkedin.com/company/cds-solucoes/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="company-link"
+                  aria-label="CDS Solutions no LinkedIn">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i> CDS Solutions
+                </a>
+                <h3>
+                  <span class="pt-text">Estagiário de Desenvolvimento Full Stack</span>
+                  <span class="en-text">Full Stack Development Intern</span>
+                </h3>
+                <p>
+                  <span class="pt-text">Desenvolvimento de sistemas para clientes do setor público, como a Marinha do Brasil, e para empresas privadas de pequeno e médio porte, com TypeScript, Python e Rust.</span>
+                  <span class="en-text">Building systems for public sector clients, such as the Brazilian Navy, and for small and mid-sized private companies, with TypeScript, Python, and Rust.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="date-badge">
+                  <span class="pt-text">Mar/2025 - Set/2026</span>
+                  <span class="en-text">Mar/2025 - Sep/2026</span>
+                </div>
+                <a href="https://www.linkedin.com/company/cfnnutri/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="company-link"
+                  aria-label="CFN no LinkedIn">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i> CFN
+                </a>
+                <h3>
+                  <span class="pt-text">Estagiário de TI</span>
+                  <span class="en-text">IT Intern</span>
+                </h3>
+                <p>
+                  <span class="pt-text">Desenvolvimento e manutenção de aplicativos internos com Microsoft PowerApps, criação de interfaces web (HTML/CSS) e suporte técnico a sistemas internos.</span>
+                  <span class="en-text">Developed and maintained internal apps with Microsoft PowerApps, built web interfaces (HTML/CSS), and provided technical support for internal systems.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="date-badge">Mar/2024 - Mar/2025</div>
+                <a href="https://www.linkedin.com/school/iesb/posts/?feedView=all" target="_blank" rel="noopener noreferrer" class="company-link"
+                  aria-label="IESB no LinkedIn">
+                  <i class="fab fa-linkedin" aria-hidden="true"></i> IESB
+                </a>
+                <h3>
+                  <span class="pt-text">Estagiário de TI</span>
+                  <span class="en-text">IT Intern</span>
+                </h3>
+                <p>
+                  <span class="pt-text">Gestão e disponibilidade de laboratórios de informática, diagnóstico de redes e suporte a sistemas acadêmicos.</span>
+                  <span class="en-text">Management and availability of computer labs, network diagnostics, and support for academic platforms.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <div class="date-badge">2022</div>
+                <span class="company-link">PhMarketing</span>
+                <h3>
+                  <span class="pt-text">Estagiário</span>
+                  <span class="en-text">Intern</span>
+                </h3>
+                <p>
+                  <span class="pt-text">Design gráfico e criação de conteúdo para mídias sociais.</span>
+                  <span class="en-text">Graphic design and content creation for social media.</span>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="dev-card">
+        <div class="card-header">
+          <h2 class="terminal-title"><i class="fas fa-folder-open"></i> ~/projects</h2>
+        </div>
+        <div class="card-body">
+          <div class="projects-grid">
+
+            <article class="project-card">
+              <div class="project-top">
+                <i class="fas fa-pills project-icon" aria-hidden="true"></i>
+                <div class="project-links">
+                  <a href="https://github.com/GSerejo/App-remedios" target="_blank" rel="noopener noreferrer"
+                    title="Código / Code" aria-label="Código do App Remédios no GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://www.youtube.com/watch?v=M813-sd0z9c" target="_blank" rel="noopener noreferrer"
+                    title="Vídeo / Demo" aria-label="Vídeo de demonstração do App Remédios">
+                    <i class="fab fa-youtube" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <h3>
+                <span class="pt-text">App Remédios</span>
+                <span class="en-text">Medication Reminder App</span>
+              </h3>
+              <p>
+                <span class="pt-text">App de lembrete de medicação pensado para idosos e crianças. Dispara um alarme no horário de cada remédio; ao tomar, o paciente fotografa a cartela e o cuidador recebe pelo WhatsApp o remédio, o dia e o horário.</span>
+                <span class="en-text">Medication reminder app designed for elderly people and children. It sounds an alarm at each medication time; after taking it, the patient photographs the blister pack and the caregiver receives the medication, date, and time on WhatsApp.</span>
+              </p>
+              <ul class="project-stack">
+                <li>React Native</li>
+                <li>Expo</li>
+                <li>TypeScript</li>
+              </ul>
+            </article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <i class="fas fa-newspaper project-icon" aria-hidden="true"></i>
+                <div class="project-links">
+                  <a href="https://gserejo.com.br/" target="_blank" rel="noopener noreferrer"
+                    title="Site no ar / Live site" aria-label="Clone do TabNews no ar">
+                    <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                  </a>
+                  <a href="https://github.com/GSerejo/clone-tabnews" target="_blank" rel="noopener noreferrer"
+                    title="Código / Code" aria-label="Código do clone do TabNews no GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <h3>
+                <span class="pt-text">Clone do TabNews</span>
+                <span class="en-text">TabNews Clone</span>
+                <span class="project-status">
+                  <span class="pt-text">em desenvolvimento</span>
+                  <span class="en-text">in progress</span>
+                </span>
+              </h3>
+              <p>
+                <span class="pt-text">Projeto do Curso.dev: API em Next.js com PostgreSQL em Docker Compose e testes de integração com Jest, publicada em gserejo.com.br.</span>
+                <span class="en-text">Curso.dev project: Next.js API backed by PostgreSQL on Docker Compose, with Jest integration tests, deployed at gserejo.com.br.</span>
+              </p>
+              <ul class="project-stack">
+                <li>Next.js</li>
+                <li>PostgreSQL</li>
+                <li>Docker</li>
+                <li>Jest</li>
+              </ul>
+            </article>
+
+            <article class="project-card project-card--soon">
+              <div class="project-top">
+                <i class="fas fa-rocket project-icon" aria-hidden="true"></i>
+                <div class="project-links">
+                  <a href="https://github.com/GSerejo" target="_blank" rel="noopener noreferrer"
+                    title="Acompanhe no GitHub / Follow on GitHub" aria-label="Acompanhe no GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </div>
+              <h3>
+                <span class="pt-text">Em breve</span>
+                <span class="en-text">Coming soon</span>
+              </h3>
+              <p>
+                <span class="pt-text">Um novo projeto está sendo construído. Acompanhe pelo GitHub.</span>
+                <span class="en-text">A new project is under construction. Follow along on GitHub.</span>
+              </p>
+              <ul class="project-stack">
+                <li>git commit -m "wip"</li>
+              </ul>
+            </article>
+
+          </div>
         </div>
       </section>
 
@@ -163,13 +370,15 @@
           <div class="edu-extras-grid">
 
             <div class="course-item">
-              <span class="course-date">[2026] [Cursando]</span>
+              <span class="course-date">[2026]
+                <span class="pt-text">[Cursando]</span>
+                <span class="en-text">[In progress]</span>
+              </span>
               <div class="course-info">
                 <div class="course-header">
-                  <h4>Curso.dev | Filipe Deschamps <br>
-                    <hr>Full Stack Software Engineering – Node.js, Next.js & DevOps
-                  </h4>
+                  <h4>Curso.dev | Filipe Deschamps</h4>
                 </div>
+                <span class="course-subtitle">Full Stack Software Engineering – Node.js, Next.js & DevOps</span>
                 <p>
                   <span class="pt-text">
                     Desenvolvimento Full Stack com Next.js, PostgreSQL e Docker. Foco em arquitetura, testes
@@ -184,10 +393,16 @@
             </div>
 
             <div class="course-item">
-              <span class="course-date">[2025] [Cursando]</span>
+              <span class="course-date">[2025]
+                <span class="pt-text">[Cursando]</span>
+                <span class="en-text">[In progress]</span>
+              </span>
               <div class="course-info">
                 <div class="course-header">
-                  <h4>Casa Thomas Jefferson | Inglês</h4>
+                  <h4>
+                    <span class="pt-text">Casa Thomas Jefferson | Inglês</span>
+                    <span class="en-text">Casa Thomas Jefferson | English</span>
+                  </h4>
                 </div>
                 <p>
                   <span class="pt-text">Curso de inglês – Thomas Adult Expansion B, nível intermediário (B1).</span>
@@ -197,12 +412,30 @@
             </div>
 
             <div class="course-item">
+              <span class="course-date">[2024]</span>
+              <div class="course-info">
+                <div class="course-header">
+                  <h4>Machine Learning Training – DIO</h4>
+                  <a href="certificados/ml_dio.pdf" target="_blank" rel="noopener noreferrer" class="btn-cert"
+                    title="Ver certificado / View certificate" aria-label="Certificado DIO (PDF)">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                  </a>
+                </div>
+                <p>
+                  <span class="pt-text">Introdução aos conceitos de IA e treinamento de modelos preditivos.</span>
+                  <span class="en-text">Introduction to AI concepts and predictive model training.</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="course-item">
               <span class="course-date">[2023]</span>
               <div class="course-info">
                 <div class="course-header">
                   <h4>DNC: Power BI & SQL (320h)</h4>
-                  <a href="certificados/dnc_powerbi.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-                    <i class="fas fa-file-pdf"></i>
+                  <a href="certificados/dnc_powerbi.pdf" target="_blank" rel="noopener noreferrer" class="btn-cert"
+                    title="Ver certificado / View certificate" aria-label="Certificado DNC (PDF)">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
                   </a>
                 </div>
                 <p>
@@ -219,8 +452,9 @@
               <div class="course-info">
                 <div class="course-header">
                   <h4>JavaScript – Caelum</h4>
-                  <a href="certificados/js_caelum.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-                    <i class="fas fa-file-pdf"></i>
+                  <a href="certificados/js_caelum.pdf" target="_blank" rel="noopener noreferrer" class="btn-cert"
+                    title="Ver certificado / View certificate" aria-label="Certificado Caelum (PDF)">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
                   </a>
                 </div>
                 <p>
@@ -233,45 +467,13 @@
             </div>
 
             <div class="course-item">
-              <span class="course-date">[2024]</span>
-              <div class="course-info">
-                <div class="course-header">
-                  <h4>Git & GitHub</h4>
-                  <a href="https://github.com/GSerejo" target="_blank" class="btn-cert" title="Ver Certificado">
-                    <i class="fas fa-file-pdf"></i>
-                  </a>
-                </div>
-                <p>
-                  <span class="pt-text">Controle de versão, fluxo de trabalho em equipe e boas práticas de
-                    commits.</span>
-                  <span class="en-text">Version control, team workflow, and commit best practices.</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="course-item">
-              <span class="course-date">[2024]</span>
-              <div class="course-info">
-                <div class="course-header">
-                  <h4>Machine Learning Training – DIO</h4>
-                  <a href="certificados/ml_dio.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-                    <i class="fas fa-file-pdf"></i>
-                  </a>
-                </div>
-                <p>
-                  <span class="pt-text">Introdução aos conceitos de IA e treinamento de modelos preditivos.</span>
-                  <span class="en-text">Introduction to AI concepts and predictive model training.</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="course-item">
               <span class="course-date">[2018]</span>
               <div class="course-info">
                 <div class="course-header">
                   <h4>Design - Saga START</h4>
-                  <a href="certificados/saga_start.pdf" target="_blank" class="btn-cert" title="Ver Certificado">
-                    <i class="fas fa-file-pdf"></i>
+                  <a href="certificados/saga_start.pdf" target="_blank" rel="noopener noreferrer" class="btn-cert"
+                    title="Ver certificado / View certificate" aria-label="Certificado Saga START (PDF)">
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
                   </a>
                 </div>
                 <p>
@@ -279,68 +481,6 @@
                     (280h).</span>
                   <span class="en-text">Computer graphics, digital design, video editing, and digital painting
                     (280h).</span>
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="dev-card">
-        <div class="card-header">
-          <h2 class="terminal-title"><i class="fas fa-code-branch"></i> --experiences</h2>
-        </div>
-        <div class="card-body">
-          <div class="timeline">
-
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <div class="date-badge">
-                  <span class="pt-text">2025 - Atual</span>
-                  <span class="en-text">2025 - Current</span>
-                </div>
-                <h3>
-                  <span class="pt-text">Estagiário de TI</span>
-                  <span class="en-text">IT Intern</span>
-                  <span class="at">@ CFN</span>
-                </h3>
-                <p>
-                  <span class="pt-text">Desenvolvimento e manutenção de fluxos de integração e automação com n8n e Microsoft PowerApps. Criação de interfaces web (HTML/CSS) e suporte técnico especializado a sistemas internos.</span>
-                  <span class="en-text">Development and maintenance of integration and automation workflows using n8n and Microsoft PowerApps. Building web interfaces (HTML/CSS) and specialized technical support for internal systems.</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <div class="date-badge">2024 - 2025</div>
-                <h3>
-                  <span class="pt-text">Estagiário de TI</span>
-                  <span class="en-text">IT Intern</span>
-                  <span class="at">@ IESB</span>
-                </h3>
-                <p>
-                  <span class="pt-text">Gestão e disponibilidade de laboratórios de informática, diagnóstico de redes e suporte a sistemas acadêmicos.</span>
-                  <span class="en-text">Management and availability of computer labs, network diagnostics, and support for academic platforms.</span>
-                </p>
-              </div>
-            </div>
-
-            <div class="timeline-item">
-              <div class="timeline-marker"></div>
-              <div class="timeline-content">
-                <div class="date-badge">2022</div>
-                <h3>
-                  <span class="pt-text">Estagiário</span>
-                  <span class="en-text">Intern</span>
-                  <span class="at">@ PhMarketing</span>
-                </h3>
-                <p>
-                  <span class="pt-text">Design gráfico e criação de conteúdo para mídias sociais.</span>
-                  <span class="en-text">Graphic design and content creation for social media.</span>
                 </p>
               </div>
             </div>
@@ -362,11 +502,8 @@
           <div class="events-grid">
             <article class="event-card">
               <div class="event-thumb">
-                <img src="evento1.jpg" alt="Workshop Power BI"
-                  onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Workshop+IMG'">
-                <div class="event-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
+                <img src="evento1.jpg" loading="lazy"
+                  alt="Workshop Criando seu primeiro agente de IA, no SENAC">
               </div>
               <div class="event-info">
                 <h3>
@@ -385,12 +522,9 @@
             </article>
 
             <article class="event-card">
-              <div class="event-thumb">
-                <img src="evento2.jpg" alt="Semana Tech"
-                  onerror="this.src='https://placehold.co/600x400/1e293b/ffffff?text=Evento+IMG'">
-                <div class="event-overlay">
-                  <i class="fas fa-expand"></i>
-                </div>
+              <!-- Sem foto do evento: substitua este bloco por <img src="evento2.jpg" ...> quando tiver a imagem -->
+              <div class="event-thumb event-thumb--icon" aria-hidden="true">
+                <i class="fas fa-users"></i>
               </div>
               <div class="event-info">
                 <h3>
@@ -413,70 +547,68 @@
   </div>
 
   <script>
-    // Configuração dos textos bilíngues para a digitação
-    const bioTexts = {
-      pt: `Sou estudante de Ciência da Computação no IESB com foco em desenvolvimento de software e automação de processos. Desenvolvo aplicações utilizando o ecossistema JavaScript (Node.js, React e TypeScript), bancos de dados relacionais e APIs REST.
+    const LANG_KEY = 'lang';
+    const TYPING_CHARS_PER_FRAME = 4;
 
-Na minha atuação prática, desenvolvo soluções e fluxos automatizados (n8n, PowerApps) que integram sistemas e reduzem o trabalho operacional repetitivo entre equipes. Busco oportunidades para atuar como Desenvolvedor Júnior ou Estagiário de Desenvolvimento/Engenharia de Software.
-
-Stack & Tecnologias:
-• Linguagens: JavaScript, TypeScript, Python, C, Java
-• Back-end & Dados: Node.js, Express, PostgreSQL, Modelagem de Dados
-• Front-end: React, HTML5, CSS3, Tailwind CSS
-• Automações & DevOps: n8n, Git, GitHub, Docker, APIs RESTful`,
-
-      en: `I am a Computer Science student at IESB focused on software development and process automation. I build applications using the JavaScript ecosystem (Node.js, React, and TypeScript), relational databases, and REST APIs.
-
-In my hands-on experience, I design automated workflows and solutions (n8n, PowerApps) that integrate systems and eliminate repetitive operational overhead across teams. I am seeking opportunities as a Junior Software Developer or Software Engineering Intern.
-
-Stack & Technologies:
-• Languages: JavaScript, TypeScript, Python, C, Java
-• Back-end & Data: Node.js, Express, PostgreSQL, Data Modeling
-• Front-end: React, HTML5, CSS3, Tailwind CSS
-• Automations & DevOps: n8n, Git, GitHub, Docker, RESTful APIs`
-    };
-
-    const typingElement = document.getElementById('typing-effect');
-    const typingSpeed = 3; // Velocidade ajustada para melhor experiência com texto longo
-    let charIndex = 0;
-    let currentLang = 'pt';
-    let typeTimeout;
-
-    function typeWriter() {
-      const textToType = bioTexts[currentLang];
-
-      if (charIndex < textToType.length) {
-        typingElement.innerHTML += textToType.charAt(charIndex);
-        charIndex++;
-        typeTimeout = setTimeout(typeWriter, typingSpeed);
-      }
-    }
-
-    // Inicia a digitação ao carregar
-    window.onload = () => {
-      typeWriter();
-    };
-
-    // Alternador de idioma
     const langToggle = document.getElementById('lang-toggle');
     const resumeDownload = document.getElementById('resume-download');
+    const bioElements = document.querySelectorAll('[data-bio]');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    langToggle.addEventListener('change', () => {
-      if (langToggle.checked) {
-        document.body.classList.add('lang-en');
-        currentLang = 'en';
-        resumeDownload.href = 'resume-en.pdf';
-      } else {
-        document.body.classList.remove('lang-en');
-        currentLang = 'pt';
-        resumeDownload.href = 'curriculo.pdf';
+    // Guarda o texto completo (que já está no HTML) para a animação de digitação
+    bioElements.forEach((el) => { el.dataset.full = el.textContent; });
+
+    let typingFrame;
+
+    function typeBio(el) {
+      cancelAnimationFrame(typingFrame);
+      bioElements.forEach((bio) => { bio.textContent = bio.dataset.full; });
+
+      if (prefersReducedMotion) return;
+
+      const fullText = el.dataset.full;
+      let charIndex = 0;
+      el.textContent = '';
+
+      function step() {
+        charIndex = Math.min(charIndex + TYPING_CHARS_PER_FRAME, fullText.length);
+        el.textContent = fullText.slice(0, charIndex);
+        if (charIndex < fullText.length) typingFrame = requestAnimationFrame(step);
       }
 
-      clearTimeout(typeTimeout);
-      typingElement.innerHTML = '';
-      charIndex = 0;
-      typeWriter();
+      typingFrame = requestAnimationFrame(step);
+    }
+
+    function applyLanguage(lang) {
+      const isEnglish = lang === 'en';
+
+      document.body.classList.toggle('lang-en', isEnglish);
+      document.documentElement.lang = isEnglish ? 'en' : 'pt-BR';
+      langToggle.checked = isEnglish;
+      resumeDownload.href = isEnglish ? 'resume-en.pdf' : 'curriculo.pdf';
+
+      typeBio(document.querySelector(isEnglish ? '.bio-text.en-text' : '.bio-text.pt-text'));
+    }
+
+    function getInitialLanguage() {
+      const fromUrl = new URLSearchParams(location.search).get('lang');
+      if (fromUrl === 'en' || fromUrl === 'pt') return fromUrl;
+
+      try {
+        const saved = localStorage.getItem(LANG_KEY);
+        if (saved === 'en' || saved === 'pt') return saved;
+      } catch (e) { /* storage indisponível: segue para o idioma do navegador */ }
+
+      return navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en';
+    }
+
+    langToggle.addEventListener('change', () => {
+      const lang = langToggle.checked ? 'en' : 'pt';
+      try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* ignora */ }
+      applyLanguage(lang);
     });
+
+    applyLanguage(getInitialLanguage());
   </script>
 
 </body>
