@@ -530,7 +530,7 @@ a.company-link:hover {
 /* --- PROJETOS --- */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); /* 4 cards viram 2x2; min() evita estourar em celular */
   gap: 20px;
 }
 
