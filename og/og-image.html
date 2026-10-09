@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<!--
+  Imagem de prévia (og:image) usada pelo LinkedIn, WhatsApp e outras redes: 1200x627.
+  O retrato em ASCII vem de github.com/GSerejo/GSerejo (ascii-portrait.svg).
+  Para regerar og-image.png, rode na raiz do repositório:
+    chrome --headless=new --hide-scrollbars --window-size=1200,627 --virtual-time-budget=5000 \
+      --screenshot=og-image.png og/og-image.html
+-->
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>og-image</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;800&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b1120;
+      --panel: rgba(15, 23, 42, 0.84);
+      --border: rgba(148, 163, 184, 0.22);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
+      --primary: #38bdf8;
+      --secondary: #818cf8;
+      --accent: #22c55e;
+      --mono: 'Fira Code', Consolas, monospace;
+      --sans: 'Inter', 'Segoe UI', sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 627px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg);
+      font-family: var(--sans);
+      color: var(--text);
+    }
+
+    /* Mesmas bolhas de luz do fundo do portfólio */
+    .blob { position: absolute; border-radius: 50%; filter: blur(90px); opacity: 0.55; }
+    .blob-1 { width: 520px; height: 520px; background: #7c3aed; top: -220px; left: -160px; }
+    .blob-2 { width: 460px; height: 460px; background: #2563eb; bottom: -240px; right: -120px; }
+    .blob-3 { width: 300px; height: 300px; background: #10b981; bottom: -160px; left: 360px; opacity: 0.35; }
+
+    .window {
+      position: absolute;
+      inset: 34px 40px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+    }
+
+    .titlebar {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 22px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 17px;
+      color: var(--muted);
+    }
+
+    .dot { width: 14px; height: 14px; border-radius: 50%; }
+    .dot.red { background: #ef4444; }
+    .dot.yellow { background: #eab308; }
+    .dot.green { background: #22c55e; margin-right: 10px; }
+
+    .lang {
+      margin-left: auto;
+      padding: 4px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      font-size: 15px;
+    }
+
+    .lang b { color: var(--primary); font-weight: 600; }
+
+    .content {
+      display: grid;
+      grid-template-columns: 430px 1fr;
+      gap: 36px;
+      align-items: center;
+      height: calc(100% - 50px);
+      padding: 0 40px 0 34px;
+    }
+
+    /* Retrato em ASCII com degradê na cor das letras */
+    .portrait {
+      font-family: Consolas, var(--mono);
+      font-size: 7.6px;
+      font-weight: 700;
+      line-height: 7.6px;
+      white-space: pre;
+      background: linear-gradient(165deg, #7dd3fc 10%, #a5b4fc 55%, #d8b4fe 95%);
+      filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.35));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .prompt {
+      font-family: var(--mono);
+      font-size: 24px;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .prompt span { color: var(--muted); }
+
+    h1 {
+      font-size: 80px;
+      font-weight: 800;
+      letter-spacing: -3px;
+      line-height: 1.02;
+    }
+
+    .role {
+      margin-top: 10px;
+      font-size: 36px;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .company {
+      margin-top: 4px;
+      font-size: 22px;
+      color: var(--muted);
+    }
+
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+    }
+
+    .stack span {
+      padding: 6px 14px;
+      border-radius: 8px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--primary);
+      font-family: var(--mono);
+      font-size: 20px;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 30px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.45);
+      font-family: var(--mono);
+      font-size: 24px;
+      color: var(--text);
+    }
+
+    .cta .live {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 12px;
+      height: 26px;
+      background: var(--accent);
+      margin-left: -6px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+
+  <div class="window">
+    <div class="titlebar">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      gabriel@portfolio: ~
+      <span class="lang"><b>PT</b> | <b>EN</b></span>
+    </div>
+
+    <div class="content">
+      <pre class="portrait" aria-hidden="true">                                          .``:``.`:`.                                           
+                                     -``::`-++*+==+=:=```                                       
+                                  `:=+:=+cc+:-===--=**--==-=                                    
+                                `:+:-=++====-+csscc***s+c*c+:                                   
+                                -s++==+c**:-c%#s%s*#%#*c**#c+-                                  
+                               :*#-+scccsc+%@%#+*s**##+%#s#s*+=c                                
+                               :+ssss##ccc#scccc++*+**csc%%#c++c+                               
+                              :=*ss##*+=--::=--=---==++=c#%##c*c*-                              
+                              =*s#s*=:``:-:-:......``..`:=*ssc+=*=                              
+                             -+*s#+-:`..:---`.`````````:--=+c+*c*c                              
+                              **c+-:`.```--:`:----:::::-=+++*csscc=                             
+                              *cc=:`.````::::---=-::::-=++*++*###s=                             
+                              *cc-`````.````::::::```:-==+===+s#s#+                             
+                              *s+``..``````:-::::::---====---+c##s                              
+                              +#*.......```:------======+=::`:c%@s                              
+                               #+.``:-------====-=+++=++**==:.-%%*                              
+                               s:-css###scc+-:-===**cs#####%#s-+%c                              
+                               c=*-:-=*csc*=``:-+css#+:`:-=+cs*:#c                              
+                               c--==++s%#%#+:..`*%%%%=-+*csscc+:s*                              
+                             :-*`=*c*c###%s+:...:#%%%*-cs*c##c*:**=                             
+                            *+`-`--:--+ss*=-`..`:+#ssc+==+**++=:+cs*                            
+                            c+.-`::--=+=---:..`:--*c*+==--:::--`+c+s=                           
+                            c-:-``:-=---:::`..`:=-=c*=-::::-===:=#**                            
+                            =-c`````:`:=+-``.``:--+*#c=-:`::::-=+#*-                            
+                            =:*:```.:+c#c`..``:--=`.:@#+-:::---=*+==                            
+                             `--:::=+#@+:`-:``-=*s*++#s*=-:-=+++c*:                             
+                             .:=--=+##+:-==+==*c#%@%@#sc+::-=+**c*-                             
+                             =-=--+ss+++++c+*cc++c#%#s#%#*`:++**c+:                             
+                               +--=ss#s==cc++++=+**cscc#%%=.++*c+                               
+                                ==-+#s+#s--+++*c*scscs%%*=``****                                
+                                +==-+*`-s+``:..:.-:-c#%s=..=c*cc                                
+                                 +--==:.:cs++++=-+*c%#c*=`:***s##                               
+                                  =--:-```---+*+++*cccc*+-+*cs+c@c                              
+                                   +=::````:---===++*cc*++*c#c-*@#*                             
+                                   +*-::```:===+=--+++*++*c#s+=*@%s+                            
+                             ===*s##s*-`````:-==--:===+*c#%s*+=*@%#s*+                          
+                     c++==++=+c###sccsc=-``..`::----==*s%@sc*+=*%@###c*=                        
+                   =sc==++==cc#@%+*c*cc=c=:```:::--=*c#%%sc*+++*%%###sc*=+=                     
+                 -=#c=++--+#*c%@c+s**s%-+s++=----=+c#%@#cc*++++c@%#%#scc++===+cc                
+               ---sc:=+==s@*=#@s+c*=*s%#`*s**++**c#%%%s+++====+s%#%%%#sc*+cs*c*===+             
+             ===-+s=-=+c%@*-s@c+c*++c#%@-.=*s#@%##%%c+-:-====+*s##%%%##c+*%+++==**+==++         
+           ===++=c*+=*s@@*=+%c+sc*+*s#%#+`.`:=++*+=+=::`-====+*cs#@@%#sc+ss*c*+s#ccc*+***+==    
+          ==++++***++s%%c++sc*s**++cs%@#+:````:::-==-:::-===++*ss%@%%#s**#=s#s#s++*******+===*  
+        ==+++++++***s%%c++scssc**=+c#%#c*-`::----++=-::--===+=c##%@%#ss*c**@css*c******++****+=-
+      ==+++++++*+*cs%@c+=*cs#cc*++*s#%cs*=.:`--====--:-==+++=*##%%%#scc*sc@s+++++++****+*=++**c*
+    ==++*++**++*+*s#@s+==sc#ss*+++*s%sc#+:.`::-==--:::-++++=*ss#%%%#scccc#@*++++*sc+===+++++*ss*
+  -==**********c+c#%s++=*@c*c**+++*s#+s%*`.`:`==-:``::=++=-c#s#%@@#ssc*##@s+*c+*sc==+++==+*s%%*+
+*-=*+***+***c****#@#*+=+%#+s+*c+=+c#+*%#c`..:`=+-`..`-==-:*#s#%@@#scc*#%%#**c*+s*=+*++==*#%#c+*%
+==*********cc*c*s@%c+==c@csc=c@s**c++####:.```:=:...`--`:sss#%@@#scc*%%#%cc*c***=*+++=+s#c**c#@%
+=*c********cccc*#%s*+=+%%cs++#%cs+=+s*+##-.``.`:``.```.:c#ss%@@%#cc*#@#%scc**+*+++++=*%c*s%@@#c+
++ccc******csc*s*%sc*+-c@%c*=*%#cs=*s+++*@+.`.`````..`-+ssss#@@%scc*c@%%#cccc*+*++**=c%*c@@#c*+++
++cccc***+*cssscc#cc*=+%@%*+=s%scc==sc=++%c`..``..`:-+c#ss##%@%#scc*%%%%scccc****cc=c%*#@%c+++++*
++*s*c*+*csscc#ccsc*+=s@@s*++#%cc*c=-*==+s#-.````-+***cccs%@@%#ccc*s@%%#ccccc***cs=*@*s@#********
+**cscc*c##s*cssccc*=+%@@**=*%%c**c#=-+==c%+``.:=++-+*+*#%%%%#scc*c@%@#sccccc***s++#sc@%c********
+**+s#*cc#%%#ss**cc+-c@@#*c=c%%cc**#s-===*%s-.=++==:+cs%%%#%%scscs%#%%sssscccc*s*+s%*#%ccc*c****c
+*c**#%cccs%@%@c*s*-+%@@c**+s%#sc*cs#c-==+#%=c#sc*+*%@##ss%%ssssccs#%scsssccccc*+c%%*%sccccc**c*c
+**cc*#%#scs##@s*c==c@@@**++s%#sc*c#ss*===c#s#*+***#%#sss#%sssccccs##ccsssccss**cs%#csc*ccccccccc
+ccccccs%%##ss#s**=*s@@%**+*s##ccccs#css-=+%@*=*c**#ssss#%#ssccccs##sccsccccs*+ccs@#ssccccccscccc</pre>
+
+      <div>
+        <p class="prompt">$ whoami <span>--portfolio</span></p>
+        <h1>Gabriel Serejo</h1>
+        <p class="role">Estagiário Dev Full Stack</p>
+        <p class="company">@ CDS Solutions · Ciência da Computação</p>
+        <div class="stack">
+          <span>TypeScript</span><span>Python</span><span>Rust</span><span>React</span><span>Next.js</span>
+        </div>
+        <div class="cta"><span class="live"></span>gserejo.github.io/Curriculo<span class="cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
