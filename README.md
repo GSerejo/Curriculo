@@ -11,7 +11,7 @@
   <a href="https://github.com/GSerejo">
     <img src="https://img.shields.io/badge/GitHub-24292e?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
   </a>
-  <a href="https://www.linkedin.com/in/gabriel-serejo-118279162/">
+  <a href="https://www.linkedin.com/in/gabrielserejodev/">
     <img src="https://img.shields.io/badge/LinkedIn-0077b5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn">
   </a>
 </p>
@@ -83,7 +83,7 @@ Estou sempre aberto a trocar ideias sobre desenvolvimento e tecnologia.
 
 <div align="center">
 
-**[LinkedIn](https://www.linkedin.com/in/gabriel-serejo-118279162/)** ·
+**[LinkedIn](https://www.linkedin.com/in/gabrielserejodev/)** ·
 **[GitHub](https://github.com/GSerejo)** ·
 **[E-mail](mailto:gabrielserejo21@gmail.com)**
 
