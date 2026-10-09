@@ -626,18 +626,6 @@ a.company-link:hover {
   font-size: 0.72rem;
 }
 
-/* Card de projeto que ainda vai sair */
-.project-card--soon {
-  border-style: dashed;
-  border-color: rgba(148, 163, 184, 0.3);
-  background: transparent;
-}
-
-.project-card--soon .project-icon {
-  color: var(--accent);
-  background: rgba(34, 197, 94, 0.12);
-}
-
 /* --- EDUCAÇÃO & CURSOS --- */
 
 /* Graduação Principal */

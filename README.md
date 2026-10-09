@@ -30,18 +30,18 @@ Estudo **Ciência da Computação no IESB** e cheguei ao desenvolvimento pelo ca
 
 | Projeto | Stack | Links |
 | --- | --- | --- |
+| **365prints**: busca nos vídeos do quadro "365 dias de impressão 3D" do @unipedia3d pelo que é falado em cada um, com transcrição local por Whisper | Next.js, TypeScript, Python, Whisper | [Site](https://365prints.vercel.app) · [Código](https://github.com/GSerejo/365prints) |
 | **App Remédios**: lembrete de medicação para idosos e crianças, com foto da cartela enviada ao cuidador pelo WhatsApp | React Native, Expo, TypeScript | [Código](https://github.com/GSerejo/App-remedios) · [Vídeo](https://www.youtube.com/watch?v=M813-sd0z9c) |
 | **Clone do TabNews** (em desenvolvimento): API em Next.js com PostgreSQL e testes de integração | Next.js, PostgreSQL, Docker, Jest | [Site](https://gserejo.com.br/) · [Código](https://github.com/GSerejo/clone-tabnews) |
-| **Em breve** 🚧: novo projeto em construção | — | [Acompanhe no GitHub](https://github.com/GSerejo) |
 
 ## 🧰 Minha caixa de ferramentas
 
 | Área | Tecnologias |
 | --- | --- |
 | **Linguagens** | TypeScript, JavaScript, Python, Rust, Java, SQL |
-| **Front-end & Mobile** | React, Next.js, React Native (Expo), HTML5, CSS3 |
+| **Front-end & Mobile** | React, Next.js, React Native (Expo), Tailwind CSS, HTML5, CSS3 |
 | **Back-end & Dados** | Node.js, APIs REST, PostgreSQL, Power BI |
-| **Ferramentas** | Git, GitHub, Docker, Jest, Microsoft PowerApps |
+| **Ferramentas** | Git, GitHub, Docker, Jest, Vercel, Microsoft PowerApps |
 
 ## ✨ O que você encontra neste projeto
 
