@@ -645,6 +645,56 @@ I study Computer Science at IESB and came to software development through IT sup
       return navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en';
     }
 
+    // Linha do tempo: a linha se preenche acompanhando a rolagem, cada bolinha acende
+    // quando a linha chega nela e cada experiência entra deslizando ao aparecer.
+    const timeline = document.querySelector('.timeline');
+
+    if (timeline) {
+      const markers = [...timeline.querySelectorAll('.timeline-marker')];
+      const READING_LINE = 0.6; // altura da tela (60%) onde fica a "ponta" da linha
+      let frameRequested = false;
+
+      timeline.classList.add('timeline--animated');
+      timeline.insertAdjacentHTML('beforeend', '<span class="timeline-head" aria-hidden="true"></span>');
+
+      function updateTimeline() {
+        frameRequested = false;
+        const rect = timeline.getBoundingClientRect();
+        const reached = window.innerHeight * READING_LINE - rect.top;
+        const progress = Math.min(Math.max(reached / rect.height, 0), 1);
+
+        timeline.style.setProperty('--progress', progress.toFixed(4));
+        timeline.classList.toggle('is-empty', progress === 0);
+        timeline.classList.toggle('is-complete', progress === 1);
+
+        markers.forEach((marker) => {
+          const markerCenter = marker.getBoundingClientRect().top - rect.top + marker.offsetHeight / 2;
+          marker.classList.toggle('is-active', reached >= markerCenter);
+        });
+      }
+
+      function requestTimelineUpdate() {
+        if (frameRequested) return;
+        frameRequested = true;
+        requestAnimationFrame(updateTimeline);
+      }
+
+      window.addEventListener('scroll', requestTimelineUpdate, { passive: true });
+      // Recalcula quando a altura muda: troca de idioma, fontes carregando, tela girando
+      new ResizeObserver(requestTimelineUpdate).observe(timeline);
+      updateTimeline();
+
+      const revealOnce = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealOnce.unobserve(entry.target);
+        });
+      }, { threshold: 0.2 });
+
+      timeline.querySelectorAll('.timeline-item').forEach((item) => revealOnce.observe(item));
+    }
+
     langToggle.addEventListener('change', () => {
       // A animação de "gota" só roda a partir do primeiro clique, nunca ao carregar a página
       langToggle.nextElementSibling.classList.add('is-ready');
