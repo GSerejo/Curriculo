@@ -40,12 +40,13 @@
 
   <div class="language-switch">
     <input type="checkbox" id="lang-toggle" class="check-toggle" aria-label="Mudar idioma / Switch language">
-    <label for="lang-toggle" class="slider">
-      <i class="fas fa-globe-americas slider-globe" aria-hidden="true"></i>
-      <span class="slider-track" aria-hidden="true">
-        <span class="slider-knob"></span>
-        <span class="slider-option slider-option--pt">PT</span>
-        <span class="slider-option slider-option--en">EN</span>
+    <label for="lang-toggle" class="slider" aria-hidden="true">
+      <span class="slider-option slider-option--pt">PT</span>
+      <span class="slider-option slider-option--en">EN</span>
+      <span class="slider-glow"></span>
+      <span class="slider-knob">
+        <span class="knob-label knob-label--pt">PT</span>
+        <span class="knob-label knob-label--en">EN</span>
       </span>
     </label>
   </div>
@@ -645,6 +646,8 @@ I study Computer Science at IESB and came to software development through IT sup
     }
 
     langToggle.addEventListener('change', () => {
+      // A animação de "gota" só roda a partir do primeiro clique, nunca ao carregar a página
+      langToggle.nextElementSibling.classList.add('is-ready');
       const lang = langToggle.checked ? 'en' : 'pt';
       try { localStorage.setItem(LANG_KEY, lang); } catch (e) { /* ignora */ }
       applyLanguage(lang);
