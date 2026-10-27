@@ -709,7 +709,7 @@ body {
   position: absolute;
   z-index: 1; /* acima da linha */
   left: -24px; /* Ajuste para alinhar com a linha */
-  top: 5px;
+  top: 23px; /* centro do logo da empresa */
   width: 10px;
   height: 10px;
   background: var(--primary);
@@ -798,34 +798,84 @@ a.company-link:hover {
   text-decoration: underline;
 }
 
-/* --- EMPRESA COM MAIS DE UM CARGO (estilo LinkedIn) ---
-   O cargo atual fica em cima e o estágio embaixo, ligados por uma linha que vai do verde
-   (estágio) ao ciano (cargo atual), com uma luz subindo para mostrar a promoção. */
-.company-group-header {
+/* --- EXPERIÊNCIAS: cabeçalho da empresa com logo ---
+   Logo à esquerda, nome e local no meio, período à direita. Todo o resto (cargos,
+   descrição, tags) fica alinhado na coluna do nome, como no LinkedIn. */
+.company-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px;
-  margin: 8px 0 16px;
+  gap: 6px 14px;
 }
 
+/* Logo numa moldura de vidro, com brilho na cor da marca (--brand, em RGB, vem do HTML) */
 .company-logo {
-  display: grid;
-  place-items: center;
+  --brand: 56, 189, 248;
+  position: relative;
   flex-shrink: 0;
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  font-family: var(--font-code);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  color: #e0f2fe;
-  background: linear-gradient(145deg, rgba(56, 189, 248, 0.3), rgba(129, 140, 248, 0.18));
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 0 18px rgba(56, 189, 248, 0.15);
+  width: 56px;
+  height: 56px;
+  padding: 3px;
+  border-radius: 16px;
+  isolation: isolate; /* mantém as camadas do logo (fundo, desenho, reflexo) entre si */
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(var(--brand), 0.35) 50%, rgba(var(--brand), 0.75));
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.55),
+    0 8px 20px rgba(2, 6, 23, 0.4),
+    0 0 26px rgba(var(--brand), 0.5);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s;
 }
 
-.company-group-header .company-link { margin-bottom: 0; }
+/* Miolo de vidro escuro atrás do logo, com um leve brilho da marca vindo de baixo */
+.company-logo::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  z-index: 0;
+  border-radius: 13px;
+  background:
+    radial-gradient(130% 85% at 50% 115%, rgba(var(--brand), 0.6), transparent 70%),
+    linear-gradient(160deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
+    rgba(15, 23, 42, 0.75);
+}
+
+/* O logo é só a silhueta branca, sem fundo; o halo na cor da marca contorna o desenho */
+.company-logo img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(var(--brand), 0.85));
+}
+
+/* Reflexo de vidro por cima do logo */
+.company-logo::after {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  inset: 3px;
+  border-radius: 13px;
+  background: linear-gradient(150deg, rgba(255, 255, 255, 0.32) 0%, rgba(255, 255, 255, 0.06) 38%, rgba(255, 255, 255, 0) 50%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+  pointer-events: none;
+}
+
+.timeline-item:hover .company-logo {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.55),
+    0 12px 26px rgba(2, 6, 23, 0.45),
+    0 0 36px rgba(var(--brand), 0.7);
+}
+
+.company-id {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.company-header .company-link { margin-bottom: 0; }
 
 .company-meta {
   display: block;
@@ -833,32 +883,58 @@ a.company-link:hover {
   font-size: 0.82rem;
 }
 
+/* Período à direita, na altura do nome */
+.company-header .date-badge {
+  align-self: flex-start;
+  margin: 2px 0 0 auto;
+}
+
+/* Conteúdo alinhado na coluna do nome (56px do logo + 14px de espaço) */
+.company-body {
+  margin-top: 14px;
+  padding-left: 70px;
+}
+
+.company-body > .role-meta { margin-bottom: 6px; }
+
+@media (max-width: 600px) {
+  .company-body { padding-left: 0; }
+  /* Logo e nome dividem a primeira linha; o período desce para a linha de baixo */
+  .company-id { flex-basis: calc(100% - 70px); }
+  .company-header .date-badge { margin: 0 0 0 70px; }
+}
+
+/* --- EMPRESA COM MAIS DE UM CARGO ---
+   O cargo atual fica em cima e o estágio embaixo, ligados por uma linha que vai do verde
+   (estágio) ao ciano (cargo atual), com uma luz subindo para mostrar a promoção. */
+/* A trilha ocupa a largura do logo para a linha ficar sob o centro dele (28px),
+   e o texto dos cargos fica na mesma coluna da descrição */
 .role-track {
   position: relative;
   list-style: none;
-  margin: 0 0 14px 6px;
-  padding-left: 28px;
+  margin: 0 0 16px -70px;
+  padding-left: 70px;
 }
 
 /* Linha que liga os cargos */
 .role-track::before {
   content: '';
   position: absolute;
-  left: 5px;
-  top: 12px;
-  bottom: 12px;
+  left: 27px;
+  top: -14px; /* começa na base do logo */
+  bottom: 34px; /* termina na bolinha do estágio */
   width: 2px;
   border-radius: 2px;
-  background: linear-gradient(0deg, var(--accent), var(--primary));
-  opacity: 0.75;
+  background: linear-gradient(0deg, var(--accent), var(--primary) 70%, rgba(56, 189, 248, 0.2));
+  opacity: 0.8;
 }
 
 /* Luz que sobe do estágio até o cargo atual, sem parar */
 .role-track::after {
   content: '';
   position: absolute;
-  left: 3px;
-  bottom: 12px;
+  left: 25px;
+  bottom: 31px;
   width: 6px;
   height: 6px;
   border-radius: 50%;
@@ -869,17 +945,17 @@ a.company-link:hover {
 }
 
 @keyframes level-up {
-  0% { bottom: 12px; opacity: 0; }
+  0% { bottom: 31px; opacity: 0; }
   15% { opacity: 1; }
   85% { opacity: 1; }
-  100% { bottom: calc(100% - 18px); opacity: 0; }
+  100% { bottom: calc(100% - 15px); opacity: 0; }
 }
 
 .role { position: relative; }
 
 .role-dot {
   position: absolute;
-  left: -28px;
+  left: -48px; /* centro do logo: 28px - 6px do raio - 70px da coluna */
   top: 6px;
   width: 12px;
   height: 12px;
@@ -955,7 +1031,15 @@ a.company-link:hover {
 
 .promo-chip i { color: var(--accent); }
 
-.company-group .role-skills { margin-top: 10px; }
+.company-body .role-skills { margin-top: 10px; }
+
+/* No celular a coluna some, então a trilha dos cargos volta para dentro do conteúdo */
+@media (max-width: 600px) {
+  .role-track { margin: 0 0 16px; padding-left: 28px; }
+  .role-track::before { left: 5px; top: 12px; }
+  .role-track::after { left: 3px; }
+  .role-dot { left: -28px; }
+}
 
 .timeline-content p {
   color: var(--text-muted);
