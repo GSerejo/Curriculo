@@ -22,7 +22,7 @@
 
 ## 👋 Olá, eu sou o Gabriel!
 
-Sou **Estagiário de Desenvolvimento Full Stack na CDS Solutions**, onde desenvolvo sistemas para o setor público, incluindo a Marinha do Brasil, e para empresas privadas de pequeno e médio porte, com TypeScript, Python e Rust.
+Sou **Desenvolvedor Full Stack Júnior na CDS Solutions**, onde entrei como estagiário e fui promovido em um mês. Desenvolvo sistemas para o setor público, incluindo a Marinha do Brasil, e para empresas privadas de pequeno e médio porte, com TypeScript, Python e Rust.
 
 Estudo **Ciência da Computação no IESB** e cheguei ao desenvolvimento pelo caminho do suporte de TI.
 
