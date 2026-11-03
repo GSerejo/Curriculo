@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>História do currículo | Gabriel Serejo</title>
+  <meta name="description"
+    content="A evolução do currículo e portfólio de Gabriel Serejo, de abril de 2025 até hoje: arraste pela linha do tempo e veja cada versão.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="História do currículo | Gabriel Serejo">
+  <meta property="og:description" content="Arraste pelo tempo e veja como este currículo evoluiu, no visual e no conteúdo.">
+  <meta property="og:url" content="https://gserejo.github.io/Curriculo/historia.html">
+  <meta property="og:image" content="https://gserejo.github.io/Curriculo/og-image.png">
+
+  <link rel="icon"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='bold' text-anchor='middle' fill='%2338bdf8'%3E%26lt;G%26gt;%3C/text%3E%3C/svg%3E">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="historia.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+  <div class="language-switch">
+    <input type="checkbox" id="lang-toggle" class="check-toggle" aria-label="Mudar idioma / Switch language">
+    <label for="lang-toggle" class="slider" aria-hidden="true">
+      <span class="slider-option slider-option--pt">PT</span>
+      <span class="slider-option slider-option--en">EN</span>
+      <span class="slider-glow"></span>
+      <span class="slider-knob">
+        <span class="knob-label knob-label--pt">PT</span>
+        <span class="knob-label knob-label--en">EN</span>
+      </span>
+    </label>
+  </div>
+
+  <div class="fluid-background">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <main class="history">
+
+    <a class="back-link" href="index.html">
+      <i class="fas fa-arrow-left" aria-hidden="true"></i>
+      <span class="pt-text">Voltar ao portfólio</span>
+      <span class="en-text">Back to portfolio</span>
+    </a>
+
+    <header class="history-hero">
+      <p class="history-eyebrow">$ git log --reverse</p>
+      <h1>
+        <span class="pt-text">História do currículo</span>
+        <span class="en-text">Resume history</span>
+      </h1>
+      <p class="history-lead">
+        <span class="pt-text">De abril de 2025 até hoje: <strong data-total-versions></strong> versões e <strong data-total-commits></strong> commits. Arraste pela linha do tempo e veja como o currículo mudou, no visual e no conteúdo.</span>
+        <span class="en-text">From April 2025 to today: <strong data-total-versions></strong> versions and <strong data-total-commits></strong> commits. Drag along the timeline and see how the resume changed, in design and content.</span>
+      </p>
+    </header>
+
+    <section class="history-stage">
+      <!-- Janela de navegador com o print da versão escolhida -->
+      <div class="dev-card browser">
+        <div class="card-header browser-bar">
+          <span class="circle red"></span>
+          <span class="circle yellow"></span>
+          <span class="circle green"></span>
+          <span class="browser-url">
+            <i class="fas fa-lock" aria-hidden="true"></i> gserejo.github.io/Curriculo
+          </span>
+          <span class="browser-version" data-version-pill></span>
+        </div>
+        <div class="browser-view" tabindex="0" data-view
+          aria-label="Print do currículo nesta versão; role para ver a página inteira">
+          <img class="shot is-front" alt="" data-shot decoding="async">
+          <img class="shot" alt="" data-shot decoding="async">
+        </div>
+        <!-- Reflexo de luz que cruza a janela a cada troca de versão -->
+        <span class="time-sweep" aria-hidden="true" data-sweep></span>
+        <span class="browser-hint">
+          <i class="fas fa-computer-mouse hint-mouse" aria-hidden="true"></i>
+          <i class="fas fa-hand-pointer hint-touch" aria-hidden="true"></i>
+          <span class="hint-mouse">
+            <span class="pt-text">Role para ver a página inteira</span>
+            <span class="en-text">Scroll to see the whole page</span>
+          </span>
+          <span class="hint-touch">
+            <span class="pt-text">Deslize para os lados para trocar de versão</span>
+            <span class="en-text">Swipe sideways to change version</span>
+          </span>
+        </span>
+      </div>
+
+      <!-- O que mudou nesta versão -->
+      <aside class="dev-card version-info" aria-live="polite">
+        <div class="card-body">
+          <p class="version-count" data-count></p>
+          <p class="version-date" data-date></p>
+          <h2 class="version-title" data-title></h2>
+
+          <div class="version-stats" data-stats></div>
+
+          <div class="change-group">
+            <h3><i class="fas fa-palette" aria-hidden="true"></i>
+              <span class="pt-text">Visual</span><span class="en-text">Design</span></h3>
+            <ul data-design></ul>
+          </div>
+
+          <div class="change-group change-group--content">
+            <h3><i class="fas fa-file-lines" aria-hidden="true"></i>
+              <span class="pt-text">Conteúdo</span><span class="en-text">Content</span></h3>
+            <ul data-content></ul>
+          </div>
+
+          <a class="version-commit" data-commit target="_blank" rel="noopener noreferrer"></a>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Linha do tempo arrastável -->
+    <section class="dev-card scrubber">
+      <div class="scrubber-controls">
+        <button type="button" class="scrubber-btn" data-prev aria-label="Versão anterior">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="scrubber-btn scrubber-btn--play" data-play aria-label="Reproduzir a história">
+          <i class="fas fa-play" aria-hidden="true"></i>
+        </button>
+        <button type="button" class="scrubber-btn" data-next aria-label="Próxima versão">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+        <span class="scrubber-help">
+          <span class="pt-text">Arraste a bolinha ou use as setas do teclado</span>
+          <span class="en-text">Drag the handle or use the arrow keys</span>
+        </span>
+      </div>
+
+      <div class="scrubber-track" data-track>
+        <!-- Prévia em miniatura que acompanha a bolinha enquanto você arrasta -->
+        <div class="scrubber-preview" data-preview aria-hidden="true">
+          <img alt="" width="240" height="180" data-preview-img>
+          <span class="preview-date" data-preview-date></span>
+          <span class="preview-title" data-preview-title></span>
+        </div>
+        <input type="range" min="0" value="0" step="1" data-range aria-label="Linha do tempo das versões">
+        <!-- Bolinha desenhada por cima do controle nativo, que continua cuidando do arrasto e do teclado -->
+        <span class="scrubber-thumb" aria-hidden="true"></span>
+        <ol class="scrubber-ticks" data-ticks></ol>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Marcos da história, do mais antigo ao mais novo. Os prints ficam em assets/historia/NN.webp
+    // (gerados a partir de cada commit; dados pessoais das versões antigas aparecem borrados).
+    const VERSIONS = [
+      {
+        sha: '04c8839', date: '2025-04-10', commits: 1, added: 184, removed: 0,
+        title: { pt: 'Primeira versão', en: 'First version' },
+        design: {
+          pt: ['Página única em HTML, com barra lateral azul, foto e contatos'],
+          en: ['Single HTML page with a blue sidebar, photo and contacts']
+        },
+        content: {
+          pt: ['Formação no 5º semestre, estágios no CFN, IESB e PhMarketing',
+            'Cursos, habilidades interpessoais e "Sobre mim"',
+            'Endereço e data de nascimento à mostra (borrados aqui)'],
+          en: ['5th semester of college, internships at CFN, IESB and PhMarketing',
+            'Courses, soft skills and an "About me"',
+            'Home address and birth date on display (blurred here)']
+        }
+      },
+      {
+        sha: '11bc83b', date: '2025-04-25', commits: 3, added: 317, removed: 166,
+        title: { pt: 'Layout em cartões', en: 'Card layout' },
+        design: {
+          pt: ['Fundo claro, cartões brancos e títulos em azul', 'Estilos separados num arquivo CSS próprio'],
+          en: ['Light background, white cards and blue headings', 'Styles moved into their own CSS file']
+        },
+        content: {
+          pt: ['Mesmas seções, reorganizadas em blocos'],
+          en: ['Same sections, reorganized into blocks']
+        }
+      },
+      {
+        sha: 'f5c4ba9', date: '2025-12-15', commits: 9, added: 670, removed: 328,
+        title: { pt: 'Currículo 2.0: tema de dev', en: 'Resume 2.0: dev theme' },
+        design: {
+          pt: ['Tema escuro inspirado em editor de código', 'Cartões como janelas de terminal e fonte Fira Code',
+            'Experiências numa linha do tempo'],
+          en: ['Dark theme inspired by code editors', 'Cards as terminal windows and the Fira Code font',
+            'Experience shown on a timeline']
+        },
+        content: {
+          pt: ['Eventos e workshops de tecnologia', 'Skills técnicas no lugar das interpessoais',
+            'Saem endereço e data de nascimento'],
+          en: ['Tech events and workshops', 'Technical skills instead of soft skills',
+            'Home address and birth date removed']
+        }
+      },
+      {
+        sha: '44b8ed9', date: '2026-02-03', commits: 2, added: 413, removed: 42,
+        title: { pt: 'Bilíngue e certificados', en: 'Bilingual and certificates' },
+        design: {
+          pt: ['Fundo com bolhas de luz animadas', 'Bio com efeito de digitação'],
+          en: ['Background with animated light blobs', 'Bio with a typing effect']
+        },
+        content: {
+          pt: ['Versão em inglês, com seletor de bandeiras', 'Certificados dos cursos em PDF'],
+          en: ['English version, with a flag switch', 'Course certificates as PDFs']
+        }
+      },
+      {
+        sha: '66ba9e1', date: '2026-03-04', commits: 1, added: 263, removed: 203,
+        title: { pt: 'Formação em destaque', en: 'Education first' },
+        design: {
+          pt: ['Formação e cursos sobem para antes das experiências'],
+          en: ['Education and courses move above experience']
+        },
+        content: {
+          pt: ['Formação Full Stack no Curso.dev (Filipe Deschamps)'],
+          en: ['Full Stack program at Curso.dev (Filipe Deschamps)']
+        }
+      },
+      {
+        sha: '42f265f', date: '2026-09-01', commits: 3, added: 69, removed: 79,
+        title: { pt: 'Foto nova e mais stack', en: 'New photo and more stack' },
+        design: {
+          pt: ['Foto de perfil nova'],
+          en: ['New profile photo']
+        },
+        content: {
+          pt: ['Bio reescrita', 'React, Next.js e React Native entram nas skills'],
+          en: ['Rewritten bio', 'React, Next.js and React Native added to skills']
+        }
+      },
+      {
+        sha: '00a2c12', date: '2026-09-08', commits: 2, added: 343, removed: 3,
+        title: { pt: 'Currículo em PDF', en: 'PDF resume' },
+        design: {
+          pt: ['Botão para baixar o currículo na barra lateral'],
+          en: ['Resume download button in the sidebar']
+        },
+        content: {
+          pt: ['Currículos em PDF, em português e inglês', 'Turno noturno da graduação e inglês B1'],
+          en: ['PDF resumes in Portuguese and English', 'Evening classes and B1 English']
+        }
+      },
+      {
+        sha: 'b8ec996', date: '2026-09-28', commits: 2, added: 800, removed: 385,
+        title: { pt: 'Revisão completa', en: 'Full review' },
+        design: {
+          pt: ['Seletor de idioma novo, acessível pelo teclado', 'Meta tags para a prévia no LinkedIn e WhatsApp'],
+          en: ['New keyboard-accessible language switch', 'Meta tags for LinkedIn and WhatsApp previews']
+        },
+        content: {
+          pt: ['Estágio de desenvolvimento na CDS Solutions', 'Seção de projetos',
+            'Skills enxutas: só o que tem prova'],
+          en: ['Development internship at CDS Solutions', 'Projects section',
+            'Lean skills: only what has proof']
+        }
+      },
+      {
+        sha: '4a9b4b8', date: '2026-10-08', commits: 4, added: 356, removed: 36,
+        title: { pt: '365prints e LinkedIn', en: '365prints and LinkedIn' },
+        design: {
+          pt: ['Imagem de prévia com retrato em ASCII para redes sociais'],
+          en: ['Social preview image with an ASCII portrait']
+        },
+        content: {
+          pt: ['365prints em destaque nos projetos', 'O próprio portfólio vira projeto', 'Link novo do LinkedIn'],
+          en: ['365prints featured in projects', 'The portfolio itself becomes a project', 'New LinkedIn URL']
+        }
+      },
+      {
+        sha: '328ec96', date: '2026-10-13', commits: 4, added: 518, removed: 139,
+        title: { pt: 'Vidro fosco', en: 'Frosted glass' },
+        design: {
+          pt: ['Vidro fosco no site inteiro', 'Seletor de idioma em vidro líquido',
+            'Linha do tempo que se preenche com a rolagem'],
+          en: ['Frosted glass across the whole site', 'Liquid glass language switch',
+            'Timeline that fills as you scroll']
+        },
+        content: {
+          pt: ['Mesmo conteúdo, agora em camadas de vidro'],
+          en: ['Same content, now in glass layers']
+        }
+      },
+      {
+        sha: '6169044', date: '2026-10-26', commits: 1, added: 294, removed: 47,
+        title: { pt: 'Desenvolvedor Júnior', en: 'Junior Developer' },
+        design: {
+          pt: ['Experiência no formato do LinkedIn, com os dois cargos ligados'],
+          en: ['LinkedIn-style experience, with both roles linked']
+        },
+        content: {
+          pt: ['Contratado como Desenvolvedor Júnior na CDS após 1 mês de estágio'],
+          en: ['Hired as Junior Developer at CDS after a 1-month internship']
+        }
+      },
+      {
+        sha: 'b00644e', date: '2026-10-27', commits: 1, added: 219, removed: 93,
+        title: { pt: 'Logos das empresas', en: 'Company logos' },
+        design: {
+          pt: ['Logos em silhueta, com brilho na cor de cada marca', 'Experiências organizadas numa coluna só'],
+          en: ['Silhouette logos glowing in each brand color', 'Experience organized in a single column']
+        },
+        content: {
+          pt: ['Ph Gestão & Educação com link do LinkedIn'],
+          en: ['Ph Gestão & Educação with a LinkedIn link']
+        }
+      },
+      {
+        sha: null, date: '2026-11-02', commits: null, added: null, removed: null,
+        title: { pt: 'Hoje: a história do currículo', en: 'Today: the resume history' },
+        design: {
+          pt: ['Botão no fim do portfólio leva a esta página'],
+          en: ['A button at the end of the portfolio leads to this page']
+        },
+        content: {
+          pt: ['Esta linha do tempo: arraste e veja cada versão'],
+          en: ['This timeline: drag and see every version']
+        }
+      }
+    ];
+
+    const REPO = 'https://github.com/GSerejo/Curriculo';
+    const LANG_KEY = 'lang';
+    const PLAY_INTERVAL = 2600; // ms por versão no modo reproduzir (o anel do botão usa o mesmo tempo)
+    const SWIPE_MIN = 50;       // px de arrasto lateral para trocar de versão no celular
+    const MONTHS = {
+      pt: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
+      en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+    };
+
+    const $ = (selector) => document.querySelector(selector);
+    const range = $('[data-range]');
+    const track = $('[data-track]');
+    const view = $('[data-view]');
+    const sweep = $('[data-sweep]');
+    const info = $('.version-info');
+    const preview = $('[data-preview]');
+    const shots = [...document.querySelectorAll('[data-shot]')];
+    const playButton = $('[data-play]');
+    const langToggle = document.getElementById('lang-toggle');
+    // Celular ou "economia de dados": baixa só as versões vizinhas, não todas
+    const saveData = navigator.connection?.saveData || window.matchMedia('(max-width: 960px)').matches;
+
+    let lang = 'pt';
+    let current = VERSIONS.length - 1;
+    let playTimer = null;
+    let firstRender = true;
+
+    const fileName = (index) => String(index + 1).padStart(2, '0');
+    const shotSrc = (index) => `assets/historia/${fileName(index)}.webp`;
+    const shotSrcset = (index) => `assets/historia/${fileName(index)}-720.webp 720w, ${shotSrc(index)} 1280w`;
+    const SHOT_SIZES = '(max-width: 960px) 100vw, 860px';
+    const thumbSrc = (index) => `assets/historia/thumbs/${fileName(index)}.webp`;
+    const ratioOf = (index) => index / (VERSIONS.length - 1);
+
+    function formatDate(iso, style) {
+      const [year, month, day] = iso.split('-').map(Number);
+      const m = MONTHS[lang][month - 1];
+      if (style === 'short') return `${m}/${String(year).slice(2)}`;
+      return lang === 'pt' ? `${day} de ${m} de ${year}` : `${m} ${day}, ${year}`;
+    }
+
+    // Reinicia uma animação de CSS: tira a classe, força o navegador a recalcular e põe de novo
+    function replay(el, className) {
+      el.classList.remove(className);
+      void el.offsetWidth;
+      el.classList.add(className);
+    }
+
+    function fillList(list, items) {
+      list.replaceChildren(...items.map((text, i) => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        li.style.setProperty('--i', i); // atraso em cascata na animação de entrada
+        return li;
+      }));
+    }
+
+    // Troca o print: o novo entra pelo lado do tempo para onde você foi
+    // (futuro pela direita, passado pela esquerda) e o antigo sai pelo outro lado
+    function showShot(index, direction) {
+      const front = shots.find((img) => img.classList.contains('is-front'));
+      const back = shots.find((img) => img !== front);
+      if (front.dataset.index === String(index)) return;
+
+      back.onload = () => {
+        if (current !== index) return; // o usuário já foi para outra versão
+        const dir = direction || 'next';
+        shots.forEach((img) => img.classList.remove('enter-next', 'enter-prev', 'leave-next', 'leave-prev'));
+        back.classList.add('is-front', `enter-${dir}`);
+        front.classList.remove('is-front');
+        front.classList.add(`leave-${dir}`);
+        view.scrollTop = 0;
+        if (!firstRender) replay(sweep, `sweep-${dir}`);
+        firstRender = false;
+      };
+      back.dataset.index = index;
+      back.alt = (lang === 'pt' ? 'Currículo em ' : 'Resume on ') + formatDate(VERSIONS[index].date);
+      back.sizes = SHOT_SIZES;
+      back.srcset = shotSrcset(index);
+      back.src = shotSrc(index);
+      if (back.complete && back.naturalWidth) back.onload();
+    }
+
+    // Deixa as versões vizinhas prontas para a próxima troca ser instantânea
+    function preloadAround(index) {
+      [index - 1, index + 1].filter((i) => i >= 0 && i < VERSIONS.length).forEach((i) => {
+        const img = new Image();
+        img.sizes = SHOT_SIZES;
+        img.srcset = shotSrcset(i);
+        img.src = shotSrc(i);
+      });
+    }
+
+    function render(index) {
+      const direction = index >= current ? 'next' : 'prev';
+      current = index;
+      const v = VERSIONS[index];
+      range.value = index;
+      track.style.setProperty('--ratio', ratioOf(index));
+
+      $('[data-count]').textContent = `v${index + 1} / ${VERSIONS.length}`;
+      $('[data-date]').textContent = formatDate(v.date);
+      $('[data-title]').textContent = v.title[lang];
+      $('[data-version-pill]').textContent = `v${index + 1} · ${formatDate(v.date, 'short')}`;
+      fillList($('[data-design]'), v.design[lang]);
+      fillList($('[data-content]'), v.content[lang]);
+
+      const stats = $('[data-stats]');
+      if (v.commits === null) {
+        stats.innerHTML = `<span class="stat stat--now"><i class="fas fa-circle" aria-hidden="true"></i> ${lang === 'pt' ? 'Versão atual' : 'Current version'}</span>`;
+      } else {
+        const commitLabel = v.commits === 1 ? 'commit' : 'commits';
+        stats.innerHTML =
+          `<span class="stat"><i class="fas fa-code-commit" aria-hidden="true"></i> ${v.commits} ${commitLabel}</span>` +
+          `<span class="stat stat--add">+${v.added}</span>` +
+          `<span class="stat stat--del">−${v.removed}</span>`;
+      }
+
+      const commit = $('[data-commit]');
+      if (v.sha) {
+        commit.href = `${REPO}/tree/${v.sha}`;
+        commit.innerHTML = `<i class="fab fa-github" aria-hidden="true"></i> ${lang === 'pt' ? 'Ver o código desta versão' : 'See the code of this version'} <code>${v.sha}</code>`;
+      } else {
+        commit.href = REPO;
+        commit.innerHTML = `<i class="fab fa-github" aria-hidden="true"></i> ${lang === 'pt' ? 'Ver o repositório' : 'See the repository'}`;
+      }
+
+      document.querySelectorAll('[data-tick]').forEach((tick, i) => {
+        tick.classList.toggle('is-active', i === index);
+        tick.classList.toggle('is-past', i < index);
+      });
+
+      // Painel e selo da versão entram de novo, na direção do tempo
+      info.dataset.dir = direction;
+      replay(info, 'is-changing');
+      replay($('[data-version-pill]'), 'is-changing');
+
+      showShot(index, direction);
+      preloadAround(index);
+    }
+
+    // --- Prévia em miniatura sobre a linha do tempo ---
+    function showPreview(index) {
+      preview.style.setProperty('--ratio', ratioOf(index));
+      const img = preview.querySelector('[data-preview-img]');
+      const src = thumbSrc(index);
+      if (img.getAttribute('src') !== src) img.src = src;
+      preview.querySelector('[data-preview-date]').textContent = `v${index + 1} · ${formatDate(VERSIONS[index].date, 'short')}`;
+      preview.querySelector('[data-preview-title]').textContent = VERSIONS[index].title[lang];
+      preview.classList.add('is-visible');
+    }
+
+    function hidePreview() {
+      if (!track.classList.contains('is-dragging')) preview.classList.remove('is-visible');
+    }
+
+    function buildTicks() {
+      const list = $('[data-ticks]');
+      list.replaceChildren(...VERSIONS.map((v, i) => {
+        const li = document.createElement('li');
+        li.style.setProperty('--pos', `${ratioOf(i) * 100}%`);
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.dataset.tick = '';
+        button.setAttribute('aria-label', `v${i + 1}: ${v.title[lang]} (${formatDate(v.date)})`);
+        button.innerHTML = `<span class="tick-dot"></span><span class="tick-label">${formatDate(v.date, 'short')}</span>`;
+        button.addEventListener('click', () => { stopPlay(); render(i); });
+        button.addEventListener('mouseenter', () => showPreview(i));
+        button.addEventListener('mouseleave', hidePreview);
+        li.append(button);
+        return li;
+      }));
+    }
+
+    // --- Reproduzir ---
+    function stopPlay() {
+      clearInterval(playTimer);
+      playTimer = null;
+      playButton.classList.remove('is-playing');
+      playButton.innerHTML = '<i class="fas fa-play" aria-hidden="true"></i>';
+      playButton.setAttribute('aria-label', lang === 'pt' ? 'Reproduzir a história' : 'Play the history');
+    }
+
+    function startPlay() {
+      if (current === VERSIONS.length - 1) render(0); // recomeça do início
+      playButton.innerHTML = '<i class="fas fa-pause" aria-hidden="true"></i>';
+      playButton.setAttribute('aria-label', lang === 'pt' ? 'Pausar' : 'Pause');
+      playButton.style.setProperty('--play-ms', `${PLAY_INTERVAL}ms`);
+      replay(playButton, 'is-playing');
+      playTimer = setInterval(() => {
+        if (current >= VERSIONS.length - 1) return stopPlay();
+        render(current + 1);
+        replay(playButton, 'is-playing'); // reinicia o anel de progresso
+      }, PLAY_INTERVAL);
+    }
+
+    // --- Idioma ---
+    function applyLanguage(next) {
+      lang = next;
+      document.body.classList.toggle('lang-en', lang === 'en');
+      document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
+      langToggle.checked = lang === 'en';
+      buildTicks();
+      render(current);
+    }
+
+    function getInitialLanguage() {
+      const fromUrl = new URLSearchParams(location.search).get('lang');
+      if (fromUrl === 'en' || fromUrl === 'pt') return fromUrl;
+      try {
+        const saved = localStorage.getItem(LANG_KEY);
+        if (saved === 'en' || saved === 'pt') return saved;
+      } catch (e) { /* storage indisponível */ }
+      return navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en';
+    }
+
+    // Abre numa versão específica com ?v=3 (útil para mandar o link de uma versão)
+    const requested = Number(new URLSearchParams(location.search).get('v'));
+    if (requested >= 1 && requested <= VERSIONS.length) current = requested - 1;
+
+    range.max = VERSIONS.length - 1;
+    const totalCommits = VERSIONS.reduce((sum, v) => sum + (v.commits || 0), 0);
+    document.querySelectorAll('[data-total-versions]').forEach((el) => { el.textContent = VERSIONS.length; });
+    document.querySelectorAll('[data-total-commits]').forEach((el) => { el.textContent = totalCommits; });
+
+    // Arrastar a linha do tempo: sem atraso no preenchimento e com a prévia acompanhando a bolinha
+    range.addEventListener('pointerdown', () => {
+      stopPlay();
+      track.classList.add('is-dragging');
+      showPreview(Number(range.value));
+    });
+    window.addEventListener('pointerup', () => {
+      if (!track.classList.contains('is-dragging')) return;
+      track.classList.remove('is-dragging');
+      hidePreview();
+    });
+    range.addEventListener('input', () => {
+      stopPlay();
+      const index = Number(range.value);
+      render(index);
+      if (track.classList.contains('is-dragging')) showPreview(index);
+    });
+
+    $('[data-prev]').addEventListener('click', () => { stopPlay(); render(Math.max(0, current - 1)); });
+    $('[data-next]').addEventListener('click', () => { stopPlay(); render(Math.min(VERSIONS.length - 1, current + 1)); });
+    playButton.addEventListener('click', () => (playTimer ? stopPlay() : startPlay()));
+
+    // Celular: deslizar o dedo para os lados no print troca de versão (rolar para cima e para baixo continua normal)
+    let touchStart = null;
+    view.addEventListener('touchstart', (e) => {
+      const t = e.touches[0];
+      touchStart = { x: t.clientX, y: t.clientY };
+    }, { passive: true });
+    view.addEventListener('touchend', (e) => {
+      if (!touchStart) return;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - touchStart.x;
+      const dy = t.clientY - touchStart.y;
+      touchStart = null;
+      if (Math.abs(dx) < SWIPE_MIN || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+      stopPlay();
+      if (dx < 0) render(Math.min(VERSIONS.length - 1, current + 1));
+      else render(Math.max(0, current - 1));
+    }, { passive: true });
+
+    // A dica some depois da primeira rolagem ou do primeiro toque
+    const hideHint = () => $('.browser-hint').classList.add('is-hidden');
+    view.addEventListener('scroll', hideHint, { once: true, passive: true });
+    view.addEventListener('touchstart', hideHint, { once: true, passive: true });
+
+    langToggle.addEventListener('change', () => {
+      langToggle.nextElementSibling.classList.add('is-ready');
+      const next = langToggle.checked ? 'en' : 'pt';
+      try { localStorage.setItem(LANG_KEY, next); } catch (e) { /* ignora */ }
+      applyLanguage(next);
+    });
+
+    applyLanguage(getInitialLanguage());
+
+    // Miniaturas são leves (~4 KB cada): carrega todas para a prévia responder na hora.
+    // No computador também baixa os prints grandes em segundo plano; no celular, só os vizinhos.
+    window.addEventListener('load', () => {
+      VERSIONS.forEach((_, i) => {
+        const thumb = new Image(); thumb.src = thumbSrc(i);
+        if (!saveData) { const img = new Image(); img.src = shotSrc(i); }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

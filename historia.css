@@ -1,0 +1,731 @@
+/* --- HISTÓRIA DO CURRÍCULO ---
+   Usa as variáveis e o vidro do style.css (painéis .dev-card, bolhas de luz, seletor de idioma). */
+
+/* Propriedades que o navegador sabe animar suavemente:
+   --ratio é a posição na linha do tempo (0 = primeira versão, 1 = hoje);
+   --play-angle é o anel de progresso do botão de reproduzir */
+@property --ratio {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 1;
+}
+
+@property --play-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.history {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  color: var(--text-main);
+  font-size: 0.9rem;
+  text-decoration: none;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight);
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.back-link:hover {
+  border-color: var(--glass-border-hover);
+  transform: translateX(-2px);
+}
+
+.history-hero { margin: 26px 0 28px; }
+
+.history-eyebrow {
+  font-family: var(--font-code);
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.history-hero h1 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  background: linear-gradient(90deg, #f8fafc 30%, var(--primary) 75%, var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.history-lead {
+  max-width: 720px;
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+}
+
+.history-lead strong { color: var(--text-main); }
+
+/* --- Palco: janela de navegador + painel do que mudou --- */
+.history-stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 24px;
+  align-items: start;
+}
+
+.history-stage .dev-card { margin-bottom: 0; }
+
+.browser-bar { gap: 10px; }
+
+.browser-url {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+}
+
+.browser-url i { color: var(--accent); margin-right: 4px; }
+
+.browser-version {
+  padding: 3px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  background: rgba(56, 189, 248, 0.12);
+  color: #a5f3fc;
+  font-family: var(--font-code);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+/* Área com rolagem própria: o print é a página inteira daquela versão */
+.browser-view {
+  position: relative;
+  height: min(68vh, 640px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #0b1120;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(56, 189, 248, 0.5) transparent;
+}
+
+.browser-view:focus-visible { outline: 2px solid var(--primary); outline-offset: -2px; }
+
+/* Dois prints empilhados: o da frente ocupa o espaço da rolagem, o outro fica por cima
+   só durante a animação de saída */
+.shot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+}
+
+.shot.is-front {
+  position: relative;
+  opacity: 1;
+}
+
+/* Futuro entra pela direita e passado pela esquerda, saindo de um desfoque */
+.shot.enter-next { animation: shot-in-next 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.shot.enter-prev { animation: shot-in-prev 0.6s cubic-bezier(0.22, 1, 0.36, 1) both; }
+.shot.leave-next { animation: shot-out-next 0.45s ease-in both; }
+.shot.leave-prev { animation: shot-out-prev 0.45s ease-in both; }
+
+@keyframes shot-in-next {
+  from { opacity: 0; transform: translateX(8%) scale(0.96); filter: blur(8px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes shot-in-prev {
+  from { opacity: 0; transform: translateX(-8%) scale(0.96); filter: blur(8px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
+
+@keyframes shot-out-next {
+  from { opacity: 1; transform: none; filter: none; }
+  to { opacity: 0; transform: translateX(-8%) scale(0.96); filter: blur(8px); }
+}
+
+@keyframes shot-out-prev {
+  from { opacity: 1; transform: none; filter: none; }
+  to { opacity: 0; transform: translateX(8%) scale(0.96); filter: blur(8px); }
+}
+
+/* Reflexo de luz que cruza a janela na direção do tempo a cada troca */
+.time-sweep {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.time-sweep::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -50%;
+  width: 40%;
+  background: linear-gradient(100deg, transparent, rgba(56, 189, 248, 0.16) 35%, rgba(255, 255, 255, 0.28) 50%, rgba(129, 140, 248, 0.16) 65%, transparent);
+  transform: skewX(-12deg);
+  opacity: 0;
+}
+
+.time-sweep.sweep-next::before { animation: sweep-next 0.75s ease-out; }
+.time-sweep.sweep-prev::before { animation: sweep-prev 0.75s ease-out; }
+
+@keyframes sweep-next {
+  from { left: -50%; opacity: 1; }
+  to { left: 120%; opacity: 0; }
+}
+
+@keyframes sweep-prev {
+  from { left: 120%; opacity: 1; }
+  to { left: -50%; opacity: 0; }
+}
+
+.browser-hint {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  z-index: 3;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  font-size: 0.78rem;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+
+.browser-hint.is-hidden { opacity: 0; }
+
+/* Com mouse: "role para ver a página"; no toque: "deslize para trocar de versão" */
+@media (hover: hover) { .browser-hint .hint-touch { display: none; } }
+@media (hover: none) { .browser-hint .hint-mouse { display: none; } }
+
+/* Selo da versão na barra do navegador dá um "pulo" a cada troca */
+.browser-version.is-changing { animation: pill-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1); }
+
+@keyframes pill-pop {
+  from { transform: scale(0.75); opacity: 0.3; }
+  to { transform: none; opacity: 1; }
+}
+
+.browser { position: relative; }
+
+/* Painel do que mudou */
+.version-info {
+  position: sticky;
+  top: 20px;
+}
+
+.version-info .card-body { padding: 22px; }
+
+.version-info { --info-shift: 16px; }
+.version-info[data-dir="prev"] { --info-shift: -16px; }
+
+.version-info.is-changing .version-count,
+.version-info.is-changing .version-date,
+.version-info.is-changing .version-title,
+.version-info.is-changing .version-stats,
+.version-info.is-changing .change-group h3,
+.version-info.is-changing .version-commit {
+  animation: info-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.version-info.is-changing .version-date { animation-delay: 40ms; }
+.version-info.is-changing .version-title { animation-delay: 80ms; }
+.version-info.is-changing .version-stats { animation-delay: 120ms; }
+.version-info.is-changing .change-group h3 { animation-delay: 140ms; }
+.version-info.is-changing .version-commit { animation-delay: 420ms; }
+
+/* Itens das listas um depois do outro (--i vem do JS) */
+.version-info.is-changing li {
+  animation: info-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: calc(180ms + var(--i) * 70ms);
+}
+
+.version-info.is-changing .change-group--content li { animation-delay: calc(300ms + var(--i) * 70ms); }
+
+@keyframes info-in {
+  from { opacity: 0; transform: translateX(var(--info-shift)); }
+  to { opacity: 1; transform: none; }
+}
+
+.version-count {
+  font-family: var(--font-code);
+  color: var(--primary);
+  font-size: 0.85rem;
+}
+
+.version-date {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+.version-title {
+  margin: 4px 0 14px;
+  color: #f8fafc;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.version-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.stat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 8px;
+  font-family: var(--font-code);
+  font-size: 0.78rem;
+  color: var(--text-main);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat--add { color: #86efac; }
+.stat--del { color: #fca5a5; }
+.stat--now { color: #a5f3fc; border-color: rgba(56, 189, 248, 0.45); }
+.stat--now i { font-size: 0.5rem; color: var(--accent); }
+
+.change-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--secondary);
+  font-size: 0.78rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.change-group ul {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+  list-style: none;
+}
+
+.change-group li {
+  position: relative;
+  padding-left: 18px;
+  color: #cbd5e1;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.change-group li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--secondary);
+  box-shadow: 0 0 8px rgba(129, 140, 248, 0.7);
+}
+
+.change-group--content h3 { color: var(--primary); }
+.change-group--content li::before { background: var(--primary); box-shadow: 0 0 8px rgba(56, 189, 248, 0.7); }
+
+.version-commit {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.version-commit:hover { color: var(--text-main); }
+
+.version-commit code {
+  padding: 1px 8px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--primary);
+  font-family: var(--font-code);
+}
+
+/* --- Linha do tempo arrastável --- */
+.scrubber {
+  margin-top: 24px;
+  padding: 18px 24px 22px;
+  overflow: visible; /* a prévia em miniatura sobe para fora do painel */
+  z-index: 5;
+}
+
+.scrubber::before,
+.scrubber::after { border-radius: inherit; }
+
+.scrubber-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.scrubber-btn {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--text-main);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-highlight);
+  -webkit-tap-highlight-color: transparent;
+  transition: border-color 0.3s, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+}
+
+.scrubber-btn:hover {
+  border-color: var(--glass-border-hover);
+  transform: translateY(-1px);
+}
+
+.scrubber-btn:active { transform: scale(0.92); }
+
+.scrubber-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+
+/* Botão de reproduzir no mesmo vidro ciano da gota do seletor de idioma */
+.scrubber-btn--play {
+  width: 52px;
+  height: 52px;
+  color: #fff;
+  background:
+    radial-gradient(90% 70% at 30% 15%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0) 55%),
+    linear-gradient(145deg, rgba(56, 189, 248, 0.6), rgba(129, 140, 248, 0.5));
+  border-color: rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 18px rgba(56, 189, 248, 0.3);
+}
+
+/* Anel que se completa até a próxima versão enquanto reproduz */
+.scrubber-btn--play::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+  background: conic-gradient(var(--primary) var(--play-angle), rgba(255, 255, 255, 0.08) 0);
+  -webkit-mask: radial-gradient(circle, transparent 62%, #000 64%);
+  mask: radial-gradient(circle, transparent 62%, #000 64%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.scrubber-btn--play.is-playing {
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5), 0 0 26px rgba(56, 189, 248, 0.6);
+}
+
+.scrubber-btn--play.is-playing::after {
+  opacity: 1;
+  animation: play-ring var(--play-ms, 2600ms) linear both;
+}
+
+@keyframes play-ring {
+  from { --play-angle: 0deg; }
+  to { --play-angle: 360deg; }
+}
+
+.scrubber-help {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+
+/* Trilho, preenchimento e bolinha são desenhados aqui e andam juntos pelo --ratio,
+   que desliza suave nos cliques e fica sem atraso enquanto você arrasta */
+.scrubber-track {
+  --ratio: 1;
+  --thumb: 26px;
+  position: relative;
+  transition: --ratio 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scrubber-track.is-dragging { transition: none; }
+
+.scrubber-track::before,
+.scrubber-track::after {
+  content: '';
+  position: absolute;
+  top: 11px;
+  left: 0;
+  height: 8px;
+  border-radius: 999px;
+  pointer-events: none;
+}
+
+/* Trilho apagado */
+.scrubber-track::before {
+  right: 0;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: inset 0 1px 2px rgba(2, 6, 23, 0.5);
+}
+
+/* Parte já percorrida, até o centro da bolinha */
+.scrubber-track::after {
+  width: calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--ratio));
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.5);
+}
+
+/* O controle nativo fica invisível por cima, só para arrastar, clicar e usar o teclado */
+.scrubber-track input[type="range"] {
+  position: relative;
+  z-index: 2;
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 30px;
+  margin: 0;
+  background: transparent;
+  cursor: grab;
+  touch-action: none; /* no celular, arrastar a barra não rola a página */
+}
+
+.scrubber-track.is-dragging input[type="range"] { cursor: grabbing; }
+
+.scrubber-track input[type="range"]::-webkit-slider-runnable-track { height: 30px; background: transparent; border: 0; }
+.scrubber-track input[type="range"]::-moz-range-track { height: 30px; background: transparent; border: 0; }
+.scrubber-track input[type="range"]::-moz-range-progress { background: transparent; }
+
+.scrubber-track input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 44px; /* área de toque maior que a bolinha visível */
+  height: 30px;
+  opacity: 0;
+}
+
+.scrubber-track input[type="range"]::-moz-range-thumb {
+  width: 44px;
+  height: 30px;
+  border: 0;
+  opacity: 0;
+}
+
+.scrubber-track input[type="range"]:focus { outline: none; }
+
+/* Bolinha visível, com um pulso de luz contínuo */
+.scrubber-thumb {
+  position: absolute;
+  z-index: 3;
+  top: 2px;
+  left: calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--ratio));
+  width: var(--thumb);
+  height: var(--thumb);
+  margin-left: calc(var(--thumb) / -2);
+  border-radius: 50%;
+  pointer-events: none;
+  background:
+    radial-gradient(90% 70% at 30% 15%, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0) 55%),
+    linear-gradient(145deg, #38bdf8, #818cf8);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.18), 0 0 18px rgba(56, 189, 248, 0.7);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.25s;
+}
+
+.scrubber-thumb::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid rgba(56, 189, 248, 0.8);
+  animation: thumb-pulse 2.2s ease-out infinite;
+}
+
+@keyframes thumb-pulse {
+  from { transform: scale(1); opacity: 0.8; }
+  to { transform: scale(2.2); opacity: 0; }
+}
+
+.scrubber-track.is-dragging .scrubber-thumb { transform: scale(1.2); }
+
+.scrubber-track input[type="range"]:focus-visible + .scrubber-thumb {
+  box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.5), 0 0 24px rgba(56, 189, 248, 0.9);
+}
+
+/* Prévia em miniatura acima da bolinha, como ao arrastar um vídeo */
+.scrubber-preview {
+  position: absolute;
+  z-index: 10;
+  bottom: calc(100% + 14px);
+  left: clamp(92px, calc(var(--thumb) / 2 + (100% - var(--thumb)) * var(--ratio)), calc(100% - 92px));
+  width: 184px;
+  padding: 8px;
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  box-shadow: 0 16px 40px rgba(2, 6, 23, 0.6), 0 0 24px rgba(56, 189, 248, 0.2);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, 8px) scale(0.92);
+  transition: opacity 0.2s, transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.scrubber-preview.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.scrubber-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.preview-date {
+  display: block;
+  font-family: var(--font-code);
+  font-size: 0.72rem;
+  color: var(--primary);
+}
+
+.preview-title {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Marcos clicáveis embaixo do trilho, alinhados com as posições da bolinha */
+.scrubber-ticks {
+  position: relative;
+  height: 44px;
+  margin: 4px calc(var(--thumb) / 2) 0;
+  list-style: none;
+}
+
+.scrubber-ticks li {
+  position: absolute;
+  left: var(--pos);
+  transform: translateX(-50%);
+}
+
+.scrubber-ticks button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 28px; /* área de toque */
+  padding: 6px 2px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-family: var(--font-code);
+  font-size: 0.7rem;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.tick-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: background 0.4s, box-shadow 0.4s;
+}
+
+.scrubber-ticks .is-past .tick-dot { background: rgba(56, 189, 248, 0.55); }
+
+.scrubber-ticks .is-active .tick-dot {
+  background: var(--primary);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.9);
+  animation: tick-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes tick-pop {
+  0% { transform: scale(0.6); }
+  100% { transform: scale(1.5); }
+}
+
+.scrubber-ticks .tick-label { transition: color 0.3s; }
+.scrubber-ticks .is-active .tick-label { color: #f8fafc; }
+.scrubber-ticks button:hover .tick-label { color: var(--text-main); }
+
+.scrubber-ticks button:hover .tick-dot { box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.15); }
+
+.scrubber-ticks button:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 6px; }
+
+/* --- Telas menores --- */
+@media (max-width: 960px) {
+  /* Empilhado: a linha do tempo sobe para logo abaixo da janela, perto do dedo,
+     e o painel do que mudou vem depois */
+  .history { display: flex; flex-direction: column; }
+  .history-stage { display: contents; }
+  .back-link { align-self: flex-start; }
+  .browser { order: 1; }
+  .scrubber { order: 2; margin-top: 16px; }
+  .version-info { order: 3; position: static; margin-top: 16px; }
+  .browser-view { height: 60vh; height: 60svh; }
+
+  /* Desfoque em prints enormes pesa no celular: aqui a troca é só deslizar e esmaecer */
+  @keyframes shot-in-next { from { opacity: 0; transform: translateX(10%); } to { opacity: 1; transform: none; } }
+  @keyframes shot-in-prev { from { opacity: 0; transform: translateX(-10%); } to { opacity: 1; transform: none; } }
+  @keyframes shot-out-next { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(-10%); } }
+  @keyframes shot-out-prev { from { opacity: 1; transform: none; } to { opacity: 0; transform: translateX(10%); } }
+}
+
+@media (max-width: 640px) {
+  .history { padding-top: 76px; } /* espaço para o seletor de idioma fixo */
+  .scrubber { padding: 16px 16px 18px; }
+  .scrubber-help { display: none; }
+
+  /* No celular só aparecem as datas do primeiro, do último e do marco escolhido */
+  .scrubber-ticks .tick-label { visibility: hidden; }
+  .scrubber-ticks li:first-child .tick-label,
+  .scrubber-ticks li:last-child .tick-label,
+  .scrubber-ticks .is-active .tick-label { visibility: visible; }
+
+  /* Se o marco escolhido é o 2º ou o penúltimo, a data da ponta vizinha some para não encostar */
+  .scrubber-ticks:has(li:nth-child(2) .is-active) li:first-child .tick-label,
+  .scrubber-ticks:has(li:nth-last-child(2) .is-active) li:last-child .tick-label { visibility: hidden; }
+}
