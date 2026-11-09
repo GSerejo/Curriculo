@@ -530,11 +530,22 @@
     }
 
     // --- Idioma ---
+    // Põe o idioma no endereço (?lang=en) sem recarregar: o link copiado já abre no idioma escolhido.
+    // Mantém os outros parâmetros, como ?v= da versão.
+    function syncLanguageInUrl(next) {
+      const url = new URL(location.href);
+      if (url.searchParams.get('lang') === next) return;
+      url.searchParams.set('lang', next);
+      history.replaceState(history.state, '', url);
+    }
+
     function applyLanguage(next) {
       lang = next;
       document.body.classList.toggle('lang-en', lang === 'en');
       document.documentElement.lang = lang === 'en' ? 'en' : 'pt-BR';
       langToggle.checked = lang === 'en';
+      $('.back-link').href = `index.html?lang=${lang}`;
+      syncLanguageInUrl(lang);
       buildTicks();
       render(current);
     }

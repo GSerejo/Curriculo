@@ -715,6 +715,7 @@ I study Computer Science at IESB and came to software development through IT sup
 
     const langToggle = document.getElementById('lang-toggle');
     const resumeDownload = document.getElementById('resume-download');
+    const historyLink = document.querySelector('.history-cta');
     const bioElements = document.querySelectorAll('[data-bio]');
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -742,6 +743,15 @@ I study Computer Science at IESB and came to software development through IT sup
       typingFrame = requestAnimationFrame(step);
     }
 
+    // Põe o idioma no endereço (?lang=en) sem recarregar a página: assim o link copiado
+    // já abre no idioma escolhido. Os outros parâmetros do endereço são mantidos.
+    function syncLanguageInUrl(lang) {
+      const url = new URL(location.href);
+      if (url.searchParams.get('lang') === lang) return;
+      url.searchParams.set('lang', lang);
+      history.replaceState(history.state, '', url);
+    }
+
     function applyLanguage(lang) {
       const isEnglish = lang === 'en';
 
@@ -749,6 +759,8 @@ I study Computer Science at IESB and came to software development through IT sup
       document.documentElement.lang = isEnglish ? 'en' : 'pt-BR';
       langToggle.checked = isEnglish;
       resumeDownload.href = isEnglish ? 'resume-en.pdf' : 'curriculo.pdf';
+      historyLink.href = `historia.html?lang=${lang}`;
+      syncLanguageInUrl(lang);
 
       typeBio(document.querySelector(isEnglish ? '.bio-text.en-text' : '.bio-text.pt-text'));
     }
