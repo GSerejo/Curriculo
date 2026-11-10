@@ -30,6 +30,7 @@ Estudo **Ciência da Computação no IESB** e cheguei ao desenvolvimento pelo ca
 
 | Projeto | Stack | Links |
 | --- | --- | --- |
+| **WinGlass**: Liquid Glass para o Windows 11, publicado na Microsoft Store: barra de tarefas, menu Iniciar e menus do sistema em vidro líquido, com widgets | C#, .NET 10, WinUI 3, C++20 | [Site](https://winglass.com.br/) · [Microsoft Store](https://apps.microsoft.com/detail/9NJP11JXN4S9) |
 | **365prints**: busca nos vídeos do quadro "365 dias de impressão 3D" do @unipedia3d pelo que é falado em cada um, com transcrição local por Whisper | Next.js, TypeScript, Python, Whisper | [Site](https://365prints.vercel.app) · [Código](https://github.com/GSerejo/365prints) |
 | **App Remédios**: lembrete de medicação para idosos e crianças, com foto da cartela enviada ao cuidador pelo WhatsApp | React Native, Expo, TypeScript | [Código](https://github.com/GSerejo/App-remedios) · [Vídeo](https://www.youtube.com/watch?v=M813-sd0z9c) |
 | **Clone do TabNews** (em desenvolvimento): API em Next.js com PostgreSQL e testes de integração | Next.js, PostgreSQL, Docker, Jest | [Site](https://gserejo.com.br/) · [Código](https://github.com/GSerejo/clone-tabnews) |
@@ -38,9 +39,9 @@ Estudo **Ciência da Computação no IESB** e cheguei ao desenvolvimento pelo ca
 
 | Área | Tecnologias |
 | --- | --- |
-| **Linguagens** | TypeScript, JavaScript, Python, Rust, Java, SQL |
-| **Front-end & Mobile** | React, Next.js, React Native (Expo), Tailwind CSS, HTML5, CSS3 |
-| **Back-end & Dados** | Node.js, APIs REST, PostgreSQL, Power BI |
+| **Linguagens** | TypeScript, JavaScript, Python, Rust, C#, C++, Java, SQL |
+| **Front-end, Mobile & Desktop** | React, Next.js, React Native (Expo), WinUI 3, Tailwind CSS, HTML5, CSS3 |
+| **Back-end & Dados** | Node.js, .NET, APIs REST, PostgreSQL, Power BI |
 | **Ferramentas** | Git, GitHub, Docker, Jest, Vercel, Microsoft PowerApps |
 
 ## ✨ O que você encontra neste projeto
