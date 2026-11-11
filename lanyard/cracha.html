@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+  Arte do crachá 3D (frente, verso e fita do cordão), no estilo do portfólio.
+  Cada peça é gerada como imagem com o Chrome, a partir da raiz do repositório:
+    chrome --headless=new --hide-scrollbars --window-size=1024,1440 --virtual-time-budget=6000 \
+      --screenshot=lanyard/cracha-frente.png "lanyard/cracha.html?peca=frente"
+    chrome ... --window-size=1024,1440 --screenshot=lanyard/cracha-verso.png "lanyard/cracha.html?peca=verso"
+    chrome ... --window-size=2048,192  --screenshot=lanyard/cracha-fita.png  "lanyard/cracha.html?peca=fita"
+  Para a versão em inglês, acrescente &lang=en e salve como cracha-*-en.png.
+  Depois converta os PNG para WebP (o site usa cracha-*.webp e cracha-*-en.webp).
+  Frente e verso: 1024x1440 (proporção do crachá). No topo, no centro, fica o furo do clipe: deixe livre.
+  Fita: 2048x192, se repete ao longo do cordão, então as pontas precisam "emendar".
+-->
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Crachá</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', 'Segoe UI', sans-serif;
+      color: #f8fafc;
+      background: #0b1120;
+      overflow: hidden;
+    }
+
+    .peca { display: none; }
+    .peca.ativa { display: flex; }
+
+    /* --- Frente e verso: fundo escuro com as luzes do portfólio --- */
+    .face {
+      position: relative;
+      width: 1024px;
+      height: 1440px;
+      flex-direction: column;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(60% 40% at 0% 0%, rgba(124, 58, 237, 0.55), transparent 70%),
+        radial-gradient(55% 40% at 100% 100%, rgba(37, 99, 235, 0.55), transparent 70%),
+        radial-gradient(40% 30% at 85% 30%, rgba(16, 185, 129, 0.22), transparent 70%),
+        linear-gradient(170deg, #111a33, #0b1120 60%);
+    }
+
+    /* Grão de vidro fosco */
+    .face::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.08;
+      mix-blend-mode: overlay;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* Faixa de cima: a marca da empresa dos lados do furo do clipe */
+    .topo {
+      position: absolute;
+      top: 60px;
+      left: 70px;
+      right: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Fira Code', monospace;
+      font-size: 34px;
+      color: rgba(226, 232, 240, 0.75);
+    }
+
+    .topo img { height: 92px; filter: drop-shadow(0 0 10px rgba(56, 189, 248, 0.6)); }
+
+    /* Foto num quadro de vidro */
+    .foto {
+      position: relative;
+      margin-top: 230px;
+      width: 640px;
+      height: 640px;
+      padding: 14px;
+      border-radius: 64px;
+      background: linear-gradient(145deg, rgba(255, 255, 255, 0.45), rgba(56, 189, 248, 0.35) 45%, rgba(129, 140, 248, 0.45));
+      box-shadow: 0 30px 80px rgba(2, 6, 23, 0.6), 0 0 90px rgba(56, 189, 248, 0.35);
+    }
+
+    .foto img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 52px;
+      display: block;
+    }
+
+    .nome {
+      margin-top: 64px;
+      font-size: 96px;
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    .cargo {
+      margin-top: 14px;
+      font-size: 50px;
+      font-weight: 700;
+      background: linear-gradient(90deg, #38bdf8, #818cf8);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    /* Rodapé: empresa, cidade e um "código de barras" de enfeite */
+    .rodape {
+      position: absolute;
+      left: 70px;
+      right: 70px;
+      bottom: 70px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .rodape .empresa { font-size: 42px; font-weight: 700; }
+    .rodape .cidade { font-family: 'Fira Code', monospace; font-size: 30px; color: rgba(226, 232, 240, 0.7); margin-top: 6px; }
+
+    .barras { display: flex; gap: 6px; height: 90px; align-items: stretch; }
+    .barras span { background: rgba(248, 250, 252, 0.85); border-radius: 2px; }
+
+    /* --- Verso: CDS em cima, IESB embaixo --- */
+    .verso-bloco {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .verso-bloco img { width: 330px; height: 330px; object-fit: contain; }
+    .verso-bloco.iesb img { width: 300px; height: 300px; }
+    .verso-bloco .logo-cds { filter: drop-shadow(0 0 18px rgba(56, 189, 248, 0.8)); }
+    .verso-bloco .logo-iesb { filter: drop-shadow(0 0 18px rgba(239, 68, 68, 0.8)); }
+
+    .verso-bloco strong { margin-top: 20px; font-size: 58px; font-weight: 800; }
+    .verso-bloco span { margin-top: 8px; font-family: 'Fira Code', monospace; font-size: 34px; color: rgba(226, 232, 240, 0.75); }
+
+    .verso-bloco.cds { margin-top: 220px; }
+    .verso-bloco.iesb { margin-top: 70px; }
+
+    .divisor {
+      margin-top: 70px;
+      width: 620px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+    }
+
+    .verso-url {
+      position: absolute;
+      bottom: 70px;
+      font-family: 'Fira Code', monospace;
+      font-size: 32px;
+      color: #38bdf8;
+    }
+
+    /* --- Fita do cordão: texto que se repete; as pontas emendam no espaço do separador --- */
+    .fita {
+      width: 2048px;
+      height: 192px;
+      align-items: center;
+      justify-content: space-around;
+      background: linear-gradient(180deg, #0f1a3a, #0b1120 50%, #0f1a3a);
+      font-family: 'Fira Code', monospace;
+      font-size: 56px;
+      font-weight: 700;
+      letter-spacing: 4px;
+      color: #e2e8f0;
+      white-space: nowrap;
+      border-top: 6px solid #38bdf8;
+      border-bottom: 6px solid #818cf8;
+    }
+
+    .fita .ponto { color: #38bdf8; }
+  </style>
+</head>
+
+<body>
+  <section class="peca face" data-peca="frente">
+    <div class="topo">
+      <img src="../assets/logos/cds.webp" alt="">
+      <span>DEV · 2026</span>
+    </div>
+    <div class="foto"><img src="../Foto.jpg" alt=""></div>
+    <p class="nome">Gabriel Serejo</p>
+    <p class="cargo" data-en="Junior Full Stack Developer">Desenvolvedor Full Stack Júnior</p>
+    <div class="rodape">
+      <div>
+        <p class="empresa">CDS Solutions</p>
+        <p class="cidade" data-en="Brasília · Brazil">Brasília · DF</p>
+      </div>
+      <div class="barras" data-barras></div>
+    </div>
+  </section>
+
+  <section class="peca face" data-peca="verso">
+    <div class="verso-bloco cds">
+      <img class="logo-cds" src="../assets/logos/cds.webp" alt="">
+      <strong data-en="Junior Developer">Desenvolvedor Júnior</strong>
+      <span>CDS Solutions</span>
+    </div>
+    <div class="divisor"></div>
+    <div class="verso-bloco iesb">
+      <img class="logo-iesb" src="../assets/logos/iesb.webp" alt="">
+      <strong data-en="Computer Science">Ciência da Computação</strong>
+      <span data-en="IESB · Brazil">IESB · Brasília</span>
+    </div>
+    <p class="verso-url">gserejo.github.io/Curriculo</p>
+  </section>
+
+  <section class="peca fita" data-peca="fita">
+    <span>GABRIEL SEREJO</span><span class="ponto">·</span>
+    <span data-en="FULL STACK DEV">DEV FULL STACK</span><span class="ponto">·</span>
+    <span>CDS SOLUTIONS</span><span class="ponto">·</span>
+    <span>IESB</span><span class="ponto">·</span>
+  </section>
+
+  <script>
+    const params = new URLSearchParams(location.search);
+    const peca = params.get('peca') || 'frente';
+    // ?lang=en troca os textos pela versão em inglês (atributo data-en)
+    if (params.get('lang') === 'en') {
+      document.documentElement.lang = 'en';
+      document.querySelectorAll('[data-en]').forEach((el) => { el.textContent = el.dataset.en; });
+    }
+    document.querySelector(`[data-peca="${peca}"]`).classList.add('ativa');
+
+    // "Código de barras" de enfeite, sempre igual (larguras fixas, sem aleatoriedade)
+    const larguras = [6, 3, 9, 3, 4, 10, 3, 6, 3, 8, 4, 3, 10, 5, 3, 7, 3, 9, 4, 6];
+    document.querySelector('[data-barras]').innerHTML = larguras.map((w) => `<span style="width:${w}px"></span>`).join('');
+  </script>
+</body>
+
+</html>

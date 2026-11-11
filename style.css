@@ -411,6 +411,106 @@ body {
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
+/* Esconde do visual mas mantém para leitores de tela e buscadores */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- CRACHÁ 3D (lanyard/lanyard.js) ---
+   Fica no topo da coluna da esquerda; o cordão desce do alto da página até o crachá,
+   e o painel de vidro com contatos, botões e skills vem logo embaixo. */
+.profile-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* .profile-column na frente para vencer o height: 100% do lanyard.css */
+.profile-column .lanyard-stage {
+  position: relative;
+  flex: none;
+  height: 500px;
+  margin-top: -40px; /* encosta no topo da página: o cordão "vem de cima" */
+  margin-bottom: 12px;
+}
+
+/* Área do 3D: 300px a mais de cada lado e 320px a mais embaixo, centralizada na coluna,
+   por cima do resto da página mas sem receber cliques. Assim o crachá balança sem recorte. */
+.lanyard-stage .lanyard-host {
+  position: absolute;
+  top: 0;
+  left: -300px;
+  right: -300px;
+  z-index: 20;
+  width: auto;
+  height: 790px;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.lanyard-stage .lanyard-host canvas { pointer-events: none; }
+
+/* Imagem de reserva: aparece enquanto o 3D carrega ou se não houver WebGL */
+.lanyard-fallback {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  width: 240px;
+  height: auto;
+  transform: translateX(-50%) rotate(-3deg);
+  border-radius: 14px;
+  box-shadow: 0 20px 40px rgba(2, 6, 23, 0.5);
+  transition: opacity 0.4s;
+}
+
+.lanyard-stage.is-live .lanyard-fallback { opacity: 0; pointer-events: none; }
+
+/* Dica discreta, que some no primeiro toque */
+.lanyard-hint {
+  position: absolute;
+  left: 50%;
+  bottom: 4px;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transform: translateX(-50%);
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid var(--glass-border);
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.lanyard-hint i { color: var(--primary); }
+.lanyard-stage.is-live .lanyard-hint { opacity: 1; animation: hint-fade 6s 2.5s forwards; }
+.lanyard-stage.was-touched .lanyard-hint { opacity: 0; animation: none; }
+
+@keyframes hint-fade { to { opacity: 0; } }
+
+/* Blocos com entrada animada (animated/animated-content.js) começam escondidos para não piscar.
+   A classe js-anim sai assim que o GSAP assume, ou depois de 4s se algo falhar. */
+.js-anim .main-content > .dev-card,
+.js-anim .main-content > .history-cta,
+.js-anim .projects-grid,
+.js-anim .events-grid,
+.js-anim .edu-extras-grid {
+  visibility: hidden;
+}
+
 /* --- SIDEBAR (PERFIL) --- */
 .sidebar {
   position: sticky;
@@ -418,53 +518,6 @@ body {
   height: fit-content;
   padding: 30px 20px;
   text-align: center;
-}
-
-/* Anel de vidro em volta da foto */
-.profile-frame {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 15px;
-  padding: 5px;
-  border-radius: 50%;
-  background: linear-gradient(145deg, rgba(255, 255, 255, 0.4), rgba(56, 189, 248, 0.3) 40%, rgba(129, 140, 248, 0.3) 70%, rgba(255, 255, 255, 0.12));
-  box-shadow:
-    inset 0 1px 1px rgba(255, 255, 255, 0.5),
-    0 18px 40px rgba(2, 6, 23, 0.45),
-    0 0 40px rgba(56, 189, 248, 0.2);
-}
-
-.avatar {
-  display: block;
-  width: 228px;
-  height: 228px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.online-status {
-  width: 18px;
-  height: 18px;
-  background-color: var(--accent);
-  border: 3px solid #0f172a;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 18px;
-  right: 18px;
-  box-shadow: 0 0 12px rgba(34, 197, 94, 0.7);
-}
-
-.dev-name {
-  font-family: var(--font-code);
-  font-size: 1.4rem;
-  color: #f8fafc;
-}
-
-.dev-role {
-  color: var(--primary);
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-bottom: 20px;
 }
 
 /* Contatos num painel de vidro mais fino, uma camada acima do painel principal */
@@ -638,8 +691,24 @@ body {
 .bio-text {
   margin-top: 15px;
   color: var(--text-muted);
-  white-space: pre-line;
   line-height: 1.7;
+}
+
+.bio-text p + p { margin-top: 1em; }
+
+/* Texto que se embaralha (scrambled/scrambled-text.js): cursor de mira e cópia para leitores de tela */
+.bio-text.scrambled-text { cursor: crosshair; }
+
+.scrambled-text-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* --- TIMELINE DE EXPERIÊNCIA ---
@@ -1557,6 +1626,17 @@ a.company-link:hover {
     grid-template-columns: 1fr;
     margin: 20px auto;
   }
+
+  .profile-column .lanyard-stage {
+    height: 480px;
+    margin-top: -20px;
+  }
+
+  /* No celular a área do 3D ocupa a largura da tela, sem passar da borda */
+  .lanyard-stage .lanyard-host {
+    left: -20px;
+    right: -20px;
+  }
   
   .sidebar { position: relative; top: 0; }
   
@@ -1587,7 +1667,7 @@ a.company-link:hover {
 }
 
 /* Efeito do cursor piscando */
-.bio-text::after {
+.bio-text p:last-child::after {
   content: '▋'; /* Pode trocar por '|' ou '_' se preferir */
   color: var(--accent);
   margin-left: 5px;

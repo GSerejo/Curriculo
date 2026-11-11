@@ -27,7 +27,20 @@
   <link rel="icon"
     href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f172a'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='bold' text-anchor='middle' fill='%2338bdf8'%3E%26lt;G%26gt;%3C/text%3E%3C/svg%3E">
 
+  <!-- Marca que o JS está ativo: os blocos animados começam escondidos (style.css, .js-anim)
+       até a animação de entrada. Se algo falhar, depois de 4s tudo aparece de qualquer jeito. -->
+  <script>
+    document.documentElement.classList.add('js-anim');
+    setTimeout(() => document.documentElement.classList.remove('js-anim'), 4000);
+  </script>
+
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lanyard/lanyard.css">
+
+  <!-- three.js do CDN para o crachá 3D (lanyard/lanyard.js), sem etapa de build -->
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.min.js" } }
+  </script>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@300;400;600&display=swap"
@@ -59,13 +72,26 @@
 
   <div class="layout-container">
 
+    <div class="profile-column">
+      <!-- Crachá 3D pendurado: frente com a foto, verso com CDS e IESB. Arraste para balançar e virar.
+           A imagem é a reserva enquanto o 3D carrega ou se o navegador não tiver WebGL. -->
+      <div class="lanyard-stage" data-lanyard role="img"
+        aria-label="Crachá de Gabriel Serejo, Desenvolvedor Full Stack Júnior na CDS Solutions e estudante de Ciência da Computação no IESB">
+        <img class="lanyard-fallback" src="lanyard/cracha-frente.webp" alt="" width="1024" height="1440">
+        <!-- Área do 3D: bem maior que a coluna para o crachá balançar sem ser cortado.
+             Não recebe cliques (o lanyard.js só "pega" o que acerta o crachá). -->
+        <div class="lanyard-host" data-lanyard-host></div>
+        <span class="lanyard-hint" aria-hidden="true">
+          <i class="fas fa-hand-pointer"></i>
+          <span class="pt-text">arraste o crachá</span>
+          <span class="en-text">drag the badge</span>
+        </span>
+      </div>
+
     <aside class="sidebar">
-      <div class="sidebar-header">
-        <div class="profile-frame">
-          <img src="Foto.jpg" alt="Gabriel Serejo" class="avatar">
-          <div class="online-status"></div>
-        </div>
-        <h1 class="dev-name">&lt;Gabriel Serejo&gt;</h1>
+      <!-- Nome e cargo aparecem no crachá; aqui ficam para leitores de tela e buscadores -->
+      <div class="sidebar-header sr-only">
+        <h1 class="dev-name">Gabriel Serejo</h1>
         <p class="dev-role">
           <span class="pt-text">Desenvolvedor Full Stack Júnior</span>
           <span class="en-text">Junior Full Stack Developer</span>
@@ -127,6 +153,7 @@
         </div>
       </div>
     </aside>
+    </div>
 
     <main class="main-content">
 
@@ -150,13 +177,15 @@
             };
           </p>
 
-          <p class="bio-text pt-text" data-bio>Sou Desenvolvedor Full Stack Júnior na CDS Solutions, onde entrei como estagiário em setembro de 2026 e fui promovido a desenvolvedor em outubro. Desenvolvo sistemas para o setor público, incluindo a Marinha do Brasil, e para empresas privadas de pequeno e médio porte, usando TypeScript, Python e Rust.
+          <div class="bio-text pt-text" data-bio>
+            <p>Sou Desenvolvedor Full Stack Júnior na CDS Solutions, onde entrei como estagiário em setembro de 2026 e fui promovido a desenvolvedor em outubro. Desenvolvo sistemas para o setor público, incluindo a Marinha do Brasil, e para empresas privadas de pequeno e médio porte, usando TypeScript, Python e Rust.</p>
+            <p>Estudo Ciência da Computação no IESB e cheguei ao desenvolvimento pelo caminho do suporte de TI, passando por laboratórios, redes e sistemas internos. Fora do trabalho, construo projetos próprios, como o WinGlass, um app para Windows publicado na Microsoft Store.</p>
+          </div>
 
-Estudo Ciência da Computação no IESB e cheguei ao desenvolvimento pelo caminho do suporte de TI, passando por laboratórios, redes e sistemas internos. Fora do trabalho, construo projetos próprios, como o WinGlass, um app para Windows publicado na Microsoft Store.</p>
-
-          <p class="bio-text en-text" data-bio>I am a Junior Full Stack Developer at CDS Solutions, where I joined as an intern in September 2026 and was promoted to developer in October. I build systems for the public sector, including the Brazilian Navy, and for small and mid-sized private companies, using TypeScript, Python, and Rust.
-
-I study Computer Science at IESB and came to software development through IT support, working with computer labs, networks, and internal systems. Outside work, I build personal projects, like WinGlass, a Windows app published on the Microsoft Store.</p>
+          <div class="bio-text en-text" data-bio>
+            <p>I am a Junior Full Stack Developer at CDS Solutions, where I joined as an intern in September 2026 and was promoted to developer in October. I build systems for the public sector, including the Brazilian Navy, and for small and mid-sized private companies, using TypeScript, Python, and Rust.</p>
+            <p>I study Computer Science at IESB and came to software development through IT support, working with computer labs, networks, and internal systems. Outside work, I build personal projects, like WinGlass, a Windows app published on the Microsoft Store.</p>
+          </div>
         </div>
       </section>
 
@@ -764,38 +793,90 @@ I study Computer Science at IESB and came to software development through IT sup
     </main>
   </div>
 
+  <script type="module">
+    import { mountLanyard } from './lanyard/lanyard.js';
+
+    // Frente, verso e fita em cada idioma (arte em lanyard/cracha.html)
+    const badgeImages = (lang) => {
+      const suffix = lang === 'en' ? '-en' : '';
+      return {
+        frontImage: `lanyard/cracha-frente${suffix}.webp`,
+        backImage: `lanyard/cracha-verso${suffix}.webp`,
+        strapImage: `lanyard/cracha-fita${suffix}.webp`
+      };
+    };
+
+    const stage = document.querySelector('[data-lanyard]');
+    const currentLang = () => (document.body.classList.contains('lang-en') ? 'en' : 'pt');
+
+    // size e strapLength calibrados para a altura da área do 3D (.lanyard-host, 790px): o crachá
+    // fica com ~240px de largura, a mesma da coluna de baixo, com espaço em volta para balançar
+    const badge = mountLanyard(document.querySelector('[data-lanyard-host]'), {
+      ...badgeImages(currentLang()),
+      cardColor: '#0b1120',
+      strapColor: '#0b1120',
+      finish: 'glossy',
+      metal: 'silver',
+      size: 0.427,
+      strapLength: 0.088
+    });
+
+    if (badge) {
+      stage.classList.add('is-live'); // esconde a imagem de reserva
+      window.addEventListener('pointerdown', () => stage.classList.add('was-touched'), { once: true });
+      // O seletor de idioma avisa a troca; o crachá troca frente, verso e fita
+      document.addEventListener('langchange', (event) => badge.update(badgeImages(event.detail)));
+
+      // Reage de leve à rolagem: o crachá "atrasa" como se tivesse peso e balança um pouco.
+      // As rolagens de um mesmo quadro são somadas, e o empurrão tem limite para não exagerar.
+      let lastScroll = window.scrollY;
+      let pending = 0;
+      let frame = 0;
+      window.addEventListener('scroll', () => {
+        pending += window.scrollY - lastScroll;
+        lastScroll = window.scrollY;
+        if (frame) return;
+        frame = requestAnimationFrame(() => {
+          frame = 0;
+          const delta = Math.max(-120, Math.min(120, pending)); // px rolados neste quadro
+          pending = 0;
+          if (Math.abs(delta) < 1) return;
+          badge.nudge(delta * 0.004, -delta * 0.012, delta * 0.006);
+        });
+      }, { passive: true });
+    }
+  </script>
+
+  <!-- GSAP (com SplitText e ScrambleText, gratuitos desde a 3.13) para o texto que se embaralha -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="scrambled/scrambled-text.js"></script>
+  <script src="animated/animated-content.js"></script>
+
   <script>
     const LANG_KEY = 'lang';
-    const TYPING_CHARS_PER_FRAME = 4;
 
     const langToggle = document.getElementById('lang-toggle');
     const resumeDownload = document.getElementById('resume-download');
     const historyLink = document.querySelector('.history-cta');
-    const bioElements = document.querySelectorAll('[data-bio]');
+    // Bio que se "decodifica" ao aparecer e embaralha as letras perto do cursor (scrambled/scrambled-text.js).
+    // Ao trocar de idioma, o efeito é desfeito no parágrafo antigo e montado no novo.
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let stopScramble = null;
 
-    // Guarda o texto completo (que já está no HTML) para a animação de digitação
-    bioElements.forEach((el) => { el.dataset.full = el.textContent; });
-
-    let typingFrame;
-
-    function typeBio(el) {
-      cancelAnimationFrame(typingFrame);
-      bioElements.forEach((bio) => { bio.textContent = bio.dataset.full; });
-
-      if (prefersReducedMotion) return;
-
-      const fullText = el.dataset.full;
-      let charIndex = 0;
-      el.textContent = '';
-
-      function step() {
-        charIndex = Math.min(charIndex + TYPING_CHARS_PER_FRAME, fullText.length);
-        el.textContent = fullText.slice(0, charIndex);
-        if (charIndex < fullText.length) typingFrame = requestAnimationFrame(step);
-      }
-
-      typingFrame = requestAnimationFrame(step);
+    function scrambleBio(el) {
+      stopScramble?.();
+      stopScramble = null;
+      if (!window.mountScrambledText || prefersReducedMotion) return;
+      stopScramble = window.mountScrambledText(el, {
+        radius: 90,
+        duration: 1.2,
+        speed: 0.5,
+        scrambleChars: '.:/{}',
+        scrambleColor: '#38bdf8'
+      });
     }
 
     // Põe o idioma no endereço (?lang=en) sem recarregar a página: assim o link copiado
@@ -815,9 +896,11 @@ I study Computer Science at IESB and came to software development through IT sup
       langToggle.checked = isEnglish;
       resumeDownload.href = isEnglish ? 'resume-en.pdf' : 'curriculo.pdf';
       historyLink.href = `historia.html?lang=${lang}`;
+      document.querySelector('.lanyard-fallback').src = `lanyard/cracha-frente${isEnglish ? '-en' : ''}.webp`;
       syncLanguageInUrl(lang);
+      document.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
 
-      typeBio(document.querySelector(isEnglish ? '.bio-text.en-text' : '.bio-text.pt-text'));
+      scrambleBio(document.querySelector(isEnglish ? '.bio-text.en-text' : '.bio-text.pt-text'));
     }
 
     function getInitialLanguage() {
@@ -831,6 +914,22 @@ I study Computer Science at IESB and came to software development through IT sup
 
       return navigator.language.toLowerCase().startsWith('pt') ? 'pt' : 'en';
     }
+
+    // Entradas ao rolar (animated/animated-content.js). Sem desfoque nos cards de vidro: um filtro
+    // no próprio card desliga o vidro fosco durante a animação. As experiências da linha do tempo,
+    // a bio e o crachá já têm animação própria e ficam de fora.
+    if (window.animateContent) {
+      const ENTRANCES = [
+        ['.main-content > .dev-card, .main-content > .history-cta', { distance: 60, duration: 0.9, threshold: 0.08 }],
+        ['.projects-grid', { distance: 40, duration: 0.8, stagger: 0.1, blur: 6, threshold: 0.12 }],
+        ['.events-grid', { distance: 40, duration: 0.8, stagger: 0.12, blur: 6, threshold: 0.12 }],
+        ['.edu-extras-grid', { distance: 30, direction: 'horizontal', duration: 0.7, stagger: 0.07, threshold: 0.12 }]
+      ];
+      ENTRANCES.forEach(([selector, options]) => {
+        document.querySelectorAll(selector).forEach((el) => window.animateContent(el, options));
+      });
+    }
+    document.documentElement.classList.remove('js-anim'); // daqui em diante o GSAP controla a visibilidade
 
     // Linha do tempo: a linha se preenche acompanhando a rolagem, cada bolinha acende
     // quando a linha chega nela e cada experiência entra deslizando ao aparecer.
